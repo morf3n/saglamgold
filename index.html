@@ -191,7 +191,7 @@
     }
     .btn-secondary {
       background: #334155;
-      padding: 9px 14px;
+      padding: 10px 14px;
       font-size: 13px;
     }
     .btn:active {
@@ -229,14 +229,14 @@
     }
     .aciklama-text-preview {
       font-size: 12.5px;
-      color: #334155;
+      color: #1e293b;
       background: #f8fafc;
-      padding: 8px 10px;
-      border-radius: 6px;
+      padding: 10px 12px;
+      border-radius: 8px;
       margin-bottom: 10px;
       border: 1px solid #e2e8f0;
       white-space: pre-line;
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     .hidden {
@@ -290,7 +290,7 @@
         ← Şube Değiştir
       </button>
 
-      <!-- 1. HORASAN MAĞAZASI BİLGİLERİ (GÜNCELLENDİ) -->
+      <!-- 1. HORASAN MAĞAZASI BİLGİLERİ -->
       <div id="content-horasan" class="branch-data hidden">
         <div class="current-branch-badge">Horasan Mağazası</div>
         <div class="alici-card">
@@ -446,19 +446,19 @@
         </div>
       </div>
 
-      <!-- Açıklama Alanı & Müşteriye Gönderilecek Hazır Metin -->
+      <!-- Açıklama Alanı & Müşteriye Gönderilecek Emojili Şablon -->
       <div class="info-card">
         <div class="info-header">⚠️ Önemli Açıklama Talimatı:</div>
         Havale/EFT açıklamasına <strong>TC Kimlik Numaranızı</strong> ve <strong>Altın Ödemesi</strong> yazınız.
         
         <div class="aciklama-kutusu">
           <div style="font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Müşteriye Gönderilecek Mesaj Şablonu:</div>
-          <div class="aciklama-text-preview" id="msgTemplate">Lütfen açıklama kısmına sadece TC Kimlik Numaranızı ve 'Altın Ödemesi' yazınız. (Örnek: 12345678901 Altın Ödemesi)</div>
+          <div class="aciklama-text-preview" id="msgTemplate">📌 Önemli Hatırlatma:
+💳 Havale/EFT yaparken açıklama kısmına sadece TC Kimlik Numaranızı ve 'Altın Ödemesi' yazınız.
+✍️ Örnek: 12345678901 Altın Ödemesi
+✨ Teşekkür eder, iyi günler dileriz.</div>
           
-          <div style="display: flex; gap: 8px; flex-direction: column;">
-            <button class="btn btn-secondary" onclick="copyText(this, document.getElementById('msgTemplate').innerText, 'Mesaj Şablonu Kopyalandı!')">📋 Açıklama Talimat Mesajını Kopyala</button>
-            <button class="btn btn-secondary" style="background:#475569;" onclick="copyText(this, 'Altın Ödemesi', 'Altın Ödemesi Kopyalandı!')">Sadece 'Altın Ödemesi' Kopyala</button>
-          </div>
+          <button class="btn btn-secondary" onclick="copyText(this, document.getElementById('msgTemplate').innerText, 'Mesaj Şablonu Kopyalandı!')">📋 Açıklama Talimat Mesajını Kopyala</button>
         </div>
       </div>
     </div>
