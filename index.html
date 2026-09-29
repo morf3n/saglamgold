@@ -191,7 +191,7 @@
     }
     .btn-secondary {
       background: #334155;
-      padding: 8px 14px;
+      padding: 9px 14px;
       font-size: 13px;
     }
     .btn:active {
@@ -223,15 +223,20 @@
       background: #ffffff;
       border: 1px dashed #93c5fd;
       border-radius: 8px;
-      padding: 10px;
+      padding: 12px;
       margin-top: 10px;
-      text-align: center;
+      text-align: left;
     }
-    .aciklama-metni {
-      font-weight: 700;
-      color: #0f172a;
-      font-size: 14px;
-      margin-bottom: 8px;
+    .aciklama-text-preview {
+      font-size: 12.5px;
+      color: #334155;
+      background: #f8fafc;
+      padding: 8px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      border: 1px solid #e2e8f0;
+      white-space: pre-line;
+      line-height: 1.4;
     }
 
     .hidden {
@@ -253,17 +258,17 @@
         Lütfen işlem yapacağınız şubeyi seçiniz:
       </div>
       <div class="branch-list">
-        <div class="branch-card-btn" onclick="openBranch('merkez')">
+        <div class="branch-card-btn" onclick="openBranch('horasan')">
           <div>
-            <div class="branch-card-title">Merkez Mağaza</div>
+            <div class="branch-card-title">Horasan Mağazası</div>
             <div class="branch-card-desc">Banka ve IBAN bilgileri için tıklayınız</div>
           </div>
           <span class="arrow-icon">›</span>
         </div>
 
-        <div class="branch-card-btn" onclick="openBranch('horasan')">
+        <div class="branch-card-btn" onclick="openBranch('merkez')">
           <div>
-            <div class="branch-card-title">Horasan Mağazası</div>
+            <div class="branch-card-title">Merkez Mağaza</div>
             <div class="branch-card-desc">Banka ve IBAN bilgileri için tıklayınız</div>
           </div>
           <span class="arrow-icon">›</span>
@@ -285,7 +290,59 @@
         ← Şube Değiştir
       </button>
 
-      <!-- MERKEZ MAĞAZA BİLGİLERİ -->
+      <!-- 1. HORASAN MAĞAZASI BİLGİLERİ (GÜNCELLENDİ) -->
+      <div id="content-horasan" class="branch-data hidden">
+        <div class="current-branch-badge">Horasan Mağazası</div>
+        <div class="alici-card">
+          <div class="alici-label">Alıcı / Hesap Sahibi</div>
+          <div class="alici-title">Sağlam Mücevherat Kuyumculuk</div>
+          <button class="btn btn-secondary" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">Alıcı Adını Kopyala</button>
+        </div>
+
+        <!-- Ziraat -->
+        <div class="bank-card">
+          <div class="bank-header">
+            <div class="bank-logo-icon" style="background:#e11d48;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M8 6c2 1 4 1 4 1s2 0 4-1M7 11c3 1.5 5 1.5 5 1.5s2 0 5-1.5M8 16c2 1 4 1 4 1s2 0 4-1"/>
+              </svg>
+            </div>
+            <span class="bank-name">Ziraat Bankası</span>
+          </div>
+          <div class="iban-box">TR61 0001 0004 7897 6168 6150 02</div>
+          <button class="btn" onclick="copyText(this, 'TR610001000478976168615002', 'Ziraat IBAN Kopyalandı!')">Ziraat IBAN Kopyala</button>
+        </div>
+
+        <!-- Halkbank -->
+        <div class="bank-card">
+          <div class="bank-header">
+            <div class="bank-logo-icon" style="background:#0284c7;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M6 4h3.5v16H6z" fill="#ffffff"/><path d="M14.5 4H18v16h-3.5z" fill="#ffffff"/><path d="M9 10h6v4H9z" fill="#38bdf8"/>
+              </svg>
+            </div>
+            <span class="bank-name">Halkbank</span>
+          </div>
+          <div class="iban-box">TR74 0001 2001 6650 0010 1002 67</div>
+          <button class="btn" onclick="copyText(this, 'TR740001200166500010100267', 'Halkbank IBAN Kopyalandı!')">Halkbank IBAN Kopyala</button>
+        </div>
+
+        <!-- İş Bankası -->
+        <div class="bank-card">
+          <div class="bank-header">
+            <div class="bank-logo-icon" style="background:#1e3a8a;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="5" r="2" fill="#ffffff"/><path d="M7 9h10l-5 5 5 5H7l5-5-5-5z" fill="#ffffff"/>
+              </svg>
+            </div>
+            <span class="bank-name">Türkiye İş Bankası</span>
+          </div>
+          <div class="iban-box">TR44 0006 4000 0019 3200 4441 79</div>
+          <button class="btn" onclick="copyText(this, 'TR440006400000193200444179', 'İş Bankası IBAN Kopyalandı!')">İş Bankası IBAN Kopyala</button>
+        </div>
+      </div>
+
+      <!-- 2. MERKEZ MAĞAZA BİLGİLERİ -->
       <div id="content-merkez" class="branch-data hidden">
         <div class="current-branch-badge">Merkez Mağaza</div>
         <div class="alici-card">
@@ -337,63 +394,7 @@
         </div>
       </div>
 
-      <!-- HORASAN MAĞAZASI BİLGİLERİ -->
-      <div id="content-horasan" class="branch-data hidden">
-        <div class="current-branch-badge">Horasan Mağazası</div>
-        <div class="alici-card">
-          <div class="alici-label">Alıcı / Hesap Sahibi</div>
-          <div class="alici-title">Sağlam Mücevherat Kuyumculuk</div>
-          <button class="btn btn-secondary" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">Alıcı Adını Kopyala</button>
-        </div>
-
-        <!-- Ziraat -->
-        <div class="bank-card">
-          <div class="bank-header">
-            <div class="bank-logo-icon" style="background:#e11d48;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2v20M8 6c2 1 4 1 4 1s2 0 4-1M7 11c3 1.5 5 1.5 5 1.5s2 0 5-1.5M8 16c2 1 4 1 4 1s2 0 4-1"/>
-              </svg>
-            </div>
-            <span class="bank-name">Ziraat Bankası</span>
-          </div>
-          <div class="iban-box">TR61 0001 0004 7897 6168 6150 02</div>
-          <button class="btn" onclick="copyText(this, 'TR61 0001 0004 7897 6168 6150 02', 'Ziraat IBAN Kopyalandı!')">Ziraat IBAN Kopyala</button>
-        </div>
-
-        <!-- Halkbank -->
-        <div class="bank-card">
-          <div class="bank-header">
-            <div class="bank-logo-icon" style="background:#0284c7;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M6 4h3.5v16H6z" fill="#ffffff"/><path d="M14.5 4H18v16h-3.5z" fill="#ffffff"/><path d="M9 10h6v4H9z" fill="#38bdf8"/>
-              </svg>
-            </div>
-            <span class="bank-name">Halkbank</span>
-          </div>
-          <div class="iban-box">TR74 0001 2001 6650 0010 1002 67
-</div>
-          <button class="btn" onclick="copyText(this, 'TR74 0001 2001 6650 0010 1002 67
-', 'Halkbank IBAN Kopyalandı!')">Halkbank IBAN Kopyala</button>
-        </div>
-
-        <!-- İş Bankası -->
-        <div class="bank-card">
-          <div class="bank-header">
-            <div class="bank-logo-icon" style="background:#1e3a8a;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="5" r="2" fill="#ffffff"/><path d="M7 9h10l-5 5 5 5H7l5-5-5-5z" fill="#ffffff"/>
-              </svg>
-            </div>
-            <span class="bank-name">Türkiye İş Bankası</span>
-          </div>
-          <div class="iban-box">TR44 0006 4000 0019 3200 4441 79
-</div>
-          <button class="btn" onclick="copyText(this, 'TR44 0006 4000 0019 3200 4441 79
-', 'İş Bankası IBAN Kopyalandı!')">İş Bankası IBAN Kopyala</button>
-        </div>
-      </div>
-
-      <!-- TOPTAN & KURUMSAL SATIŞ OFİSİ BİLGİLERİ -->
+      <!-- 3. TOPTAN & KURUMSAL SATIŞ OFİSİ BİLGİLERİ -->
       <div id="content-toptan" class="branch-data hidden">
         <div class="current-branch-badge">Toptan & Kurumsal Satış Ofisi</div>
         <div class="alici-card">
@@ -445,20 +446,19 @@
         </div>
       </div>
 
-      <!-- Ortak Açıklama Alanı -->
+      <!-- Açıklama Alanı & Müşteriye Gönderilecek Hazır Metin -->
       <div class="info-card">
         <div class="info-header">⚠️ Önemli Açıklama Talimatı:</div>
-        Açıklama alanına <strong>TC Kimlik Numaranızı</strong> ve yanına <strong>Altın Ödemesi</strong> yazmanız gerekmektedir.
-        
+        Havale/EFT açıklamasına <strong>TC Kimlik Numaranızı</strong> ve <strong>Altın Ödemesi</strong> yazınız.
         
         <div class="aciklama-kutusu">
-          <div class="aciklama-metni">
-            📌 Önemli Bilgilendirme
-
-🏦 Banka transferi yaparken açıklama kısmına T.C. Kimlik Numaranızı ve yanına Altın Ödemesi yazmanızı rica ederiz.
-
-✍️ Örnek: 12345678901 Altın Ödemesi</div>
-          <button class="btn btn-secondary" onclick="copyText(this, 'Altın Ödemesi', 'Açıklama Kopyalandı!')">Açıklama Metnini Kopyala</button>
+          <div style="font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Müşteriye Gönderilecek Mesaj Şablonu:</div>
+          <div class="aciklama-text-preview" id="msgTemplate">Lütfen açıklama kısmına sadece TC Kimlik Numaranızı ve 'Altın Ödemesi' yazınız. (Örnek: 12345678901 Altın Ödemesi)</div>
+          
+          <div style="display: flex; gap: 8px; flex-direction: column;">
+            <button class="btn btn-secondary" onclick="copyText(this, document.getElementById('msgTemplate').innerText, 'Mesaj Şablonu Kopyalandı!')">📋 Açıklama Talimat Mesajını Kopyala</button>
+            <button class="btn btn-secondary" style="background:#475569;" onclick="copyText(this, 'Altın Ödemesi', 'Altın Ödemesi Kopyalandı!')">Sadece 'Altın Ödemesi' Kopyala</button>
+          </div>
         </div>
       </div>
     </div>
