@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sağlam Mücevherat Kuyumculuk - Hesap Bilgileri</title>
+  <title>Sağlam Mücevherat Kuyumculuk - Banka Hesap Bilgileri</title>
   <style>
     * { box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: radial-gradient(circle at top, #1e293b, #0f172a 80%);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -18,42 +18,67 @@
     }
     .card {
       background: #ffffff;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      padding: 24px;
+      border-radius: 22px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(212, 175, 55, 0.25);
+      padding: 26px 20px;
       max-width: 440px;
       width: 100%;
     }
     .header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
+      position: relative;
+    }
+    .gold-crest {
+      width: 46px;
+      height: 46px;
+      margin: 0 auto 10px;
+      background: linear-gradient(135deg, #d4af37, #fef08a, #b4861f);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
     }
     h2 {
       margin: 0;
       color: #0f172a;
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 19px;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
+    }
+    .gold-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c5a059, transparent);
+      margin: 8px auto;
     }
     .sub-title {
-      margin: 6px 0 0 0;
+      margin: 0;
       color: #64748b;
       font-size: 13px;
+      font-weight: 500;
     }
 
-    /* 1. ADIM: ŞUBE SEÇİM EKRANI */
+    /* 1. ADIM: ŞUBE SEÇİM LİSTESİ */
+    .selection-hint {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 12px;
+      text-align: center;
+    }
     .branch-list {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 10px;
     }
     .branch-card-btn {
-      background: #f8fafc;
-      border: 1.5px solid #e2e8f0;
+      background: #fafaf9;
+      border: 1.5px solid #e7e5e4;
       border-radius: 14px;
-      padding: 18px 16px;
+      padding: 16px;
       text-align: left;
       cursor: pointer;
       display: flex;
@@ -62,9 +87,10 @@
       transition: all 0.2s ease;
     }
     .branch-card-btn:hover, .branch-card-btn:active {
-      border-color: #0f172a;
-      background: #f1f5f9;
+      border-color: #c5a059;
+      background: #fffdf5;
       transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(197, 160, 89, 0.15);
     }
     .branch-card-title {
       font-size: 15px;
@@ -74,11 +100,11 @@
     }
     .branch-card-desc {
       font-size: 12px;
-      color: #64748b;
+      color: #78716c;
     }
     .arrow-icon {
-      font-size: 18px;
-      color: #94a3b8;
+      font-size: 20px;
+      color: #c5a059;
       font-weight: bold;
     }
 
@@ -86,12 +112,12 @@
     .back-btn {
       background: none;
       border: none;
-      color: #475569;
+      color: #78716c;
       font-size: 13px;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       cursor: pointer;
       padding: 0 0 14px 0;
     }
@@ -100,46 +126,50 @@
     }
     .current-branch-badge {
       display: inline-block;
-      background: #0f172a;
-      color: #ffffff;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid #c5a059;
+      color: #fef08a;
       font-size: 12px;
       font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 6px;
+      padding: 5px 12px;
+      border-radius: 20px;
       margin-bottom: 12px;
+      letter-spacing: 0.3px;
     }
 
     /* Alıcı Kartı */
     .alici-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
+      background: #fafaf9;
+      border: 1px solid #e7e5e4;
+      border-left: 3px solid #c5a059;
       border-radius: 12px;
-      padding: 14px;
+      padding: 12px 14px;
       text-align: center;
       margin-bottom: 14px;
     }
     .alici-label {
       font-size: 11px;
-      color: #64748b;
+      color: #78716c;
       text-transform: uppercase;
       font-weight: 700;
       letter-spacing: 0.5px;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .alici-title {
       font-size: 15px;
       font-weight: 700;
       color: #0f172a;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     /* Banka Kartları */
     .bank-card {
       border: 1px solid #e2e8f0;
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 14px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     }
     .bank-header {
       display: flex;
@@ -163,9 +193,9 @@
     }
     .iban-box {
       background: #f8fafc;
-      border: 1px solid #cbd5e1;
+      border: 1px dashed #cbd5e1;
       border-radius: 8px;
-      padding: 10px;
+      padding: 9px;
       font-family: 'Consolas', monospace;
       font-size: 13.5px;
       font-weight: 700;
@@ -176,40 +206,66 @@
       margin-bottom: 10px;
     }
 
-    /* Butonlar */
+    /* Buton Grubu */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
     .btn {
-      background: #0f172a;
       color: #ffffff;
       border: none;
       border-radius: 8px;
-      padding: 12px;
-      font-size: 14px;
+      padding: 11px;
+      font-size: 13.5px;
       font-weight: 600;
       cursor: pointer;
       width: 100%;
       transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      border: 1px solid #c5a059;
+      color: #fef08a;
+    }
+    .btn-gold:active {
+      transform: scale(0.98);
+      background: #0f172a;
+    }
+    .btn-outline {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      font-size: 12.5px;
+      padding: 9px;
+    }
+    .btn-outline:active {
+      background: #f1f5f9;
     }
     .btn-secondary {
       background: #334155;
-      padding: 10px 14px;
-      font-size: 13px;
-    }
-    .btn:active {
-      transform: scale(0.98);
+      padding: 8px 14px;
+      font-size: 12.5px;
     }
     .btn.copied {
       background: #16a34a !important;
+      border-color: #16a34a !important;
+      color: #ffffff !important;
     }
 
-    /* Açıklama Kutusu */
+    /* Açıklama Alanı */
     .info-card {
       margin-top: 16px;
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
+      background: #fffdf5;
+      border: 1px solid #fef08a;
       border-radius: 12px;
       padding: 14px;
       font-size: 13px;
-      color: #1e40af;
+      color: #78350f;
       line-height: 1.5;
     }
     .info-header {
@@ -218,10 +274,11 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      color: #92400e;
     }
     .aciklama-kutusu {
       background: #ffffff;
-      border: 1px dashed #93c5fd;
+      border: 1px dashed #f59e0b;
       border-radius: 8px;
       padding: 12px;
       margin-top: 10px;
@@ -230,11 +287,11 @@
     .aciklama-text-preview {
       font-size: 12.5px;
       color: #1e293b;
-      background: #f8fafc;
+      background: #fafaf9;
       padding: 10px 12px;
       border-radius: 8px;
       margin-bottom: 10px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e7e5e4;
       white-space: pre-line;
       line-height: 1.5;
     }
@@ -248,15 +305,22 @@
 
   <div class="card">
     <div class="header">
+      <!-- Kuyumcu Ziynet/Elmas Simgesi -->
+      <div class="gold-crest">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 3h12l4 6-10 12L2 9z"/>
+          <path d="M11 3L8 9l4 12 4-12-3-6"/>
+          <path d="M2 9h20"/>
+        </svg>
+      </div>
       <h2>SAĞLAM MÜCEVHERAT KUYUMCULUK</h2>
+      <div class="gold-divider"></div>
       <p class="sub-title">Banka Hesap ve Havale/EFT Bilgileri</p>
     </div>
 
     <!-- 1. AŞAMA: ŞUBE SEÇİM EKRANI -->
     <div id="step-selection">
-      <div style="font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 10px; text-align: center;">
-        Lütfen işlem yapacağınız şubeyi seçiniz:
-      </div>
+      <div class="selection-hint">Lütfen işlem yapacağınız şubeyi seçiniz:</div>
       <div class="branch-list">
         <div class="branch-card-btn" onclick="openBranch('horasan')">
           <div>
@@ -292,7 +356,8 @@
 
       <!-- 1. HORASAN MAĞAZASI BİLGİLERİ -->
       <div id="content-horasan" class="branch-data hidden">
-        <div class="current-branch-badge">Horasan Mağazası</div>
+        <div class="current-branch-badge">📍 Horasan Mağazası</div>
+        
         <div class="alici-card">
           <div class="alici-label">Alıcı / Hesap Sahibi</div>
           <div class="alici-title">Sağlam Mücevherat Kuyumculuk</div>
@@ -310,7 +375,10 @@
             <span class="bank-name">Ziraat Bankası</span>
           </div>
           <div class="iban-box">TR61 0001 0004 7897 6168 6150 02</div>
-          <button class="btn" onclick="copyText(this, 'TR610001000478976168615002', 'Ziraat IBAN Kopyalandı!')">Ziraat IBAN Kopyala</button>
+          <div class="btn-group">
+            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR610001000478976168615002')">📋 Tüm Bilgileri Kopyala</button>
+            <button class="btn btn-outline" onclick="copyText(this, 'TR610001000478976168615002', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+          </div>
         </div>
 
         <!-- Halkbank -->
@@ -324,7 +392,10 @@
             <span class="bank-name">Halkbank</span>
           </div>
           <div class="iban-box">TR74 0001 2001 6650 0010 1002 67</div>
-          <button class="btn" onclick="copyText(this, 'TR740001200166500010100267', 'Halkbank IBAN Kopyalandı!')">Halkbank IBAN Kopyala</button>
+          <div class="btn-group">
+            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Halkbank', 'TR740001200166500010100267')">📋 Tüm Bilgileri Kopyala</button>
+            <button class="btn btn-outline" onclick="copyText(this, 'TR740001200166500010100267', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+          </div>
         </div>
 
         <!-- İş Bankası -->
@@ -338,13 +409,16 @@
             <span class="bank-name">Türkiye İş Bankası</span>
           </div>
           <div class="iban-box">TR44 0006 4000 0019 3200 4441 79</div>
-          <button class="btn" onclick="copyText(this, 'TR440006400000193200444179', 'İş Bankası IBAN Kopyalandı!')">İş Bankası IBAN Kopyala</button>
+          <div class="btn-group">
+            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Türkiye İş Bankası', 'TR440006400000193200444179')">📋 Tüm Bilgileri Kopyala</button>
+            <button class="btn btn-outline" onclick="copyText(this, 'TR440006400000193200444179', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+          </div>
         </div>
       </div>
 
       <!-- 2. MERKEZ MAĞAZA BİLGİLERİ -->
       <div id="content-merkez" class="branch-data hidden">
-        <div class="current-branch-badge">Merkez Mağaza</div>
+        <div class="current-branch-badge">📍 Merkez Mağaza</div>
         <div class="alici-card">
           <div class="alici-label">Alıcı / Hesap Sahibi</div>
           <div class="alici-title">Sağlam Mücevherat Kuyumculuk</div>
@@ -362,7 +436,10 @@
             <span class="bank-name">Ziraat Bankası</span>
           </div>
           <div class="iban-box">TR11 0000 0000 0000 0000 0000 01</div>
-          <button class="btn" onclick="copyText(this, 'TR110000000000000000000001', 'Ziraat IBAN Kopyalandı!')">Ziraat IBAN Kopyala</button>
+          <div class="btn-group">
+            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR110000000000000000000001')">📋 Tüm Bilgileri Kopyala</button>
+            <button class="btn btn-outline" onclick="copyText(this, 'TR110000000000000000000001', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+          </div>
         </div>
 
         <!-- Halkbank -->
@@ -376,7 +453,10 @@
             <span class="bank-name">Halkbank</span>
           </div>
           <div class="iban-box">TR11 0000 0000 0000 0000 0000 02</div>
-          <button class="btn" onclick="copyText(this, 'TR110000000000000000000002', 'Halkbank IBAN Kopyalandı!')">Halkbank IBAN Kopyala</button>
+          <div class="btn-group">
+            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Halkbank', 'TR110000000000000000000002')">📋 Tüm Bilgileri Kopyala</button>
+            <button class="btn btn-outline" onclick="copyText(this, 'TR110000000000000000000002', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+          </div>
         </div>
 
         <!-- İş Bankası -->
@@ -390,13 +470,16 @@
             <span class="bank-name">Türkiye İş Bankası</span>
           </div>
           <div class="iban-box">TR11 0000 0000 0000 0000 0000 03</div>
-          <button class="btn" onclick="copyText(this, 'TR110000000000000000000003', 'İş Bankası IBAN Kopyalandı!')">İş Bankası IBAN Kopyala</button>
+          <div class="btn-group">
+            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Türkiye İş Bankası', 'TR110000000000000000000003')">📋 Tüm Bilgileri Kopyala</button>
+            <button class="btn btn-outline" onclick="copyText(this, 'TR110000000000000000000003', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+          </div>
         </div>
       </div>
 
       <!-- 3. TOPTAN & KURUMSAL SATIŞ OFİSİ BİLGİLERİ -->
       <div id="content-toptan" class="branch-data hidden">
-        <div class="current-branch-badge">Toptan & Kurumsal Satış Ofisi</div>
+        <div class="current-branch-badge">📍 Toptan & Kurumsal Satış Ofisi</div>
         <div class="alici-card">
           <div class="alici-label">Alıcı / Hesap Sahibi</div>
           <div class="alici-title">Sağlam Mücevherat Kuyumculuk</div>
@@ -414,7 +497,10 @@
             <span class="bank-name">Ziraat Bankası</span>
           </div>
           <div class="iban-box">TR33 0000 0000 0000 0000 0000 01</div>
-          <button class="btn" onclick="copyText(this, 'TR330000000000000000000001', 'Ziraat IBAN Kopyalandı!')">Ziraat IBAN Kopyala</button>
+          <div class="btn-group">
+            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR330000000000000000000001')">📋 Tüm Bilgileri Kopyala</button>
+            <button class="btn btn-outline" onclick="copyText(this, 'TR330000000000000000000001', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+          </div>
         </div>
 
         <!-- Halkbank -->
@@ -428,7 +514,10 @@
             <span class="bank-name">Halkbank</span>
           </div>
           <div class="iban-box">TR33 0000 0000 0000 0000 0000 02</div>
-          <button class="btn" onclick="copyText(this, 'TR330000000000000000000002', 'Halkbank IBAN Kopyalandı!')">Halkbank IBAN Kopyala</button>
+          <div class="btn-group">
+            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Halkbank', 'TR330000000000000000000002')">📋 Tüm Bilgileri Kopyala</button>
+            <button class="btn btn-outline" onclick="copyText(this, 'TR330000000000000000000002', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+          </div>
         </div>
 
         <!-- İş Bankası -->
@@ -442,7 +531,10 @@
             <span class="bank-name">Türkiye İş Bankası</span>
           </div>
           <div class="iban-box">TR33 0000 0000 0000 0000 0000 03</div>
-          <button class="btn" onclick="copyText(this, 'TR330000000000000000000003', 'İş Bankası IBAN Kopyalandı!')">İş Bankası IBAN Kopyala</button>
+          <div class="btn-group">
+            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Türkiye İş Bankası', 'TR330000000000000000000003')">📋 Tüm Bilgileri Kopyala</button>
+            <button class="btn btn-outline" onclick="copyText(this, 'TR330000000000000000000003', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+          </div>
         </div>
       </div>
 
@@ -452,13 +544,13 @@
         Havale/EFT açıklamasına <strong>TC Kimlik Numaranızı</strong> ve <strong>Altın Ödemesi</strong> yazınız.
         
         <div class="aciklama-kutusu">
-          <div style="font-size: 11px; font-weight: 700; color: #64748b; margin-bottom: 6px; text-transform: uppercase;">Müşteriye Gönderilecek Mesaj Şablonu:</div>
+          <div style="font-size: 11px; font-weight: 700; color: #78716c; margin-bottom: 6px; text-transform: uppercase;">Müşteriye Gönderilecek Mesaj:</div>
           <div class="aciklama-text-preview" id="msgTemplate">📌 Önemli Hatırlatma:
 💳 Havale/EFT yaparken açıklama kısmına sadece TC Kimlik Numaranızı ve 'Altın Ödemesi' yazınız.
 ✍️ Örnek: 12345678901 Altın Ödemesi
 ✨ Teşekkür eder, iyi günler dileriz.</div>
           
-          <button class="btn btn-secondary" onclick="copyText(this, document.getElementById('msgTemplate').innerText, 'Mesaj Şablonu Kopyalandı!')">📋 Açıklama Talimat Mesajını Kopyala</button>
+          <button class="btn btn-secondary" style="background:#475569;" onclick="copyText(this, document.getElementById('msgTemplate').innerText, 'Mesaj Şablonu Kopyalandı!')">📋 Açıklama Talimat Mesajını Kopyala</button>
         </div>
       </div>
     </div>
@@ -482,6 +574,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // Basit Metin Kopyalama
     function copyText(btn, textToCopy, successMsg) {
       navigator.clipboard.writeText(textToCopy).then(() => {
         const originalText = btn.innerText;
@@ -493,6 +586,22 @@
         }, 2000);
       }).catch(err => {
         alert("Kopyalanamadı, lütfen metni seçerek kopyalayınız.");
+      });
+    }
+
+    // Tek Tıkla Tüm Bilgileri Paket Halinde Kopyalama
+    function copyAllInfo(btn, bankName, iban) {
+      const fullText = `Alıcı: Sağlam Mücevherat Kuyumculuk\nBanka: ${bankName}\nIBAN: ${iban}\nAçıklama: [TC Kimlik Numaranız] Altın Ödemesi`;
+      navigator.clipboard.writeText(fullText).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = "✓ Tüm Bilgiler Kopyalandı!";
+        btn.classList.add("copied");
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove("copied");
+        }, 2000);
+      }).catch(err => {
+        alert("Kopyalanamadı, lütfen ekrandan seçiniz.");
       });
     }
   </script>
