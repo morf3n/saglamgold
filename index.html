@@ -34,11 +34,12 @@
       font-size: 20px;
       font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .sub-title {
       margin: 6px 0 0 0;
       color: #64748b;
-      font-size: 14px;
+      font-size: 13px;
     }
     .alici-card {
       background: #f8fafc;
@@ -49,14 +50,15 @@
       margin-bottom: 18px;
     }
     .alici-label {
-      font-size: 12px;
+      font-size: 11px;
       color: #64748b;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 0.5px;
       margin-bottom: 4px;
     }
     .alici-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: #0f172a;
       margin-bottom: 10px;
@@ -68,24 +70,24 @@
       margin-bottom: 14px;
       background: #ffffff;
     }
+    .bank-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .bank-logo {
+      height: 24px;
+      width: auto;
+      max-width: 90px;
+      object-fit: contain;
+      display: block;
+    }
     .bank-name {
       font-size: 15px;
       font-weight: 700;
       color: #0f172a;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
     }
-    .badge {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-    .ziraat { background: #e11d48; }
-    .halk { background: #0284c7; }
-    .is { background: #1e3a8a; }
     .iban-box {
       background: #f8fafc;
       border: 1px solid #cbd5e1;
@@ -164,7 +166,7 @@
       <p class="sub-title">Banka Hesap ve Havale/EFT Bilgileri</p>
     </div>
 
-    <!-- Alıcı Ünvanı ve Kopyalama Butonu -->
+    <!-- Alıcı Ünvanı -->
     <div class="alici-card">
       <div class="alici-label">Alıcı / Hesap Sahibi</div>
       <div class="alici-title">Sağlam Mücevherat Kuyumculuk</div>
@@ -173,8 +175,9 @@
 
     <!-- 1. ZİRAAT BANKASI -->
     <div class="bank-card">
-      <div class="bank-name">
-        <span class="badge ziraat"></span> Ziraat Bankası
+      <div class="bank-header">
+        <img class="bank-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/06/Ziraat_Bankas%C4%B1_logo.svg" alt="Ziraat Bankası Logo">
+        <span class="bank-name">Ziraat Bankası</span>
       </div>
       <div class="iban-box">TR00 0000 0000 0000 0000 0000 01</div>
       <button class="btn" onclick="copyText(this, 'TR000000000000000000000001', 'Ziraat IBAN Kopyalandı!')">Ziraat IBAN Kopyala</button>
@@ -182,23 +185,25 @@
 
     <!-- 2. HALKBANK -->
     <div class="bank-card">
-      <div class="bank-name">
-        <span class="badge halk"></span> Halkbank
+      <div class="bank-header">
+        <img class="bank-logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Halkbank_logo.svg" alt="Halkbank Logo">
+        <span class="bank-name">Halkbank</span>
       </div>
       <div class="iban-box">TR00 0000 0000 0000 0000 0000 02</div>
       <button class="btn" onclick="copyText(this, 'TR000000000000000000000002', 'Halkbank IBAN Kopyalandı!')">Halkbank IBAN Kopyala</button>
     </div>
 
-    <!-- 3. İŞ BANKASI -->
+    <!-- 3. TÜRKİYE İŞ BANKASI -->
     <div class="bank-card">
-      <div class="bank-name">
-        <span class="badge is"></span> Türkiye İş Bankası
+      <div class="bank-header">
+        <img class="bank-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/T%C3%BCrkiye_%C4%B0%C5%9F_Bankas%C4%B1_logo.svg" alt="İş Bankası Logo">
+        <span class="bank-name">Türkiye İş Bankası</span>
       </div>
       <div class="iban-box">TR00 0000 0000 0000 0000 0000 03</div>
       <button class="btn" onclick="copyText(this, 'TR000000000000000000000003', 'İş Bankası IBAN Kopyalandı!')">İş Bankası IBAN Kopyala</button>
     </div>
 
-    <!-- Açıklama Alanı ve Kopyalama Butonu -->
+    <!-- Açıklama Alanı -->
     <div class="info-card">
       <div class="info-header">⚠️ Önemli Açıklama Talimatı:</div>
       Açıklama alanına <strong>TC Kimlik Numaranızı</strong> ve yanına <strong>Altın Ödemesi</strong> yazmanız gerekmektedir.
