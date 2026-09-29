@@ -3,39 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Banka & IBAN Bilgileri</title>
+  <title>Sağlam Gold - Banka Hesap Bilgileri</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f6f8; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 16px; }
-    .card { background: #ffffff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 24px; max-width: 400px; width: 100%; text-align: center; }
-    h2 { margin: 0 0 8px 0; color: #1a1a1a; font-size: 20px; }
-    p { margin: 0 0 20px 0; color: #666; font-size: 14px; }
-    .iban-box { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; padding: 12px; font-family: monospace; font-size: 16px; font-weight: bold; color: #0f172a; margin-bottom: 12px; letter-spacing: 1px; word-break: break-all; }
-    .btn { background: #0f172a; color: #ffffff; border: none; border-radius: 8px; padding: 14px 20px; font-size: 15px; font-weight: 600; cursor: pointer; width: 100%; transition: background 0.2s; }
-    .btn:active { background: #334155; }
-    .info { margin-top: 16px; font-size: 13px; color: #64748b; background: #eff6ff; padding: 10px; border-radius: 8px; border: 1px solid #dbeafe; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 24px;
+      max-width: 440px;
+      width: 100%;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h2 {
+      margin: 0;
+      color: #0f172a;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .sub-title {
+      margin: 6px 0 0 0;
+      color: #64748b;
+      font-size: 14px;
+    }
+    .alici-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: #334155;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .alici-box strong {
+      color: #0f172a;
+    }
+    .bank-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+      background: #ffffff;
+    }
+    .bank-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .badge {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .ziraat { background: #e11d48; }
+    .halk { background: #0284c7; }
+    .is { background: #1e3a8a; }
+    .iban-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px;
+      font-family: 'Consolas', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: 0.5px;
+      text-align: center;
+      word-break: break-all;
+      margin-bottom: 10px;
+    }
+    .btn {
+      background: #0f172a;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.2s ease;
+    }
+    .btn:active {
+      transform: scale(0.98);
+    }
+    .btn.copied {
+      background: #16a34a !important;
+    }
+    .info-card {
+      margin-top: 18px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 13px;
+      color: #1e40af;
+      line-height: 1.5;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h2>Ödeme Bilgileri</h2>
-    <p>Alıcı: <strong>FİRMA / AD SOYAD</strong></p>
-    
-    <div class="iban-box" id="ibanText">TR00 0000 0000 0000 0000 0000 00</div>
-    <button class="btn" onclick="copyIban()">IBAN'ı Kopyala</button>
 
-    <div class="info">
-      <strong>Açıklama Kısmına:</strong><br>
-      TC Kimlik Numaranız ve Altın Ödemesi yazınız.
+  <div class="card">
+    <div class="header">
+      <h2>SAĞLAM GOLD</h2>
+      <p class="sub-title">Banka Hesap ve Havale/EFT Bilgileri</p>
+    </div>
+
+    <!-- Alıcı Adı Soyadı -->
+    <div class="alici-box">
+      Alıcı / Hesap Sahibi: <br><strong>BURAYA HESAP SAHİBİNİN ADINI YAZIN</strong>
+    </div>
+
+    <!-- 1. ZİRAAT BANKASI -->
+    <div class="bank-card">
+      <div class="bank-name">
+        <span class="badge ziraat"></span> Ziraat Bankası
+      </div>
+      <div class="iban-box">TR00 0000 0000 0000 0000 0000 01</div>
+      <button class="btn" onclick="copyIban(this, 'TR000000000000000000000001')">Ziraat IBAN Kopyala</button>
+    </div>
+
+    <!-- 2. HALKBANK -->
+    <div class="bank-card">
+      <div class="bank-name">
+        <span class="badge halk"></span> Halkbank
+      </div>
+      <div class="iban-box">TR00 0000 0000 0000 0000 0000 02</div>
+      <button class="btn" onclick="copyIban(this, 'TR000000000000000000000002')">Halkbank IBAN Kopyala</button>
+    </div>
+
+    <!-- 3. İŞ BANKASI -->
+    <div class="bank-card">
+      <div class="bank-name">
+        <span class="badge is"></span> Türkiye İş Bankası
+      </div>
+      <div class="iban-box">TR00 0000 0000 0000 0000 0000 03</div>
+      <button class="btn" onclick="copyIban(this, 'TR000000000000000000000003')">İş Bankası IBAN Kopyala</button>
+    </div>
+
+    <!-- Açıklama Uyarısı -->
+    <div class="info-card">
+      ⚠️ <strong>Önemli Not (Açıklama Kısmına):</strong><br>
+      Lütfen açıklama kısmına sadece <strong>TC Kimlik Numaranızı</strong> ve <strong>Altın Ödemesi</strong> yazınız.
     </div>
   </div>
 
   <script>
-    function copyIban() {
-      const iban = "TR000000000000000000000000"; // Buraya boşluksuz IBAN yazın
+    function copyIban(btn, iban) {
       navigator.clipboard.writeText(iban).then(() => {
-        alert("IBAN panoya kopyalandı!");
+        const originalText = btn.innerText;
+        btn.innerText = "✓ IBAN Kopyalandı!";
+        btn.classList.add("copied");
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove("copied");
+        }, 2000);
+      }).catch(err => {
+        alert("Kopyalanamadı, lütfen ekrandan seçip kopyalayınız.");
       });
     }
   </script>
+
 </body>
 </html>
