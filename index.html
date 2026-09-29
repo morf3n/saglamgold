@@ -73,15 +73,17 @@
     .bank-header {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 10px;
     }
-    .bank-logo {
-      height: 24px;
-      width: auto;
-      max-width: 90px;
-      object-fit: contain;
-      display: block;
+    .bank-logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
     .bank-name {
       font-size: 15px;
@@ -176,7 +178,12 @@
     <!-- 1. ZİRAAT BANKASI -->
     <div class="bank-card">
       <div class="bank-header">
-        <img class="bank-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/06/Ziraat_Bankas%C4%B1_logo.svg" alt="Ziraat Bankası Logo">
+        <div class="bank-logo-icon" style="background:#e11d48;">
+          <!-- Ziraat Başak Amblemi SVG -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M8 6c2 1 4 1 4 1s2 0 4-1M7 11c3 1.5 5 1.5 5 1.5s2 0 5-1.5M8 16c2 1 4 1 4 1s2 0 4-1"/>
+          </svg>
+        </div>
         <span class="bank-name">Ziraat Bankası</span>
       </div>
       <div class="iban-box">TR00 0000 0000 0000 0000 0000 01</div>
@@ -186,7 +193,14 @@
     <!-- 2. HALKBANK -->
     <div class="bank-card">
       <div class="bank-header">
-        <img class="bank-logo" src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Halkbank_logo.svg" alt="Halkbank Logo">
+        <div class="bank-logo-icon" style="background:#0284c7;">
+          <!-- Halkbank Geometrik H Logosu SVG -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M6 4h3.5v16H6z" fill="#ffffff"/>
+            <path d="M14.5 4H18v16h-3.5z" fill="#ffffff"/>
+            <path d="M9 10h6v4H9z" fill="#38bdf8"/>
+          </svg>
+        </div>
         <span class="bank-name">Halkbank</span>
       </div>
       <div class="iban-box">TR00 0000 0000 0000 0000 0000 02</div>
@@ -196,7 +210,13 @@
     <!-- 3. TÜRKİYE İŞ BANKASI -->
     <div class="bank-card">
       <div class="bank-header">
-        <img class="bank-logo" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/T%C3%BCrkiye_%C4%B0%C5%9F_Bankas%C4%B1_logo.svg" alt="İş Bankası Logo">
+        <div class="bank-logo-icon" style="background:#1e3a8a;">
+          <!-- İş Bankası İ ve Kum Saati Logosu SVG -->
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="5" r="2" fill="#ffffff"/>
+            <path d="M7 9h10l-5 5 5 5H7l5-5-5-5z" fill="#ffffff"/>
+          </svg>
+        </div>
         <span class="bank-name">Türkiye İş Bankası</span>
       </div>
       <div class="iban-box">TR00 0000 0000 0000 0000 0000 03</div>
