@@ -216,7 +216,7 @@
       border: none;
       border-radius: 8px;
       padding: 11px;
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       width: 100%;
@@ -232,26 +232,24 @@
       border: 1px solid #c5a059;
       color: #fef08a;
     }
-    .btn-whatsapp {
-      background: #25d366;
-      color: #ffffff;
-      font-weight: 700;
-    }
-    .btn-whatsapp:active {
-      background: #1eb956;
+    .btn-gold:active {
       transform: scale(0.98);
+      background: #0f172a;
     }
     .btn-outline {
       background: #ffffff;
       border: 1px solid #cbd5e1;
       color: #334155;
-      font-size: 12.5px;
+      font-size: 12px;
       padding: 8px;
+    }
+    .btn-outline:active {
+      background: #f1f5f9;
     }
     .btn-secondary {
       background: #334155;
       padding: 8px 14px;
-      font-size: 12.5px;
+      font-size: 12px;
     }
     .btn.copied {
       background: #16a34a !important;
@@ -261,41 +259,40 @@
 
     /* Açıklama Alanı */
     .info-card {
-      margin-top: 16px;
+      margin-top: 18px;
       background: #fffdf5;
-      border: 1px solid #fef08a;
-      border-radius: 12px;
-      padding: 14px;
-      font-size: 13px;
-      color: #78350f;
-      line-height: 1.5;
+      border: 1.5px solid #f59e0b;
+      border-radius: 14px;
+      padding: 16px 14px;
+      text-align: center;
     }
     .info-header {
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 6px;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      color: #92400e;
+      color: #b45309;
+      font-size: 14px;
     }
-    .aciklama-kutusu {
-      background: #ffffff;
-      border: 1px dashed #f59e0b;
-      border-radius: 8px;
-      padding: 12px;
-      margin-top: 10px;
-      text-align: left;
+    .warning-text {
+      font-size: 12.5px;
+      color: #dc2626;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.4;
     }
     .aciklama-text-preview {
-      font-size: 12.5px;
-      color: #1e293b;
-      background: #fafaf9;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      background: #ffffff;
       padding: 10px 12px;
       border-radius: 8px;
       margin-bottom: 10px;
-      border: 1px solid #e7e5e4;
-      white-space: pre-line;
-      line-height: 1.5;
+      border: 1px dashed #cbd5e1;
+      line-height: 1.4;
     }
 
     .hidden {
@@ -377,7 +374,6 @@
           </div>
           <div class="iban-box">TR61 0001 0004 7897 6168 6150 02</div>
           <div class="btn-group">
-            <button class="btn btn-whatsapp" onclick="shareViaWhatsApp('Ziraat Bankası', 'TR610001000478976168615002')">💬 WhatsApp İle Gönder</button>
             <button class="btn btn-gold" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR610001000478976168615002')">📋 Tüm Bilgileri Kopyala</button>
             <button class="btn btn-outline" onclick="copyText(this, 'TR610001000478976168615002', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
           </div>
@@ -395,7 +391,6 @@
           </div>
           <div class="iban-box">TR74 0001 2001 6650 0010 1002 67</div>
           <div class="btn-group">
-            <button class="btn btn-whatsapp" onclick="shareViaWhatsApp('Halkbank', 'TR740001200166500010100267')">💬 WhatsApp İle Gönder</button>
             <button class="btn btn-gold" onclick="copyAllInfo(this, 'Halkbank', 'TR740001200166500010100267')">📋 Tüm Bilgileri Kopyala</button>
             <button class="btn btn-outline" onclick="copyText(this, 'TR740001200166500010100267', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
           </div>
@@ -413,7 +408,6 @@
           </div>
           <div class="iban-box">TR44 0006 4000 0019 3200 4441 79</div>
           <div class="btn-group">
-            <button class="btn btn-whatsapp" onclick="shareViaWhatsApp('Türkiye İş Bankası', 'TR440006400000193200444179')">💬 WhatsApp İle Gönder</button>
             <button class="btn btn-gold" onclick="copyAllInfo(this, 'Türkiye İş Bankası', 'TR440006400000193200444179')">📋 Tüm Bilgileri Kopyala</button>
             <button class="btn btn-outline" onclick="copyText(this, 'TR440006400000193200444179', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
           </div>
@@ -441,7 +435,6 @@
           </div>
           <div class="iban-box">TR11 0000 0000 0000 0000 0000 01</div>
           <div class="btn-group">
-            <button class="btn btn-whatsapp" onclick="shareViaWhatsApp('Ziraat Bankası', 'TR110000000000000000000001')">💬 WhatsApp İle Gönder</button>
             <button class="btn btn-gold" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR110000000000000000000001')">📋 Tüm Bilgileri Kopyala</button>
             <button class="btn btn-outline" onclick="copyText(this, 'TR110000000000000000000001', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
           </div>
@@ -459,7 +452,6 @@
           </div>
           <div class="iban-box">TR11 0000 0000 0000 0000 0000 02</div>
           <div class="btn-group">
-            <button class="btn btn-whatsapp" onclick="shareViaWhatsApp('Halkbank', 'TR110000000000000000000002')">💬 WhatsApp İle Gönder</button>
             <button class="btn btn-gold" onclick="copyAllInfo(this, 'Halkbank', 'TR110000000000000000000002')">📋 Tüm Bilgileri Kopyala</button>
             <button class="btn btn-outline" onclick="copyText(this, 'TR110000000000000000000002', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
           </div>
@@ -477,7 +469,6 @@
           </div>
           <div class="iban-box">TR11 0000 0000 0000 0000 0000 03</div>
           <div class="btn-group">
-            <button class="btn btn-whatsapp" onclick="shareViaWhatsApp('Türkiye İş Bankası', 'TR110000000000000000000003')">💬 WhatsApp İle Gönder</button>
             <button class="btn btn-gold" onclick="copyAllInfo(this, 'Türkiye İş Bankası', 'TR110000000000000000000003')">📋 Tüm Bilgileri Kopyala</button>
             <button class="btn btn-outline" onclick="copyText(this, 'TR110000000000000000000003', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
           </div>
@@ -505,7 +496,6 @@
           </div>
           <div class="iban-box">TR33 0000 0000 0000 0000 0000 01</div>
           <div class="btn-group">
-            <button class="btn btn-whatsapp" onclick="shareViaWhatsApp('Ziraat Bankası', 'TR330000000000000000000001')">💬 WhatsApp İle Gönder</button>
             <button class="btn btn-gold" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR330000000000000000000001')">📋 Tüm Bilgileri Kopyala</button>
             <button class="btn btn-outline" onclick="copyText(this, 'TR330000000000000000000001', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
           </div>
@@ -523,7 +513,6 @@
           </div>
           <div class="iban-box">TR33 0000 0000 0000 0000 0000 02</div>
           <div class="btn-group">
-            <button class="btn btn-whatsapp" onclick="shareViaWhatsApp('Halkbank', 'TR330000000000000000000002')">💬 WhatsApp İle Gönder</button>
             <button class="btn btn-gold" onclick="copyAllInfo(this, 'Halkbank', 'TR330000000000000000000002')">📋 Tüm Bilgileri Kopyala</button>
             <button class="btn btn-outline" onclick="copyText(this, 'TR330000000000000000000002', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
           </div>
@@ -541,28 +530,28 @@
           </div>
           <div class="iban-box">TR33 0000 0000 0000 0000 0000 03</div>
           <div class="btn-group">
-            <button class="btn btn-whatsapp" onclick="shareViaWhatsApp('Türkiye İş Bankası', 'TR330000000000000000000003')">💬 WhatsApp İle Gönder</button>
             <button class="btn btn-gold" onclick="copyAllInfo(this, 'Türkiye İş Bankası', 'TR330000000000000000000003')">📋 Tüm Bilgileri Kopyala</button>
             <button class="btn btn-outline" onclick="copyText(this, 'TR330000000000000000000003', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
           </div>
         </div>
       </div>
 
-      <!-- Açıklama Alanı & Müşteriye Gönderilecek Emojili Şablon -->
+      <!-- SADE VE NET AÇIKLAMA BÖLÜMÜ -->
       <div class="info-card">
-        <div class="info-header">⚠️ Önemli Açıklama Talimatı:</div>
-        Havale/EFT açıklamasına <strong>TC Kimlik Numaranızı</strong> ve <strong>Altın Ödemesi</strong> yazınız.
-        
-        <div class="aciklama-kutusu">
-          <div style="font-size: 11px; font-weight: 700; color: #78716c; margin-bottom: 6px; text-transform: uppercase;">Müşteriye Gönderilecek Mesaj:</div>
-          <div class="aciklama-text-preview" id="msgTemplate">📌 Önemli Hatırlatma:
-💳 Havale/EFT yaparken açıklama kısmına sadece TC Kimlik Numaranızı ve 'Altın Ödemesi' yazınız.
-✍️ Örnek: 12345678901 Altın Ödemesi
-✨ Teşekkür eder, iyi günler dileriz.</div>
-          
-          <button class="btn btn-secondary" style="background:#475569;" onclick="copyText(this, document.getElementById('msgTemplate').innerText, 'Mesaj Şablonu Kopyalandı!')">📋 Açıklama Talimat Mesajını Kopyala</button>
+        <div class="info-header">⚠️ Havale / EFT Açıklama Talimatı</div>
+        <div class="warning-text">
+          LÜTFEN AÇIKLAMAYA TL VEYA TUTAR YAZMAYINIZ!
         </div>
+        
+        <div class="aciklama-text-preview">
+          [TC KİMLİK NO] ALTIN ALIMI
+        </div>
+
+        <button class="btn btn-secondary" onclick="copyText(this, 'Altın Alımı', 'Altın Alımı Kopyalandı!')">
+          Açıklamayı Kopyala (Altın Alımı)
+        </button>
       </div>
+
     </div>
 
   </div>
@@ -598,7 +587,7 @@
     }
 
     function copyAllInfo(btn, bankName, iban) {
-      const fullText = `Alıcı: Sağlam Mücevherat Kuyumculuk\nBanka: ${bankName}\nIBAN: ${iban}\nAçıklama: [TC Kimlik Numaranız] Altın Ödemesi`;
+      const fullText = `Alıcı: Sağlam Mücevherat Kuyumculuk\nBanka: ${bankName}\nIBAN: ${iban}\nAçıklama: [TC Kimlik No] Altın Alımı`;
       navigator.clipboard.writeText(fullText).then(() => {
         const originalText = btn.innerText;
         btn.innerText = "✓ Tüm Bilgiler Kopyalandı!";
@@ -608,13 +597,6 @@
           btn.classList.remove("copied");
         }, 2000);
       });
-    }
-
-    // WhatsApp'ta Tek Dokunuşla Ayrı Ayrı Kopyalanabilen Akıllı Mesaj Formatı
-    function shareViaWhatsApp(bankName, iban) {
-      const msg = `🏛️ *SAĞLAM MÜCEVHERAT KUYUMCULUK*\n🏦 *${bankName}*\n\n👤 *Alıcı Ünvanı:*\n\`Sağlam Mücevherat Kuyumculuk\`\n\n💳 *IBAN:*\n\`${iban}\`\n\n✍️ *Açıklama:*\n\`[TC Kimlik Numaranız] Altın Ödemesi\`\n\n📌 _Not: Yukarıdaki IBAN veya alıcı adına dokunarak tek tıkla kopyalayabilirsiniz._`;
-      const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
     }
   </script>
 
