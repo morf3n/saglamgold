@@ -289,21 +289,27 @@
       margin-bottom: 10px;
     }
 
-    /* ORİJİNAL DAHİLİ VEKTÖREL BANKA LOGOLARI */
+    /* BİREBİR ORİJİNAL BANKA LOGOLARI */
     .bank-logo-box {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       border-radius: 10px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
       overflow: hidden;
     }
+    .bank-logo-box.isbank-bg {
+      background: #002d9c;
+      border-color: #002d9c;
+    }
     .bank-logo-box svg {
-      width: 100%;
-      height: 100%;
+      width: 82%;
+      height: 82%;
       display: block;
     }
 
@@ -545,14 +551,16 @@
         <div class="bank-card">
           <div class="bank-header">
             <div class="bank-logo-box">
-              <svg viewBox="0 0 100 100" width="100%" height="100%">
-                <rect width="100" height="100" fill="#e11d48"/>
-                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffffff" stroke-width="4.5"/>
-                <path d="M50 16 L50 84" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
-                <path d="M50 32 C41 28, 30 36, 31 46 C32 54, 45 52, 50 48" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/>
-                <path d="M50 48 C41 44, 30 52, 31 62 C32 70, 45 68, 50 64" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/>
-                <path d="M50 32 C59 28, 70 36, 69 46 C68 54, 55 52, 50 48" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/>
-                <path d="M50 48 C59 44, 70 52, 69 62 C68 70, 55 68, 50 64" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/>
+              <!-- Orijinal T.C. Ziraat Bankası Başak Amblemi -->
+              <svg viewBox="0 0 200 300" fill="none">
+                <path d="M96 28 L96 72 L86 64 L86 44 L72 32 Z" fill="#e11d48"/>
+                <path d="M104 28 L104 72 L114 64 L114 44 L128 32 Z" fill="#e11d48"/>
+                <path d="M96 82 L96 150 L66 120 C60 114 60 96 66 90 L88 74 Z" fill="#e11d48"/>
+                <path d="M104 82 L104 150 L134 120 C140 114 140 96 134 90 L112 74 Z" fill="#e11d48"/>
+                <path d="M96 160 L96 220 L66 190 C60 184 60 166 66 160 L96 132 Z" fill="#c8143a"/>
+                <path d="M104 160 L104 220 L134 190 C140 184 140 166 134 160 L104 132 Z" fill="#e11d48"/>
+                <path d="M96 228 L96 280 L66 250 L66 226 L96 200 Z" fill="#e11d48"/>
+                <path d="M104 228 L104 280 L134 250 L134 226 L104 200 Z" fill="#c8143a"/>
               </svg>
             </div>
             <span class="bank-name">Ziraat Bankası</span>
@@ -569,12 +577,23 @@
         <div class="bank-card">
           <div class="bank-header">
             <div class="bank-logo-box">
-              <svg viewBox="0 0 100 100" width="100%" height="100%">
-                <rect width="100" height="100" fill="#0284c7"/>
-                <rect x="20" y="20" width="18" height="60" rx="4" fill="#ffffff"/>
-                <rect x="62" y="20" width="18" height="60" rx="4" fill="#ffffff"/>
-                <rect x="38" y="41" width="24" height="18" fill="#ffffff"/>
-                <polygon points="38,41 62,59 38,59" fill="#0284c7"/>
+              <!-- Orijinal Çizgili Dairesel Halkbank H Amblemi -->
+              <svg viewBox="0 0 100 100" fill="#004f9e">
+                <rect x="0" y="24" width="3.5" height="52"/>
+                <rect x="7" y="16" width="3.5" height="68"/>
+                <rect x="14" y="8" width="3.5" height="84"/>
+                <rect x="21" y="0" width="3.5" height="100"/>
+                <rect x="28" y="8" width="3.5" height="84"/>
+                <rect x="68.5" y="8" width="3.5" height="84"/>
+                <rect x="75.5" y="0" width="3.5" height="100"/>
+                <rect x="82.5" y="8" width="3.5" height="84"/>
+                <rect x="89.5" y="16" width="3.5" height="68"/>
+                <rect x="96.5" y="24" width="3.5" height="52"/>
+                <rect x="21" y="47" width="58" height="6"/>
+                <path d="M35 16 H65 V43 H58 V23 H42 V43 H35 Z"/>
+                <path d="M42 27 H58 V39 H51 V33 H49 V39 H42 Z"/>
+                <path d="M35 84 H65 V57 H58 V77 H42 V57 H35 Z"/>
+                <path d="M42 73 H58 V61 H51 V67 H49 V61 H42 Z"/>
               </svg>
             </div>
             <span class="bank-name">Halkbank</span>
@@ -590,14 +609,13 @@
         <!-- İş Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box">
-              <svg viewBox="0 0 100 100" width="100%" height="100%">
-                <rect width="100" height="100" fill="#1e3a8a"/>
-                <circle cx="50" cy="22" r="7.5" fill="#ffffff"/>
-                <rect x="44.5" y="36" width="11" height="46" rx="2" fill="#ffffff"/>
-                <path d="M30 46 C30 38, 42 36, 50 36" stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round"/>
-                <path d="M70 74 C70 82, 58 84, 50 84" stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round"/>
-                <path d="M32 60 C36 54, 64 54, 68 48" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <div class="bank-logo-box isbank-bg">
+              <!-- Orijinal Noktalı & Kuyruklu İŞ Monogramı -->
+              <svg viewBox="0 0 100 100" fill="#ffffff">
+                <circle cx="50" cy="16" r="4.2"/>
+                <path d="M42 24 H58 V27 H54.5 V65 H58 V68 H42 V65 H45.5 V27 H42 Z"/>
+                <path d="M34 68 C34 64 36.5 61 40 61 L42 63 C39 65 37.5 67 37.5 70 C37.5 72 40 73.5 45 74.5 C55 77 64 74 64 63 C64 54 55 49 46 44 C38 39 35 34 35 28 C35 20 42 16 52 16 C57 16 62 18 64 21 L62 25 C59 23 55 21 51 21 C44 21 40 24 40 28 C40 33 46 37 53 41 C62 46 67 52 67 61 C67 73 57 80 44 80 C36 80 34 74 34 68 Z"/>
+                <path d="M50 78 C54 78 55 83 52 87 C49 90 48 92 48 94 C53 90 56 87 56 83 C56 79 53 76 49 76 Z"/>
               </svg>
             </div>
             <span class="bank-name">Türkiye İş Bankası</span>
@@ -617,14 +635,15 @@
         <div class="bank-card">
           <div class="bank-header">
             <div class="bank-logo-box">
-              <svg viewBox="0 0 100 100" width="100%" height="100%">
-                <rect width="100" height="100" fill="#e11d48"/>
-                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffffff" stroke-width="4.5"/>
-                <path d="M50 16 L50 84" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
-                <path d="M50 32 C41 28, 30 36, 31 46 C32 54, 45 52, 50 48" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/>
-                <path d="M50 48 C41 44, 30 52, 31 62 C32 70, 45 68, 50 64" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/>
-                <path d="M50 32 C59 28, 70 36, 69 46 C68 54, 55 52, 50 48" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/>
-                <path d="M50 48 C59 44, 70 52, 69 62 C68 70, 55 68, 50 64" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/>
+              <svg viewBox="0 0 200 300" fill="none">
+                <path d="M96 28 L96 72 L86 64 L86 44 L72 32 Z" fill="#e11d48"/>
+                <path d="M104 28 L104 72 L114 64 L114 44 L128 32 Z" fill="#e11d48"/>
+                <path d="M96 82 L96 150 L66 120 C60 114 60 96 66 90 L88 74 Z" fill="#e11d48"/>
+                <path d="M104 82 L104 150 L134 120 C140 114 140 96 134 90 L112 74 Z" fill="#e11d48"/>
+                <path d="M96 160 L96 220 L66 190 C60 184 60 166 66 160 L96 132 Z" fill="#c8143a"/>
+                <path d="M104 160 L104 220 L134 190 C140 184 140 166 134 160 L104 132 Z" fill="#e11d48"/>
+                <path d="M96 228 L96 280 L66 250 L66 226 L96 200 Z" fill="#e11d48"/>
+                <path d="M104 228 L104 280 L134 250 L134 226 L104 200 Z" fill="#c8143a"/>
               </svg>
             </div>
             <span class="bank-name">Ziraat Bankası</span>
@@ -641,12 +660,22 @@
         <div class="bank-card">
           <div class="bank-header">
             <div class="bank-logo-box">
-              <svg viewBox="0 0 100 100" width="100%" height="100%">
-                <rect width="100" height="100" fill="#0284c7"/>
-                <rect x="20" y="20" width="18" height="60" rx="4" fill="#ffffff"/>
-                <rect x="62" y="20" width="18" height="60" rx="4" fill="#ffffff"/>
-                <rect x="38" y="41" width="24" height="18" fill="#ffffff"/>
-                <polygon points="38,41 62,59 38,59" fill="#0284c7"/>
+              <svg viewBox="0 0 100 100" fill="#004f9e">
+                <rect x="0" y="24" width="3.5" height="52"/>
+                <rect x="7" y="16" width="3.5" height="68"/>
+                <rect x="14" y="8" width="3.5" height="84"/>
+                <rect x="21" y="0" width="3.5" height="100"/>
+                <rect x="28" y="8" width="3.5" height="84"/>
+                <rect x="68.5" y="8" width="3.5" height="84"/>
+                <rect x="75.5" y="0" width="3.5" height="100"/>
+                <rect x="82.5" y="8" width="3.5" height="84"/>
+                <rect x="89.5" y="16" width="3.5" height="68"/>
+                <rect x="96.5" y="24" width="3.5" height="52"/>
+                <rect x="21" y="47" width="58" height="6"/>
+                <path d="M35 16 H65 V43 H58 V23 H42 V43 H35 Z"/>
+                <path d="M42 27 H58 V39 H51 V33 H49 V39 H42 Z"/>
+                <path d="M35 84 H65 V57 H58 V77 H42 V57 H35 Z"/>
+                <path d="M42 73 H58 V61 H51 V67 H49 V61 H42 Z"/>
               </svg>
             </div>
             <span class="bank-name">Halkbank</span>
@@ -662,14 +691,12 @@
         <!-- İş Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box">
-              <svg viewBox="0 0 100 100" width="100%" height="100%">
-                <rect width="100" height="100" fill="#1e3a8a"/>
-                <circle cx="50" cy="22" r="7.5" fill="#ffffff"/>
-                <rect x="44.5" y="36" width="11" height="46" rx="2" fill="#ffffff"/>
-                <path d="M30 46 C30 38, 42 36, 50 36" stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round"/>
-                <path d="M70 74 C70 82, 58 84, 50 84" stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round"/>
-                <path d="M32 60 C36 54, 64 54, 68 48" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <div class="bank-logo-box isbank-bg">
+              <svg viewBox="0 0 100 100" fill="#ffffff">
+                <circle cx="50" cy="16" r="4.2"/>
+                <path d="M42 24 H58 V27 H54.5 V65 H58 V68 H42 V65 H45.5 V27 H42 Z"/>
+                <path d="M34 68 C34 64 36.5 61 40 61 L42 63 C39 65 37.5 67 37.5 70 C37.5 72 40 73.5 45 74.5 C55 77 64 74 64 63 C64 54 55 49 46 44 C38 39 35 34 35 28 C35 20 42 16 52 16 C57 16 62 18 64 21 L62 25 C59 23 55 21 51 21 C44 21 40 24 40 28 C40 33 46 37 53 41 C62 46 67 52 67 61 C67 73 57 80 44 80 C36 80 34 74 34 68 Z"/>
+                <path d="M50 78 C54 78 55 83 52 87 C49 90 48 92 48 94 C53 90 56 87 56 83 C56 79 53 76 49 76 Z"/>
               </svg>
             </div>
             <span class="bank-name">Türkiye İş Bankası</span>
@@ -689,14 +716,15 @@
         <div class="bank-card">
           <div class="bank-header">
             <div class="bank-logo-box">
-              <svg viewBox="0 0 100 100" width="100%" height="100%">
-                <rect width="100" height="100" fill="#e11d48"/>
-                <circle cx="50" cy="50" r="38" fill="none" stroke="#ffffff" stroke-width="4.5"/>
-                <path d="M50 16 L50 84" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
-                <path d="M50 32 C41 28, 30 36, 31 46 C32 54, 45 52, 50 48" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/>
-                <path d="M50 48 C41 44, 30 52, 31 62 C32 70, 45 68, 50 64" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/>
-                <path d="M50 32 C59 28, 70 36, 69 46 C68 54, 55 52, 50 48" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/>
-                <path d="M50 48 C59 44, 70 52, 69 62 C68 70, 55 68, 50 64" fill="none" stroke="#ffffff" stroke-width="4.2" stroke-linecap="round"/>
+              <svg viewBox="0 0 200 300" fill="none">
+                <path d="M96 28 L96 72 L86 64 L86 44 L72 32 Z" fill="#e11d48"/>
+                <path d="M104 28 L104 72 L114 64 L114 44 L128 32 Z" fill="#e11d48"/>
+                <path d="M96 82 L96 150 L66 120 C60 114 60 96 66 90 L88 74 Z" fill="#e11d48"/>
+                <path d="M104 82 L104 150 L134 120 C140 114 140 96 134 90 L112 74 Z" fill="#e11d48"/>
+                <path d="M96 160 L96 220 L66 190 C60 184 60 166 66 160 L96 132 Z" fill="#c8143a"/>
+                <path d="M104 160 L104 220 L134 190 C140 184 140 166 134 160 L104 132 Z" fill="#e11d48"/>
+                <path d="M96 228 L96 280 L66 250 L66 226 L96 200 Z" fill="#e11d48"/>
+                <path d="M104 228 L104 280 L134 250 L134 226 L104 200 Z" fill="#c8143a"/>
               </svg>
             </div>
             <span class="bank-name">Ziraat Bankası</span>
@@ -713,12 +741,22 @@
         <div class="bank-card">
           <div class="bank-header">
             <div class="bank-logo-box">
-              <svg viewBox="0 0 100 100" width="100%" height="100%">
-                <rect width="100" height="100" fill="#0284c7"/>
-                <rect x="20" y="20" width="18" height="60" rx="4" fill="#ffffff"/>
-                <rect x="62" y="20" width="18" height="60" rx="4" fill="#ffffff"/>
-                <rect x="38" y="41" width="24" height="18" fill="#ffffff"/>
-                <polygon points="38,41 62,59 38,59" fill="#0284c7"/>
+              <svg viewBox="0 0 100 100" fill="#004f9e">
+                <rect x="0" y="24" width="3.5" height="52"/>
+                <rect x="7" y="16" width="3.5" height="68"/>
+                <rect x="14" y="8" width="3.5" height="84"/>
+                <rect x="21" y="0" width="3.5" height="100"/>
+                <rect x="28" y="8" width="3.5" height="84"/>
+                <rect x="68.5" y="8" width="3.5" height="84"/>
+                <rect x="75.5" y="0" width="3.5" height="100"/>
+                <rect x="82.5" y="8" width="3.5" height="84"/>
+                <rect x="89.5" y="16" width="3.5" height="68"/>
+                <rect x="96.5" y="24" width="3.5" height="52"/>
+                <rect x="21" y="47" width="58" height="6"/>
+                <path d="M35 16 H65 V43 H58 V23 H42 V43 H35 Z"/>
+                <path d="M42 27 H58 V39 H51 V33 H49 V39 H42 Z"/>
+                <path d="M35 84 H65 V57 H58 V77 H42 V57 H35 Z"/>
+                <path d="M42 73 H58 V61 H51 V67 H49 V61 H42 Z"/>
               </svg>
             </div>
             <span class="bank-name">Halkbank</span>
@@ -734,14 +772,12 @@
         <!-- İş Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box">
-              <svg viewBox="0 0 100 100" width="100%" height="100%">
-                <rect width="100" height="100" fill="#1e3a8a"/>
-                <circle cx="50" cy="22" r="7.5" fill="#ffffff"/>
-                <rect x="44.5" y="36" width="11" height="46" rx="2" fill="#ffffff"/>
-                <path d="M30 46 C30 38, 42 36, 50 36" stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round"/>
-                <path d="M70 74 C70 82, 58 84, 50 84" stroke="#ffffff" stroke-width="7" fill="none" stroke-linecap="round"/>
-                <path d="M32 60 C36 54, 64 54, 68 48" stroke="#ffffff" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <div class="bank-logo-box isbank-bg">
+              <svg viewBox="0 0 100 100" fill="#ffffff">
+                <circle cx="50" cy="16" r="4.2"/>
+                <path d="M42 24 H58 V27 H54.5 V65 H58 V68 H42 V65 H45.5 V27 H42 Z"/>
+                <path d="M34 68 C34 64 36.5 61 40 61 L42 63 C39 65 37.5 67 37.5 70 C37.5 72 40 73.5 45 74.5 C55 77 64 74 64 63 C64 54 55 49 46 44 C38 39 35 34 35 28 C35 20 42 16 52 16 C57 16 62 18 64 21 L62 25 C59 23 55 21 51 21 C44 21 40 24 40 28 C40 33 46 37 53 41 C62 46 67 52 67 61 C67 73 57 80 44 80 C36 80 34 74 34 68 Z"/>
+                <path d="M50 78 C54 78 55 83 52 87 C49 90 48 92 48 94 C53 90 56 87 56 83 C56 79 53 76 49 76 Z"/>
               </svg>
             </div>
             <span class="bank-name">Türkiye İş Bankası</span>
