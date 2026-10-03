@@ -178,7 +178,6 @@
       gap: 12px;
       margin-bottom: 10px;
     }
-    /* Banka Logoları */
     .bank-logo-box {
       width: 38px;
       height: 38px;
@@ -593,7 +592,6 @@
       document.getElementById('step-selection').classList.add('hidden');
       document.getElementById('step-details').classList.remove('hidden');
 
-      // Seçilen şube başlığını (parantez içi detayla birlikte) karta basar
       document.getElementById('banner-branch-title').innerText = branchTitle;
 
       document.querySelectorAll('.branch-data').forEach(el => el.classList.add('hidden'));
@@ -621,16 +619,40 @@
       });
     }
 
+    // Onaylanan kopyalama şablonu (1 satır içi boşluk, 2 satır blok boşluğu)
     function copyAllInfo(btn, bankName, iban) {
       const fullText = 
-`SAĞLAM MÜCEVHERAT | HAVALE BİLGİLERİ
+`HAVALE / EFT BİLGİLERİ
 
-🏦 Banka Adı: ${bankName}
-💳 IBAN: ${iban}
-👤 Alıcı Adı: Sağlam Mücevherat Kuyumculuk
-✍️ Açıklama: 11 Haneli TC Kimlik Numaranız - Altın Alımı
 
-⚠️ ÖNEMLİ: Açıklamaya lütfen tutar veya TL yazmayınız!`;
+
+🏦 Banka:
+
+${bankName}
+
+
+
+👤 Hesap Alıcı Adı:
+
+Sağlam Mücevherat Kuyumculuk
+
+
+
+💳 IBAN:
+
+${iban}
+
+
+
+✍️ Açıklama:
+
+TC Kimlik Numaranız - Altın Alımı
+
+
+
+⚠️ Not:
+
+Açıklamaya lütfen tutar veya TL yazmayınız.`;
 
       navigator.clipboard.writeText(fullText).then(() => {
         const originalText = btn.innerText;
