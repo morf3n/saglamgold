@@ -60,7 +60,7 @@
       font-weight: 500;
     }
 
-    /* 1. ADIM: ŞUBE SEÇİM LİSTESİ - GENİŞLETİLMİŞ VE KORUMALI ARALIKLAR */
+    /* 1. ADIM: ŞUBE SEÇİM LİSTESİ */
     .selection-hint {
       font-size: 13.5px;
       font-weight: 600;
@@ -71,13 +71,13 @@
     .branch-list {
       display: flex;
       flex-direction: column;
-      gap: 18px; /* Butonlar arası boşluk 18px yapıldı */
+      gap: 18px;
     }
     .branch-card-btn {
       background: #fafaf9;
       border: 1.5px solid #e2e8f0;
       border-radius: 14px;
-      padding: 18px 16px; /* İç dokunma alanı büyütüldü */
+      padding: 18px 16px;
       text-align: left;
       cursor: pointer;
       display: flex;
@@ -180,7 +180,6 @@
       gap: 12px;
       margin-bottom: 10px;
     }
-    /* Banka Logoları */
     .bank-logo-box {
       width: 38px;
       height: 38px;
@@ -347,7 +346,7 @@
       <p class="sub-title">Banka Hesap ve Havale/EFT Bilgileri</p>
     </div>
 
-    <!-- 1. AŞAMA: YENİ SIRALAMALI VE GENİŞ ARALIKLI ŞUBE SEÇİM EKRANI -->
+    <!-- 1. AŞAMA: ŞUBE SEÇİM EKRANI -->
     <div id="step-selection">
       <div class="selection-hint">Lütfen işlem yapacağınız şubeyi seçiniz:</div>
       <div class="branch-list">
@@ -627,39 +626,26 @@
       });
     }
 
-    // Onaylanan kopyalama şablonu (1 satır içi boşluk, 2 satır blok boşluğu)
+    // Onaylanan en sade, tek satır boşluklu ve karşılamalı format
     function copyAllInfo(btn, bankName, iban) {
       const fullText = 
-`HAVALE / EFT BİLGİLERİ
+`İyi alışverişler dileriz. Banka hesap ve havale/EFT bilgilerimiz aşağıda yer almaktadır:
 
-
+HAVALE / EFT BİLGİLERİ
 
 🏦 Banka:
-
 ${bankName}
 
-
-
 👤 Hesap Alıcı Adı:
-
 Sağlam Mücevherat Kuyumculuk
 
-
-
 💳 IBAN:
-
 ${iban}
 
-
-
-✍️ Açıklama:
-
+✍️️ Açıklama:
 TC Kimlik Numaranız - Altın Alımı
 
-
-
 ⚠️ Not:
-
 Açıklamaya lütfen tutar veya TL yazmayınız.`;
 
       navigator.clipboard.writeText(fullText).then(() => {
