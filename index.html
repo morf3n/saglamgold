@@ -108,7 +108,7 @@
       font-weight: bold;
     }
 
-    /* 2. ADIM: VURGULU ŞUBE TEYİT BANDI (4. MADDE) */
+    /* 2. ADIM: VURGULU ŞUBE TEYİT BANDI */
     .branch-confirmation-banner {
       background: #f8fafc;
       border: 1.5px solid #cbd5e1;
@@ -159,31 +159,6 @@
       border-color: #94a3b8;
     }
 
-    /* Alıcı Kartı */
-    .alici-card {
-      background: #fafaf9;
-      border: 1px solid #e7e5e4;
-      border-left: 3px solid #c5a059;
-      border-radius: 12px;
-      padding: 12px 14px;
-      text-align: center;
-      margin-bottom: 14px;
-    }
-    .alici-label {
-      font-size: 11px;
-      color: #78716c;
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      margin-bottom: 3px;
-    }
-    .alici-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 8px;
-    }
-
     /* Banka Kartları */
     .bank-card {
       border: 1px solid #e2e8f0;
@@ -228,18 +203,18 @@
       margin-bottom: 10px;
     }
 
-    /* Buton Grubu */
+    /* Sıralı Buton Grubu */
     .btn-group {
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 6px;
     }
     .btn {
       color: #ffffff;
       border: none;
       border-radius: 8px;
-      padding: 11px;
-      font-size: 13px;
+      padding: 10px;
+      font-size: 12.5px;
       font-weight: 600;
       cursor: pointer;
       width: 100%;
@@ -250,37 +225,41 @@
       gap: 6px;
       text-decoration: none;
     }
-    .btn-gold {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      border: 1px solid #c5a059;
-      color: #fef08a;
-    }
-    .btn-gold:active {
-      transform: scale(0.98);
+    /* 1. Buton - IBAN */
+    .btn-primary-iban {
       background: #0f172a;
+      color: #f8fafc;
     }
-    .btn-outline {
+    .btn-primary-iban:active {
+      background: #1e293b;
+    }
+    /* 2. Buton - Alıcı Adı */
+    .btn-outline-alici {
       background: #ffffff;
-      border: 1px solid #cbd5e1;
-      color: #334155;
-      font-size: 12px;
-      padding: 8px;
+      border: 1.5px solid #cbd5e1;
+      color: #1e293b;
     }
-    .btn-outline:active {
-      background: #f1f5f9;
+    .btn-outline-alici:active {
+      background: #f8fafc;
     }
-    .btn-secondary {
-      background: #334155;
-      padding: 8px 14px;
-      font-size: 12px;
+    /* 3. Buton - Tüm Bilgiler */
+    .btn-gold-all {
+      background: #fffdf5;
+      border: 1.5px solid #c5a059;
+      color: #854d0e;
+      font-weight: 700;
     }
+    .btn-gold-all:active {
+      background: #fef9c3;
+    }
+
     .btn.copied {
       background: #16a34a !important;
       border-color: #16a34a !important;
       color: #ffffff !important;
     }
 
-    /* TİRELİ, DİKKAT ÇEKİCİ BİLGİLENDİRME KUTUSU */
+    /* UYARI KUTUSU */
     .warning-box {
       margin-top: 20px;
       background: #fef2f2;
@@ -400,12 +379,6 @@
 
       <!-- 1. HORASAN MAĞAZASI BİLGİLERİ -->
       <div id="content-horasan" class="branch-data hidden">
-        <div class="alici-card">
-          <div class="alici-label">Alıcı / Hesap Sahibi</div>
-          <div class="alici-title">Sağlam Mücevherat Kuyumculuk</div>
-          <button class="btn btn-secondary" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">Alıcı Adını Kopyala</button>
-        </div>
-
         <!-- Ziraat -->
         <div class="bank-card">
           <div class="bank-header">
@@ -418,8 +391,9 @@
           </div>
           <div class="iban-box">TR61 0001 0004 7897 6168 6150 02</div>
           <div class="btn-group">
-            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR610001000478976168615002')">📋 Tüm Bilgileri Kopyala</button>
-            <button class="btn btn-outline" onclick="copyText(this, 'TR610001000478976168615002', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+            <button class="btn btn-primary-iban" onclick="copyText(this, 'TR610001000478976168615002', 'IBAN Kopyalandı!')">💳 1. IBAN'ı Kopyala</button>
+            <button class="btn btn-outline-alici" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">👤 2. Alıcı Adını Kopyala</button>
+            <button class="btn btn-gold-all" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR610001000478976168615002')">📋 3. Tüm Bilgileri Kopyala</button>
           </div>
         </div>
 
@@ -435,8 +409,9 @@
           </div>
           <div class="iban-box">TR74 0001 2001 6650 0010 1002 67</div>
           <div class="btn-group">
-            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Halkbank', 'TR740001200166500010100267')">📋 Tüm Bilgileri Kopyala</button>
-            <button class="btn btn-outline" onclick="copyText(this, 'TR740001200166500010100267', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+            <button class="btn btn-primary-iban" onclick="copyText(this, 'TR740001200166500010100267', 'IBAN Kopyalandı!')">💳 1. IBAN'ı Kopyala</button>
+            <button class="btn btn-outline-alici" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">👤 2. Alıcı Adını Kopyala</button>
+            <button class="btn btn-gold-all" onclick="copyAllInfo(this, 'Halkbank', 'TR740001200166500010100267')">📋 3. Tüm Bilgileri Kopyala</button>
           </div>
         </div>
 
@@ -452,20 +427,15 @@
           </div>
           <div class="iban-box">TR44 0006 4000 0019 3200 4441 79</div>
           <div class="btn-group">
-            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Türkiye İş Bankası', 'TR440006400000193200444179')">📋 Tüm Bilgileri Kopyala</button>
-            <button class="btn btn-outline" onclick="copyText(this, 'TR440006400000193200444179', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+            <button class="btn btn-primary-iban" onclick="copyText(this, 'TR440006400000193200444179', 'IBAN Kopyalandı!')">💳 1. IBAN'ı Kopyala</button>
+            <button class="btn btn-outline-alici" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">👤 2. Alıcı Adını Kopyala</button>
+            <button class="btn btn-gold-all" onclick="copyAllInfo(this, 'Türkiye İş Bankası', 'TR440006400000193200444179')">📋 3. Tüm Bilgileri Kopyala</button>
           </div>
         </div>
       </div>
 
       <!-- 2. MERKEZ MAĞAZA BİLGİLERİ -->
       <div id="content-merkez" class="branch-data hidden">
-        <div class="alici-card">
-          <div class="alici-label">Alıcı / Hesap Sahibi</div>
-          <div class="alici-title">Sağlam Mücevherat Kuyumculuk</div>
-          <button class="btn btn-secondary" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">Alıcı Adını Kopyala</button>
-        </div>
-
         <!-- Ziraat Bankası -->
         <div class="bank-card">
           <div class="bank-header">
@@ -478,8 +448,9 @@
           </div>
           <div class="iban-box">TR88 0001 0004 7897 6168 6150 01</div>
           <div class="btn-group">
-            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR880001000478976168615001')">📋 Tüm Bilgileri Kopyala</button>
-            <button class="btn btn-outline" onclick="copyText(this, 'TR880001000478976168615001', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+            <button class="btn btn-primary-iban" onclick="copyText(this, 'TR880001000478976168615001', 'IBAN Kopyalandı!')">💳 1. IBAN'ı Kopyala</button>
+            <button class="btn btn-outline-alici" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">👤 2. Alıcı Adını Kopyala</button>
+            <button class="btn btn-gold-all" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR880001000478976168615001')">📋 3. Tüm Bilgileri Kopyala</button>
           </div>
         </div>
 
@@ -495,8 +466,9 @@
           </div>
           <div class="iban-box">TR56 0001 2009 3420 0010 2628 02</div>
           <div class="btn-group">
-            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Halkbank', 'TR560001200934200010262802')">📋 Tüm Bilgileri Kopyala</button>
-            <button class="btn btn-outline" onclick="copyText(this, 'TR560001200934200010262802', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+            <button class="btn btn-primary-iban" onclick="copyText(this, 'TR560001200934200010262802', 'IBAN Kopyalandı!')">💳 1. IBAN'ı Kopyala</button>
+            <button class="btn btn-outline-alici" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">👤 2. Alıcı Adını Kopyala</button>
+            <button class="btn btn-gold-all" onclick="copyAllInfo(this, 'Halkbank', 'TR560001200934200010262802')">📋 3. Tüm Bilgileri Kopyala</button>
           </div>
         </div>
 
@@ -512,20 +484,15 @@
           </div>
           <div class="iban-box">TR11 0000 0000 0000 0000 0000 03</div>
           <div class="btn-group">
-            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Türkiye İş Bankası', 'TR110000000000000000000003')">📋 Tüm Bilgileri Kopyala</button>
-            <button class="btn btn-outline" onclick="copyText(this, 'TR110000000000000000000003', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+            <button class="btn btn-primary-iban" onclick="copyText(this, 'TR110000000000000000000003', 'IBAN Kopyalandı!')">💳 1. IBAN'ı Kopyala</button>
+            <button class="btn btn-outline-alici" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">👤 2. Alıcı Adını Kopyala</button>
+            <button class="btn btn-gold-all" onclick="copyAllInfo(this, 'Türkiye İş Bankası', 'TR110000000000000000000003')">📋 3. Tüm Bilgileri Kopyala</button>
           </div>
         </div>
       </div>
 
       <!-- 3. TOPTAN & KURUMSAL SATIŞ OFİSİ BİLGİLERİ -->
       <div id="content-toptan" class="branch-data hidden">
-        <div class="alici-card">
-          <div class="alici-label">Alıcı / Hesap Sahibi</div>
-          <div class="alici-title">Sağlam Mücevherat Kuyumculuk</div>
-          <button class="btn btn-secondary" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">Alıcı Adını Kopyala</button>
-        </div>
-
         <!-- Ziraat -->
         <div class="bank-card">
           <div class="bank-header">
@@ -538,8 +505,9 @@
           </div>
           <div class="iban-box">TR33 0000 0000 0000 0000 0000 01</div>
           <div class="btn-group">
-            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR330000000000000000000001')">📋 Tüm Bilgileri Kopyala</button>
-            <button class="btn btn-outline" onclick="copyText(this, 'TR330000000000000000000001', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+            <button class="btn btn-primary-iban" onclick="copyText(this, 'TR330000000000000000000001', 'IBAN Kopyalandı!')">💳 1. IBAN'ı Kopyala</button>
+            <button class="btn btn-outline-alici" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">👤 2. Alıcı Adını Kopyala</button>
+            <button class="btn btn-gold-all" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR330000000000000000000001')">📋 3. Tüm Bilgileri Kopyala</button>
           </div>
         </div>
 
@@ -555,8 +523,9 @@
           </div>
           <div class="iban-box">TR33 0000 0000 0000 0000 0000 02</div>
           <div class="btn-group">
-            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Halkbank', 'TR330000000000000000000002')">📋 Tüm Bilgileri Kopyala</button>
-            <button class="btn btn-outline" onclick="copyText(this, 'TR330000000000000000000002', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+            <button class="btn btn-primary-iban" onclick="copyText(this, 'TR330000000000000000000002', 'IBAN Kopyalandı!')">💳 1. IBAN'ı Kopyala</button>
+            <button class="btn btn-outline-alici" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">👤 2. Alıcı Adını Kopyala</button>
+            <button class="btn btn-gold-all" onclick="copyAllInfo(this, 'Halkbank', 'TR330000000000000000000002')">📋 3. Tüm Bilgileri Kopyala</button>
           </div>
         </div>
 
@@ -572,8 +541,9 @@
           </div>
           <div class="iban-box">TR33 0000 0000 0000 0000 0000 03</div>
           <div class="btn-group">
-            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Türkiye İş Bankası', 'TR330000000000000000000003')">📋 Tüm Bilgileri Kopyala</button>
-            <button class="btn btn-outline" onclick="copyText(this, 'TR330000000000000000000003', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+            <button class="btn btn-primary-iban" onclick="copyText(this, 'TR330000000000000000000003', 'IBAN Kopyalandı!')">💳 1. IBAN'ı Kopyala</button>
+            <button class="btn btn-outline-alici" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">👤 2. Alıcı Adını Kopyala</button>
+            <button class="btn btn-gold-all" onclick="copyAllInfo(this, 'Türkiye İş Bankası', 'TR330000000000000000000003')">📋 3. Tüm Bilgileri Kopyala</button>
           </div>
         </div>
       </div>
@@ -601,7 +571,6 @@
       document.getElementById('step-selection').classList.add('hidden');
       document.getElementById('step-details').classList.remove('hidden');
 
-      // Vurgulu banner başlığını dinamik güncelle
       document.getElementById('banner-branch-title').innerText = branchTitle;
 
       document.querySelectorAll('.branch-data').forEach(el => el.classList.add('hidden'));
@@ -629,11 +598,26 @@
       });
     }
 
+    // ALTERNATİF A: Banka alan adlarıyla birebir eşleşen rehber şablonu
     function copyAllInfo(btn, bankName, iban) {
-      const fullText = `Alıcı: Sağlam Mücevherat Kuyumculuk\nBanka: ${bankName}\nIBAN: ${iban}\nAçıklama: 11 Haneli TC Kimlik Numaranız - Altın Alımı (Lütfen tutar veya TL yazmayınız)`;
+      const fullText = 
+`🏛️ SAĞLAM MÜCEVHERAT | HAVALE/EFT BİLGİLERİ
+🏦 Banka: ${bankName}
+──────────────────────
+💳 1. IBAN ALANINA:
+${iban}
+──────────────────────
+👤 2. ALICI (AD SOYAD / UNVAN) KISMINA:
+Sağlam Mücevherat Kuyumculuk
+──────────────────────
+✍️ 3. AÇIKLAMA KISMINA:
+11 Haneli TC Kimlik Numaranız - Altın Alımı
+──────────────────────
+⛔ ÖNEMLİ: Açıklamaya kesinlikle TL veya tutar yazmayınız!`;
+
       navigator.clipboard.writeText(fullText).then(() => {
         const originalText = btn.innerText;
-        btn.innerText = "✓ Tüm Bilgiler Kopyalandı!";
+        btn.innerText = "✓ 3. Tüm Bilgiler Kopyalandı!";
         btn.classList.add("copied");
         setTimeout(() => {
           btn.innerText = originalText;
