@@ -60,7 +60,7 @@
       font-weight: 500;
     }
 
-    /* HOŞ GELDİNİZ & GÜVEN VE KALİTENİN ADRESİ ALANI */
+    /* GÜVEN VE KALİTE ROZETİ */
     .brand-motto-box {
       margin-top: 10px;
       background: #fffdf5;
@@ -134,7 +134,7 @@
       padding-left: 8px;
     }
 
-    /* MOBİL UYGULAMA VİTRİNİ */
+    /* MOBİL UYGULAMA ALANI */
     .app-section {
       margin-top: 24px;
       background: linear-gradient(145deg, #0f172a, #1e293b);
@@ -289,31 +289,24 @@
       margin-bottom: 10px;
     }
 
-    /* RESMİ KURUMSAL BANKA LOGOLARI */
+    /* ORİJİNAL LOGO ÇERÇEVESİ (BEYAZ ZEMİN & DÜZGÜN BOYUTLANDIRMA) */
     .bank-logo-box {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       border-radius: 10px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      padding: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      border: 1px solid rgba(0,0,0,0.06);
+      padding: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
-    .logo-ziraat {
-      background: #e11d48;
-    }
-    .logo-halkbank {
-      background: #004f9e;
-    }
-    .logo-isbank {
-      background: #002b66;
-    }
-    .bank-logo-box svg {
-      width: 100%;
-      height: 100%;
+    .bank-logo-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       display: block;
     }
 
@@ -554,12 +547,8 @@
         <!-- Ziraat Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box logo-ziraat">
-              <!-- Ziraat Bankası Resmi Başak Logosu -->
-              <svg viewBox="0 0 100 100" fill="none">
-                <path d="M50 8C50 8 47 25 36 33C25 41 12 40 12 40C12 40 23 50 35 48C45 46 48 58 48 58C48 58 43 72 32 78C21 84 10 82 10 82C10 82 23 91 38 86C50 82 50 94 50 94C50 94 50 82 62 86C77 91 90 82 90 82C90 82 79 84 68 78C57 72 52 58 52 58C52 58 55 46 65 48C77 50 88 40 88 40C88 40 75 41 64 33C53 25 50 8 50 8Z" fill="#ffffff"/>
-                <path d="M50 18V88" stroke="#e11d48" stroke-width="4" stroke-linecap="round"/>
-              </svg>
+            <div class="bank-logo-box">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Ziraat_Bankas%C4%B1_logo.svg/512px-Ziraat_Bankas%C4%B1_logo.svg.png" alt="Ziraat Bankası Logo">
             </div>
             <span class="bank-name">Ziraat Bankası</span>
           </div>
@@ -574,14 +563,8 @@
         <!-- Halkbank -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box logo-halkbank">
-              <!-- Halkbank Resmi Geometrik H Amblemi -->
-              <svg viewBox="0 0 100 100" fill="none">
-                <path d="M16 16H38V84H16V16Z" fill="#ffffff"/>
-                <path d="M62 16H84V84H62V16Z" fill="#ffffff"/>
-                <path d="M38 38H62V62H38V38Z" fill="#38bdf8"/>
-                <path d="M38 38L62 62" stroke="#ffffff" stroke-width="4"/>
-              </svg>
+            <div class="bank-logo-box">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Halkbank_logo.svg/512px-Halkbank_logo.svg.png" alt="Halkbank Logo">
             </div>
             <span class="bank-name">Halkbank</span>
           </div>
@@ -596,12 +579,8 @@
         <!-- İş Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box logo-isbank">
-              <!-- Türkiye İş Bankası Resmi İŞ Amblemi -->
-              <svg viewBox="0 0 100 100" fill="none">
-                <circle cx="50" cy="20" r="9" fill="#ffffff"/>
-                <path d="M32 36H68L50 56L68 84H32L50 56L32 36Z" fill="#ffffff"/>
-              </svg>
+            <div class="bank-logo-box">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/T%C3%BCrkiye_%C4%B0%C5%9F_Bankas%C4%B1_logo.svg/512px-T%C3%BCrkiye_%C4%B0%C5%9F_Bankas%C4%B1_logo.svg.png" alt="Türkiye İş Bankası Logo">
             </div>
             <span class="bank-name">Türkiye İş Bankası</span>
           </div>
@@ -619,11 +598,8 @@
         <!-- Ziraat -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box logo-ziraat">
-              <svg viewBox="0 0 100 100" fill="none">
-                <path d="M50 8C50 8 47 25 36 33C25 41 12 40 12 40C12 40 23 50 35 48C45 46 48 58 48 58C48 58 43 72 32 78C21 84 10 82 10 82C10 82 23 91 38 86C50 82 50 94 50 94C50 94 50 82 62 86C77 91 90 82 90 82C90 82 79 84 68 78C57 72 52 58 52 58C52 58 55 46 65 48C77 50 88 40 88 40C88 40 75 41 64 33C53 25 50 8 50 8Z" fill="#ffffff"/>
-                <path d="M50 18V88" stroke="#e11d48" stroke-width="4" stroke-linecap="round"/>
-              </svg>
+            <div class="bank-logo-box">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Ziraat_Bankas%C4%B1_logo.svg/512px-Ziraat_Bankas%C4%B1_logo.svg.png" alt="Ziraat Bankası Logo">
             </div>
             <span class="bank-name">Ziraat Bankası</span>
           </div>
@@ -638,13 +614,8 @@
         <!-- Halkbank -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box logo-halkbank">
-              <svg viewBox="0 0 100 100" fill="none">
-                <path d="M16 16H38V84H16V16Z" fill="#ffffff"/>
-                <path d="M62 16H84V84H62V16Z" fill="#ffffff"/>
-                <path d="M38 38H62V62H38V38Z" fill="#38bdf8"/>
-                <path d="M38 38L62 62" stroke="#ffffff" stroke-width="4"/>
-              </svg>
+            <div class="bank-logo-box">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Halkbank_logo.svg/512px-Halkbank_logo.svg.png" alt="Halkbank Logo">
             </div>
             <span class="bank-name">Halkbank</span>
           </div>
@@ -659,11 +630,8 @@
         <!-- İş Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box logo-isbank">
-              <svg viewBox="0 0 100 100" fill="none">
-                <circle cx="50" cy="20" r="9" fill="#ffffff"/>
-                <path d="M32 36H68L50 56L68 84H32L50 56L32 36Z" fill="#ffffff"/>
-              </svg>
+            <div class="bank-logo-box">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/T%C3%BCrkiye_%C4%B0%C5%9F_Bankas%C4%B1_logo.svg/512px-T%C3%BCrkiye_%C4%B0%C5%9F_Bankas%C4%B1_logo.svg.png" alt="Türkiye İş Bankası Logo">
             </div>
             <span class="bank-name">Türkiye İş Bankası</span>
           </div>
@@ -681,11 +649,8 @@
         <!-- Ziraat -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box logo-ziraat">
-              <svg viewBox="0 0 100 100" fill="none">
-                <path d="M50 8C50 8 47 25 36 33C25 41 12 40 12 40C12 40 23 50 35 48C45 46 48 58 48 58C48 58 43 72 32 78C21 84 10 82 10 82C10 82 23 91 38 86C50 82 50 94 50 94C50 94 50 82 62 86C77 91 90 82 90 82C90 82 79 84 68 78C57 72 52 58 52 58C52 58 55 46 65 48C77 50 88 40 88 40C88 40 75 41 64 33C53 25 50 8 50 8Z" fill="#ffffff"/>
-                <path d="M50 18V88" stroke="#e11d48" stroke-width="4" stroke-linecap="round"/>
-              </svg>
+            <div class="bank-logo-box">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Ziraat_Bankas%C4%B1_logo.svg/512px-Ziraat_Bankas%C4%B1_logo.svg.png" alt="Ziraat Bankası Logo">
             </div>
             <span class="bank-name">Ziraat Bankası</span>
           </div>
@@ -700,13 +665,8 @@
         <!-- Halkbank -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box logo-halkbank">
-              <svg viewBox="0 0 100 100" fill="none">
-                <path d="M16 16H38V84H16V16Z" fill="#ffffff"/>
-                <path d="M62 16H84V84H62V16Z" fill="#ffffff"/>
-                <path d="M38 38H62V62H38V38Z" fill="#38bdf8"/>
-                <path d="M38 38L62 62" stroke="#ffffff" stroke-width="4"/>
-              </svg>
+            <div class="bank-logo-box">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Halkbank_logo.svg/512px-Halkbank_logo.svg.png" alt="Halkbank Logo">
             </div>
             <span class="bank-name">Halkbank</span>
           </div>
@@ -721,11 +681,8 @@
         <!-- İş Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box logo-isbank">
-              <svg viewBox="0 0 100 100" fill="none">
-                <circle cx="50" cy="20" r="9" fill="#ffffff"/>
-                <path d="M32 36H68L50 56L68 84H32L50 56L32 36Z" fill="#ffffff"/>
-              </svg>
+            <div class="bank-logo-box">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/T%C3%BCrkiye_%C4%B0%C5%9F_Bankas%C4%B1_logo.svg/512px-T%C3%BCrkiye_%C4%B0%C5%9F_Bankas%C4%B1_logo.svg.png" alt="Türkiye İş Bankası Logo">
             </div>
             <span class="bank-name">Türkiye İş Bankası</span>
           </div>
