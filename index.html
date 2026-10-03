@@ -125,44 +125,76 @@
       gap: 12px;
       margin-bottom: 12px;
     }
+    
+    /* ŞUBE BUTONLARI */
     .branch-card-btn {
       background: #fafaf9;
-      border: 1.5px solid #e2e8f0;
+      border: 1.8px solid #e2e8f0;
       border-radius: 14px;
       padding: 14px 16px;
-      text-align: left;
+      text-align: center;
       cursor: pointer;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      transition: all 0.2s ease;
+      justify-content: center;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       -webkit-tap-highlight-color: transparent;
       flex: 1;
-      max-height: 78px;
+      max-height: 82px;
+      position: relative;
     }
-    .branch-card-btn:hover, .branch-card-btn:active {
-      border-color: #c5a059;
-      background: #fffdf5;
+
+    .branch-card-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* SEÇİLEN BUTON DURUMU (KULLANICININ FARK ETMESİ İÇİN VURGULU) */
+    .branch-card-btn.selected-branch {
+      border: 2.2px solid #b4861f !important;
+      background: #fffdf0 !important;
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.22), 0 8px 18px rgba(180, 134, 31, 0.2) !important;
       transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(197, 160, 89, 0.18);
     }
-    .branch-card-title {
-      font-size: 15.5px;
+
+    .branch-card-btn.selected-branch .branch-card-title {
+      color: #78350f !important;
+    }
+
+    /* Butonun üstündeki "Seçildi" onay etiketi */
+    .branch-check-badge {
+      display: none;
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      background: #16a34a;
+      color: #ffffff;
+      font-size: 10px;
       font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .branch-card-btn.selected-branch .branch-check-badge {
+      display: inline-block;
+    }
+
+    .branch-card-title {
+      font-size: 17px;
+      font-weight: 900;
       color: #0f172a;
+      letter-spacing: 0.4px;
       line-height: 1.25;
       margin-bottom: 3px;
+      text-align: center;
+      transition: color 0.2s;
     }
     .branch-card-desc {
       font-size: 12px;
       color: #64748b;
-      font-weight: 500;
-    }
-    .arrow-icon {
-      font-size: 22px;
-      color: #c5a059;
-      font-weight: bold;
-      padding-left: 8px;
+      font-weight: 600;
+      text-align: center;
     }
 
     /* MOBİL UYGULAMA ALANI */
@@ -439,37 +471,31 @@
       </div>
     </div>
 
-    <!-- 1. AŞAMA: EKRANI TAM DOLDURAN ŞUBE SEÇİMİ VE MOBİL UYGULAMA (SIFIR KAYDIRMA) -->
+    <!-- 1. AŞAMA: ORTALANMIŞ VE TIKLANINCA DEĞİŞEN ŞUBE SEÇİMİ -->
     <div id="step-selection">
       
       <div class="selection-hint">İşlem Yapılacak Şube:</div>
       <div class="branch-list">
         
         <!-- 1. MERKEZ -->
-        <div class="branch-card-btn" onclick="openBranch('merkez', 'Merkez Mağaza (Taşmağazalar)')">
-          <div>
-            <div class="branch-card-title">Merkez Mağaza</div>
-            <div class="branch-card-desc">Taşmağazalar / Erzurum Merkez</div>
-          </div>
-          <span class="arrow-icon">›</span>
+        <div id="btn-merkez" class="branch-card-btn" onclick="openBranch('merkez', 'Merkez Mağaza (Taşmağazalar)', this)">
+          <span class="branch-check-badge">✓ Seçildi</span>
+          <div class="branch-card-title">Merkez Mağaza</div>
+          <div class="branch-card-desc">Taşmağazalar / Erzurum Merkez</div>
         </div>
 
         <!-- 2. HORASAN -->
-        <div class="branch-card-btn" onclick="openBranch('horasan', 'Horasan Mağazası (İlçe Mağazamız)')">
-          <div>
-            <div class="branch-card-title">Horasan Mağazası</div>
-            <div class="branch-card-desc">İlçe Mağazamızdan Yapılan İşlemler</div>
-          </div>
-          <span class="arrow-icon">›</span>
+        <div id="btn-horasan" class="branch-card-btn" onclick="openBranch('horasan', 'Horasan Mağazası (İlçe Mağazamız)', this)">
+          <span class="branch-check-badge">✓ Seçildi</span>
+          <div class="branch-card-title">Horasan Mağazası</div>
+          <div class="branch-card-desc">İlçe Mağazamızdan Yapılan İşlemler</div>
         </div>
 
         <!-- 3. TOPTAN -->
-        <div class="branch-card-btn" onclick="openBranch('toptan', 'Toptan & Kurumsal Satış Ofisi')">
-          <div>
-            <div class="branch-card-title">Toptan & Kurumsal Satış Ofisi</div>
-            <div class="branch-card-desc">Yalnızca Toptan & Kurumsal İşlemler</div>
-          </div>
-          <span class="arrow-icon">›</span>
+        <div id="btn-toptan" class="branch-card-btn" onclick="openBranch('toptan', 'Toptan & Kurumsal Satış Ofisi', this)">
+          <span class="branch-check-badge">✓ Seçildi</span>
+          <div class="branch-card-title">Toptan & Kurumsal Satış Ofisi</div>
+          <div class="branch-card-desc">Yalnızca Toptan & Kurumsal İşlemler</div>
         </div>
 
       </div>
@@ -718,15 +744,24 @@
   </div>
 
   <script>
-    function openBranch(branchId, branchTitle) {
-      document.getElementById('step-selection').classList.add('hidden');
-      document.getElementById('step-details').classList.remove('hidden');
+    function openBranch(branchId, branchTitle, btnElement) {
+      // 1. Önceki seçili butonu temizle ve tıklanan butonu kalıcı olarak seçili işaretle
+      document.querySelectorAll('.branch-card-btn').forEach(el => el.classList.remove('selected-branch'));
+      if (btnElement) {
+        btnElement.classList.add('selected-branch');
+      }
 
-      document.getElementById('banner-branch-title').innerText = branchTitle;
+      // 2. Müşterinin dokunmayı algılaması için hafif bir animasyon beklemesi (180ms)
+      setTimeout(() => {
+        document.getElementById('step-selection').classList.add('hidden');
+        document.getElementById('step-details').classList.remove('hidden');
 
-      document.querySelectorAll('.branch-data').forEach(el => el.classList.add('hidden'));
-      document.getElementById('content-' + branchId).classList.remove('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.getElementById('banner-branch-title').innerText = branchTitle;
+
+        document.querySelectorAll('.branch-data').forEach(el => el.classList.add('hidden'));
+        document.getElementById('content-' + branchId).classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 180);
     }
 
     function goBack() {
