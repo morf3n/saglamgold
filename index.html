@@ -60,7 +60,7 @@
       font-weight: 500;
     }
 
-    /* GÜVEN VE KALİTE ROZETİ */
+    /* GÜVEN VE KALİTE KARŞILAMA ROZETİ */
     .brand-motto-box {
       margin-top: 10px;
       background: #fffdf5;
@@ -289,28 +289,25 @@
       margin-bottom: 10px;
     }
 
-    /* BİREBİR ORİJİNAL BANKA LOGOLARI */
+    /* EN BAŞTAKİ SORUNSUZ VE SADE LOGO KUTULARI */
     .bank-logo-box {
-      width: 44px;
-      height: 44px;
+      width: 38px;
+      height: 38px;
       border-radius: 10px;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
     }
-    .bank-logo-box.isbank-bg {
-      background: #002d9c;
-      border-color: #002d9c;
+    .logo-ziraat {
+      background: #e11d48;
     }
-    .bank-logo-box svg {
-      width: 82%;
-      height: 82%;
-      display: block;
+    .logo-halkbank {
+      background: #0284c7;
+    }
+    .logo-isbank {
+      background: #1e3a8a;
     }
 
     .bank-name {
@@ -333,7 +330,7 @@
       margin-bottom: 10px;
     }
 
-    /* Sıralı Buton Grubu */
+    /* Buton Grubu */
     .btn-group {
       display: flex;
       flex-direction: column;
@@ -459,6 +456,7 @@
       <div class="gold-divider"></div>
       <p class="sub-title">Banka Hesap ve Havale/EFT Bilgileri</p>
 
+      <!-- GÜVEN VE KALİTE ROZETİ -->
       <div class="brand-motto-box">
         <div class="motto-tag">✨ Güven ve Kalitenin Adresi</div>
         <div class="welcome-note">Hoş geldiniz, iyi alışverişler dileriz.</div>
@@ -471,7 +469,7 @@
       <div class="selection-hint">İşlem Yapılacak Şube:</div>
       <div class="branch-list">
         
-        <!-- 1. MERKEZ -->
+        <!-- 1. SIRA: MERKEZ MAĞAZA -->
         <div class="branch-card-btn" onclick="openBranch('merkez', 'Merkez Mağaza (Taşmağazalar)')">
           <div>
             <div class="branch-card-title">Merkez Mağaza</div>
@@ -480,7 +478,7 @@
           <span class="arrow-icon">›</span>
         </div>
 
-        <!-- 2. HORASAN -->
+        <!-- 2. SIRA: HORASAN MAĞAZASI -->
         <div class="branch-card-btn" onclick="openBranch('horasan', 'Horasan Mağazası (İlçe Mağazamız)')">
           <div>
             <div class="branch-card-title">Horasan Mağazası</div>
@@ -489,7 +487,7 @@
           <span class="arrow-icon">›</span>
         </div>
 
-        <!-- 3. TOPTAN -->
+        <!-- 3. SIRA: TOPTAN & KURUMSAL SATIŞ OFİSİ -->
         <div class="branch-card-btn" onclick="openBranch('toptan', 'Toptan & Kurumsal Satış Ofisi')">
           <div>
             <div class="branch-card-title">Toptan & Kurumsal Satış Ofisi</div>
@@ -507,6 +505,7 @@
         <div class="app-section-subtitle">Piyasa anlık fiyatlarını takip etmek için ücretsiz indirin</div>
         
         <div class="app-buttons">
+          <!-- App Store -->
           <a href="https://apps.apple.com/tr/app/sa%C4%9Flam-alt%C4%B1n/id6469431880" target="_blank" rel="noopener noreferrer" class="app-badge-btn">
             <svg viewBox="0 0 24 24">
               <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.87-.9.04-2.01.61-2.66 1.36-.58.67-1.09 1.74-.96 2.78 1.02.08 2.08-.53 2.7-1.27z"/>
@@ -517,6 +516,7 @@
             </div>
           </a>
 
+          <!-- Google Play -->
           <a href="https://play.google.com/store/apps/details?id=com.erz.saglamaltin&hl=tr" target="_blank" rel="noopener noreferrer" class="app-badge-btn">
             <svg viewBox="0 0 24 24">
               <path d="M3.609 1.814L13.793 12 3.61 22.186a2.046 2.046 0 0 1-.61-1.468V3.282c0-.573.227-1.097.609-1.468zm11.242 11.244l2.562 2.563-12.784 7.38 10.222-9.943zm0-2.116L4.629.999l12.784 7.38-2.562 2.563zm1.484 1.058l3.666 2.117c.995.575.995 1.517 0 2.091l-3.666 2.117-2.34-2.34 2.34-1.985z"/>
@@ -533,6 +533,7 @@
 
     <!-- 2. AŞAMA: HESAP DETAY EKRANI -->
     <div id="step-details" class="hidden">
+      <!-- Vurgulu Şube Teyit Kartı -->
       <div class="branch-confirmation-card">
         <div class="confirmation-pin-badge">📍 Seçilen Şube</div>
         <div class="confirmation-branch-name" id="banner-branch-title">Şube Adı</div>
@@ -545,22 +546,14 @@
         </button>
       </div>
 
-      <!-- 1. MERKEZ MAĞAZA -->
+      <!-- 1. MERKEZ MAĞAZA BİLGİLERİ -->
       <div id="content-merkez" class="branch-data hidden">
         <!-- Ziraat Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box">
-              <!-- Orijinal T.C. Ziraat Bankası Başak Amblemi -->
-              <svg viewBox="0 0 200 300" fill="none">
-                <path d="M96 28 L96 72 L86 64 L86 44 L72 32 Z" fill="#e11d48"/>
-                <path d="M104 28 L104 72 L114 64 L114 44 L128 32 Z" fill="#e11d48"/>
-                <path d="M96 82 L96 150 L66 120 C60 114 60 96 66 90 L88 74 Z" fill="#e11d48"/>
-                <path d="M104 82 L104 150 L134 120 C140 114 140 96 134 90 L112 74 Z" fill="#e11d48"/>
-                <path d="M96 160 L96 220 L66 190 C60 184 60 166 66 160 L96 132 Z" fill="#c8143a"/>
-                <path d="M104 160 L104 220 L134 190 C140 184 140 166 134 160 L104 132 Z" fill="#e11d48"/>
-                <path d="M96 228 L96 280 L66 250 L66 226 L96 200 Z" fill="#e11d48"/>
-                <path d="M104 228 L104 280 L134 250 L134 226 L104 200 Z" fill="#c8143a"/>
+            <div class="bank-logo-box logo-ziraat">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/>
               </svg>
             </div>
             <span class="bank-name">Ziraat Bankası</span>
@@ -576,24 +569,11 @@
         <!-- Halkbank -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box">
-              <!-- Orijinal Çizgili Dairesel Halkbank H Amblemi -->
-              <svg viewBox="0 0 100 100" fill="#004f9e">
-                <rect x="0" y="24" width="3.5" height="52"/>
-                <rect x="7" y="16" width="3.5" height="68"/>
-                <rect x="14" y="8" width="3.5" height="84"/>
-                <rect x="21" y="0" width="3.5" height="100"/>
-                <rect x="28" y="8" width="3.5" height="84"/>
-                <rect x="68.5" y="8" width="3.5" height="84"/>
-                <rect x="75.5" y="0" width="3.5" height="100"/>
-                <rect x="82.5" y="8" width="3.5" height="84"/>
-                <rect x="89.5" y="16" width="3.5" height="68"/>
-                <rect x="96.5" y="24" width="3.5" height="52"/>
-                <rect x="21" y="47" width="58" height="6"/>
-                <path d="M35 16 H65 V43 H58 V23 H42 V43 H35 Z"/>
-                <path d="M42 27 H58 V39 H51 V33 H49 V39 H42 Z"/>
-                <path d="M35 84 H65 V57 H58 V77 H42 V57 H35 Z"/>
-                <path d="M42 73 H58 V61 H51 V67 H49 V61 H42 Z"/>
+            <div class="bank-logo-box logo-halkbank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M5 4h4v16H5z" fill="#ffffff"/>
+                <path d="M15 4h4v16h-4z" fill="#ffffff"/>
+                <path d="M9 10h6v4H9z" fill="#38bdf8"/>
               </svg>
             </div>
             <span class="bank-name">Halkbank</span>
@@ -609,13 +589,10 @@
         <!-- İş Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box isbank-bg">
-              <!-- Orijinal Noktalı & Kuyruklu İŞ Monogramı -->
-              <svg viewBox="0 0 100 100" fill="#ffffff">
-                <circle cx="50" cy="16" r="4.2"/>
-                <path d="M42 24 H58 V27 H54.5 V65 H58 V68 H42 V65 H45.5 V27 H42 Z"/>
-                <path d="M34 68 C34 64 36.5 61 40 61 L42 63 C39 65 37.5 67 37.5 70 C37.5 72 40 73.5 45 74.5 C55 77 64 74 64 63 C64 54 55 49 46 44 C38 39 35 34 35 28 C35 20 42 16 52 16 C57 16 62 18 64 21 L62 25 C59 23 55 21 51 21 C44 21 40 24 40 28 C40 33 46 37 53 41 C62 46 67 52 67 61 C67 73 57 80 44 80 C36 80 34 74 34 68 Z"/>
-                <path d="M50 78 C54 78 55 83 52 87 C49 90 48 92 48 94 C53 90 56 87 56 83 C56 79 53 76 49 76 Z"/>
+            <div class="bank-logo-box logo-isbank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="4.5" r="2.2" fill="#ffffff"/>
+                <path d="M7 8.5h10l-4.5 4.5 4.5 5.5H7l4.5-5.5-4.5-4.5z" fill="#ffffff"/>
               </svg>
             </div>
             <span class="bank-name">Türkiye İş Bankası</span>
@@ -629,21 +606,14 @@
         </div>
       </div>
 
-      <!-- 2. HORASAN MAĞAZASI -->
+      <!-- 2. HORASAN MAĞAZASI BİLGİLERİ -->
       <div id="content-horasan" class="branch-data hidden">
         <!-- Ziraat -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box">
-              <svg viewBox="0 0 200 300" fill="none">
-                <path d="M96 28 L96 72 L86 64 L86 44 L72 32 Z" fill="#e11d48"/>
-                <path d="M104 28 L104 72 L114 64 L114 44 L128 32 Z" fill="#e11d48"/>
-                <path d="M96 82 L96 150 L66 120 C60 114 60 96 66 90 L88 74 Z" fill="#e11d48"/>
-                <path d="M104 82 L104 150 L134 120 C140 114 140 96 134 90 L112 74 Z" fill="#e11d48"/>
-                <path d="M96 160 L96 220 L66 190 C60 184 60 166 66 160 L96 132 Z" fill="#c8143a"/>
-                <path d="M104 160 L104 220 L134 190 C140 184 140 166 134 160 L104 132 Z" fill="#e11d48"/>
-                <path d="M96 228 L96 280 L66 250 L66 226 L96 200 Z" fill="#e11d48"/>
-                <path d="M104 228 L104 280 L134 250 L134 226 L104 200 Z" fill="#c8143a"/>
+            <div class="bank-logo-box logo-ziraat">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/>
               </svg>
             </div>
             <span class="bank-name">Ziraat Bankası</span>
@@ -659,23 +629,11 @@
         <!-- Halkbank -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box">
-              <svg viewBox="0 0 100 100" fill="#004f9e">
-                <rect x="0" y="24" width="3.5" height="52"/>
-                <rect x="7" y="16" width="3.5" height="68"/>
-                <rect x="14" y="8" width="3.5" height="84"/>
-                <rect x="21" y="0" width="3.5" height="100"/>
-                <rect x="28" y="8" width="3.5" height="84"/>
-                <rect x="68.5" y="8" width="3.5" height="84"/>
-                <rect x="75.5" y="0" width="3.5" height="100"/>
-                <rect x="82.5" y="8" width="3.5" height="84"/>
-                <rect x="89.5" y="16" width="3.5" height="68"/>
-                <rect x="96.5" y="24" width="3.5" height="52"/>
-                <rect x="21" y="47" width="58" height="6"/>
-                <path d="M35 16 H65 V43 H58 V23 H42 V43 H35 Z"/>
-                <path d="M42 27 H58 V39 H51 V33 H49 V39 H42 Z"/>
-                <path d="M35 84 H65 V57 H58 V77 H42 V57 H35 Z"/>
-                <path d="M42 73 H58 V61 H51 V67 H49 V61 H42 Z"/>
+            <div class="bank-logo-box logo-halkbank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M5 4h4v16H5z" fill="#ffffff"/>
+                <path d="M15 4h4v16h-4z" fill="#ffffff"/>
+                <path d="M9 10h6v4H9z" fill="#38bdf8"/>
               </svg>
             </div>
             <span class="bank-name">Halkbank</span>
@@ -691,12 +649,10 @@
         <!-- İş Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box isbank-bg">
-              <svg viewBox="0 0 100 100" fill="#ffffff">
-                <circle cx="50" cy="16" r="4.2"/>
-                <path d="M42 24 H58 V27 H54.5 V65 H58 V68 H42 V65 H45.5 V27 H42 Z"/>
-                <path d="M34 68 C34 64 36.5 61 40 61 L42 63 C39 65 37.5 67 37.5 70 C37.5 72 40 73.5 45 74.5 C55 77 64 74 64 63 C64 54 55 49 46 44 C38 39 35 34 35 28 C35 20 42 16 52 16 C57 16 62 18 64 21 L62 25 C59 23 55 21 51 21 C44 21 40 24 40 28 C40 33 46 37 53 41 C62 46 67 52 67 61 C67 73 57 80 44 80 C36 80 34 74 34 68 Z"/>
-                <path d="M50 78 C54 78 55 83 52 87 C49 90 48 92 48 94 C53 90 56 87 56 83 C56 79 53 76 49 76 Z"/>
+            <div class="bank-logo-box logo-isbank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="4.5" r="2.2" fill="#ffffff"/>
+                <path d="M7 8.5h10l-4.5 4.5 4.5 5.5H7l4.5-5.5-4.5-4.5z" fill="#ffffff"/>
               </svg>
             </div>
             <span class="bank-name">Türkiye İş Bankası</span>
@@ -710,21 +666,14 @@
         </div>
       </div>
 
-      <!-- 3. TOPTAN & KURUMSAL -->
+      <!-- 3. TOPTAN & KURUMSAL SATIŞ OFİSİ BİLGİLERİ -->
       <div id="content-toptan" class="branch-data hidden">
         <!-- Ziraat -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box">
-              <svg viewBox="0 0 200 300" fill="none">
-                <path d="M96 28 L96 72 L86 64 L86 44 L72 32 Z" fill="#e11d48"/>
-                <path d="M104 28 L104 72 L114 64 L114 44 L128 32 Z" fill="#e11d48"/>
-                <path d="M96 82 L96 150 L66 120 C60 114 60 96 66 90 L88 74 Z" fill="#e11d48"/>
-                <path d="M104 82 L104 150 L134 120 C140 114 140 96 134 90 L112 74 Z" fill="#e11d48"/>
-                <path d="M96 160 L96 220 L66 190 C60 184 60 166 66 160 L96 132 Z" fill="#c8143a"/>
-                <path d="M104 160 L104 220 L134 190 C140 184 140 166 134 160 L104 132 Z" fill="#e11d48"/>
-                <path d="M96 228 L96 280 L66 250 L66 226 L96 200 Z" fill="#e11d48"/>
-                <path d="M104 228 L104 280 L134 250 L134 226 L104 200 Z" fill="#c8143a"/>
+            <div class="bank-logo-box logo-ziraat">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/>
               </svg>
             </div>
             <span class="bank-name">Ziraat Bankası</span>
@@ -740,23 +689,11 @@
         <!-- Halkbank -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box">
-              <svg viewBox="0 0 100 100" fill="#004f9e">
-                <rect x="0" y="24" width="3.5" height="52"/>
-                <rect x="7" y="16" width="3.5" height="68"/>
-                <rect x="14" y="8" width="3.5" height="84"/>
-                <rect x="21" y="0" width="3.5" height="100"/>
-                <rect x="28" y="8" width="3.5" height="84"/>
-                <rect x="68.5" y="8" width="3.5" height="84"/>
-                <rect x="75.5" y="0" width="3.5" height="100"/>
-                <rect x="82.5" y="8" width="3.5" height="84"/>
-                <rect x="89.5" y="16" width="3.5" height="68"/>
-                <rect x="96.5" y="24" width="3.5" height="52"/>
-                <rect x="21" y="47" width="58" height="6"/>
-                <path d="M35 16 H65 V43 H58 V23 H42 V43 H35 Z"/>
-                <path d="M42 27 H58 V39 H51 V33 H49 V39 H42 Z"/>
-                <path d="M35 84 H65 V57 H58 V77 H42 V57 H35 Z"/>
-                <path d="M42 73 H58 V61 H51 V67 H49 V61 H42 Z"/>
+            <div class="bank-logo-box logo-halkbank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M5 4h4v16H5z" fill="#ffffff"/>
+                <path d="M15 4h4v16h-4z" fill="#ffffff"/>
+                <path d="M9 10h6v4H9z" fill="#38bdf8"/>
               </svg>
             </div>
             <span class="bank-name">Halkbank</span>
@@ -772,12 +709,10 @@
         <!-- İş Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-box isbank-bg">
-              <svg viewBox="0 0 100 100" fill="#ffffff">
-                <circle cx="50" cy="16" r="4.2"/>
-                <path d="M42 24 H58 V27 H54.5 V65 H58 V68 H42 V65 H45.5 V27 H42 Z"/>
-                <path d="M34 68 C34 64 36.5 61 40 61 L42 63 C39 65 37.5 67 37.5 70 C37.5 72 40 73.5 45 74.5 C55 77 64 74 64 63 C64 54 55 49 46 44 C38 39 35 34 35 28 C35 20 42 16 52 16 C57 16 62 18 64 21 L62 25 C59 23 55 21 51 21 C44 21 40 24 40 28 C40 33 46 37 53 41 C62 46 67 52 67 61 C67 73 57 80 44 80 C36 80 34 74 34 68 Z"/>
-                <path d="M50 78 C54 78 55 83 52 87 C49 90 48 92 48 94 C53 90 56 87 56 83 C56 79 53 76 49 76 Z"/>
+            <div class="bank-logo-box logo-isbank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="4.5" r="2.2" fill="#ffffff"/>
+                <path d="M7 8.5h10l-4.5 4.5 4.5 5.5H7l4.5-5.5-4.5-4.5z" fill="#ffffff"/>
               </svg>
             </div>
             <span class="bank-name">Türkiye İş Bankası</span>
@@ -791,7 +726,7 @@
         </div>
       </div>
 
-      <!-- AÇIKLAMA KURALI KUTUSU -->
+      <!-- TİRELİ, DİKKAT ÇEKİCİ BİLGİLENDİRME KUTUSU -->
       <div class="warning-box">
         <div class="warning-title">🚨 ÖNEMLİ AÇIKLAMA KURALI</div>
         <div class="warning-rule-red">
