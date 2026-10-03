@@ -108,7 +108,7 @@
       font-weight: bold;
     }
 
-    /* 2. ADIM: SEÇENEK 3 - BELİRGİN VE MERKEZİ ŞUBE TEYİT KARTI */
+    /* 2. ADIM: VURGULU ŞUBE TEYİT KARTI */
     .branch-confirmation-card {
       background: #fffdf5;
       border: 2px solid #f59e0b;
@@ -119,26 +119,23 @@
       box-shadow: 0 4px 12px rgba(245, 158, 11, 0.12);
     }
     .confirmation-pin-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
+      display: inline-block;
       background: #fef3c7;
       color: #92400e;
       font-size: 11.5px;
       font-weight: 800;
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: 20px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .confirmation-branch-name {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 900;
       color: #0f172a;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
     }
     .confirmation-warning-text {
       font-size: 12.5px;
@@ -181,18 +178,29 @@
       gap: 12px;
       margin-bottom: 10px;
     }
-    .bank-logo-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
+    /* Banka Logoları */
+    .bank-logo-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+    .logo-ziraat {
+      background: #e11d48;
+    }
+    .logo-halkbank {
+      background: #0284c7;
+    }
+    .logo-isbank {
+      background: #1e3a8a;
     }
     .bank-name {
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 15.5px;
+      font-weight: 800;
       color: #0f172a;
     }
     .iban-box {
@@ -232,7 +240,6 @@
       gap: 6px;
       text-decoration: none;
     }
-    /* 1. Buton - IBAN */
     .btn-primary-iban {
       background: #0f172a;
       color: #f8fafc;
@@ -240,7 +247,6 @@
     .btn-primary-iban:active {
       background: #1e293b;
     }
-    /* 2. Buton - Alıcı Adı */
     .btn-outline-alici {
       background: #ffffff;
       border: 1.5px solid #cbd5e1;
@@ -249,7 +255,6 @@
     .btn-outline-alici:active {
       background: #f8fafc;
     }
-    /* 3. Buton - Tüm Bilgiler */
     .btn-gold-all {
       background: #fffdf5;
       border: 1.5px solid #c5a059;
@@ -344,7 +349,7 @@
     <div id="step-selection">
       <div class="selection-hint">Lütfen işlem yapacağınız şubeyi seçiniz:</div>
       <div class="branch-list">
-        <div class="branch-card-btn" onclick="openBranch('horasan', 'Horasan Mağazası')">
+        <div class="branch-card-btn" onclick="openBranch('horasan', 'Horasan Mağazası (İlçe Mağazamız)')">
           <div>
             <div class="branch-card-title">Horasan Mağazası</div>
             <div class="branch-card-desc">İlçe Mağazamızdan Yapılan İşlemler</div>
@@ -352,7 +357,7 @@
           <span class="arrow-icon">›</span>
         </div>
 
-        <div class="branch-card-btn" onclick="openBranch('merkez', 'Merkez Mağaza')">
+        <div class="branch-card-btn" onclick="openBranch('merkez', 'Merkez Mağaza (Taşmağazalar)')">
           <div>
             <div class="branch-card-title">Merkez Mağaza</div>
             <div class="branch-card-desc">Taşmağazalar / Erzurum Merkez Şubemiz</div>
@@ -372,7 +377,7 @@
 
     <!-- 2. AŞAMA: HESAP DETAY EKRANI -->
     <div id="step-details" class="hidden">
-      <!-- Vurgulu, Büyük ve Merkezi Şube Teyit Kartı (Seçenek 3) -->
+      <!-- Vurgulu Şube Teyit Kartı -->
       <div class="branch-confirmation-card">
         <div class="confirmation-pin-badge">📍 Seçilen Şube</div>
         <div class="confirmation-branch-name" id="banner-branch-title">Şube Adı</div>
@@ -390,9 +395,9 @@
         <!-- Ziraat -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-icon" style="background:#e11d48;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2v20M8 6c2 1 4 1 4 1s2 0 4-1M7 11c3 1.5 5 1.5 5 1.5s2 0 5-1.5M8 16c2 1 4 1 4 1s2 0 4-1"/>
+            <div class="bank-logo-box logo-ziraat">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/>
               </svg>
             </div>
             <span class="bank-name">Ziraat Bankası</span>
@@ -408,9 +413,11 @@
         <!-- Halkbank -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-icon" style="background:#0284c7;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M6 4h3.5v16H6z" fill="#ffffff"/><path d="M14.5 4H18v16h-3.5z" fill="#ffffff"/><path d="M9 10h6v4H9z" fill="#38bdf8"/>
+            <div class="bank-logo-box logo-halkbank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M5 4h4v16H5z" fill="#ffffff"/>
+                <path d="M15 4h4v16h-4z" fill="#ffffff"/>
+                <path d="M9 10h6v4H9z" fill="#38bdf8"/>
               </svg>
             </div>
             <span class="bank-name">Halkbank</span>
@@ -426,9 +433,10 @@
         <!-- İş Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-icon" style="background:#1e3a8a;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="5" r="2" fill="#ffffff"/><path d="M7 9h10l-5 5 5 5H7l5-5-5-5z" fill="#ffffff"/>
+            <div class="bank-logo-box logo-isbank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="4.5" r="2.2" fill="#ffffff"/>
+                <path d="M7 8.5h10l-4.5 4.5 4.5 5.5H7l4.5-5.5-4.5-4.5z" fill="#ffffff"/>
               </svg>
             </div>
             <span class="bank-name">Türkiye İş Bankası</span>
@@ -447,9 +455,9 @@
         <!-- Ziraat Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-icon" style="background:#e11d48;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2v20M8 6c2 1 4 1 4 1s2 0 4-1M7 11c3 1.5 5 1.5 5 1.5s2 0 5-1.5M8 16c2 1 4 1 4 1s2 0 4-1"/>
+            <div class="bank-logo-box logo-ziraat">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/>
               </svg>
             </div>
             <span class="bank-name">Ziraat Bankası</span>
@@ -465,9 +473,11 @@
         <!-- Halkbank -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-icon" style="background:#0284c7;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M6 4h3.5v16H6z" fill="#ffffff"/><path d="M14.5 4H18v16h-3.5z" fill="#ffffff"/><path d="M9 10h6v4H9z" fill="#38bdf8"/>
+            <div class="bank-logo-box logo-halkbank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M5 4h4v16H5z" fill="#ffffff"/>
+                <path d="M15 4h4v16h-4z" fill="#ffffff"/>
+                <path d="M9 10h6v4H9z" fill="#38bdf8"/>
               </svg>
             </div>
             <span class="bank-name">Halkbank</span>
@@ -483,9 +493,10 @@
         <!-- İş Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-icon" style="background:#1e3a8a;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="5" r="2" fill="#ffffff"/><path d="M7 9h10l-5 5 5 5H7l5-5-5-5z" fill="#ffffff"/>
+            <div class="bank-logo-box logo-isbank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="4.5" r="2.2" fill="#ffffff"/>
+                <path d="M7 8.5h10l-4.5 4.5 4.5 5.5H7l4.5-5.5-4.5-4.5z" fill="#ffffff"/>
               </svg>
             </div>
             <span class="bank-name">Türkiye İş Bankası</span>
@@ -504,9 +515,9 @@
         <!-- Ziraat -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-icon" style="background:#e11d48;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2v20M8 6c2 1 4 1 4 1s2 0 4-1M7 11c3 1.5 5 1.5 5 1.5s2 0 5-1.5M8 16c2 1 4 1 4 1s2 0 4-1"/>
+            <div class="bank-logo-box logo-ziraat">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/>
               </svg>
             </div>
             <span class="bank-name">Ziraat Bankası</span>
@@ -522,9 +533,11 @@
         <!-- Halkbank -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-icon" style="background:#0284c7;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M6 4h3.5v16H6z" fill="#ffffff"/><path d="M14.5 4H18v16h-3.5z" fill="#ffffff"/><path d="M9 10h6v4H9z" fill="#38bdf8"/>
+            <div class="bank-logo-box logo-halkbank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M5 4h4v16H5z" fill="#ffffff"/>
+                <path d="M15 4h4v16h-4z" fill="#ffffff"/>
+                <path d="M9 10h6v4H9z" fill="#38bdf8"/>
               </svg>
             </div>
             <span class="bank-name">Halkbank</span>
@@ -540,9 +553,10 @@
         <!-- İş Bankası -->
         <div class="bank-card">
           <div class="bank-header">
-            <div class="bank-logo-icon" style="background:#1e3a8a;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="5" r="2" fill="#ffffff"/><path d="M7 9h10l-5 5 5 5H7l5-5-5-5z" fill="#ffffff"/>
+            <div class="bank-logo-box logo-isbank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="4.5" r="2.2" fill="#ffffff"/>
+                <path d="M7 8.5h10l-4.5 4.5 4.5 5.5H7l4.5-5.5-4.5-4.5z" fill="#ffffff"/>
               </svg>
             </div>
             <span class="bank-name">Türkiye İş Bankası</span>
@@ -579,7 +593,7 @@
       document.getElementById('step-selection').classList.add('hidden');
       document.getElementById('step-details').classList.remove('hidden');
 
-      // Vurgulu Seçenek 3 kartındaki başlığı güncelle
+      // Seçilen şube başlığını (parantez içi detayla birlikte) karta basar
       document.getElementById('banner-branch-title').innerText = branchTitle;
 
       document.querySelectorAll('.branch-data').forEach(el => el.classList.add('hidden'));
@@ -607,22 +621,16 @@
       });
     }
 
-    // WhatsApp uyumlu kalın başlık formatı
     function copyAllInfo(btn, bankName, iban) {
       const fullText = 
-`*SAĞLAM MÜCEVHERAT | HAVALE BİLGİLERİ*
-*Banka:* ${bankName}
+`SAĞLAM MÜCEVHERAT | HAVALE BİLGİLERİ
 
-*1. IBAN ALANINA:*
-${iban}
+🏦 Banka Adı: ${bankName}
+💳 IBAN: ${iban}
+👤 Alıcı Adı: Sağlam Mücevherat Kuyumculuk
+✍️ Açıklama: 11 Haneli TC Kimlik Numaranız - Altın Alımı
 
-*2. ALICI (AD SOYAD / UNVAN) KISMINA:*
-Sağlam Mücevherat Kuyumculuk
-
-*3. AÇIKLAMA KISMINA:*
-11 Haneli TC Kimlik Numaranız - Altın Alımı
-
-⚠️ *Not:* Açıklamaya kesinlikle TL veya tutar yazmayınız!`;
+⚠️ ÖNEMLİ: Açıklamaya lütfen tutar veya TL yazmayınız!`;
 
       navigator.clipboard.writeText(fullText).then(() => {
         const originalText = btn.innerText;
