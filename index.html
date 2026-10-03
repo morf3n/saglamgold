@@ -8,8 +8,8 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
     html, body {
-      height: 100%;
-      height: 100dvh;
+      min-height: 100%;
+      min-height: 100dvh;
       background: radial-gradient(circle at top, #1e293b, #0f172a 80%);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       overflow-x: hidden;
@@ -19,21 +19,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px;
+      padding: 12px;
     }
 
     .card {
       background: #ffffff;
-      border-radius: 22px;
+      border-radius: 24px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.25);
-      padding: 14px 14px;
+      padding: 16px 14px;
       max-width: 440px;
       width: 100%;
-      height: calc(100dvh - 20px);
-      max-height: 820px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 10px;
     }
 
     /* ÜST BAŞLIK ALANI */
@@ -62,7 +60,7 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      line-height: 1.2;
+      line-height: 1.25;
     }
     .gold-divider {
       width: 46px;
@@ -76,62 +74,61 @@
       font-weight: 600;
     }
 
-    /* GÜVEN VE KALİTE KARŞILAMA ROZETİ */
-    .brand-motto-box {
-      margin-top: 5px;
-      background: #fffdf5;
-      border: 1px solid #fde68a;
-      border-radius: 9px;
-      padding: 5px 8px;
-      display: inline-block;
-      width: 100%;
+    /* 1. KARŞILAMA PANELİ: ZARİF, ILIK VE PRESTİJLİ FİLDİŞİ / ALTIN */
+    .welcome-panel {
+      margin-top: 2px;
+      background: linear-gradient(180deg, #faf8f5 0%, #f5efe6 100%);
+      border: 1px solid #e2d7c3;
+      border-radius: 11px;
+      padding: 7px 10px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
     }
-    .motto-tag {
-      font-size: 10px;
+    .welcome-panel-title {
+      font-size: 11.5px;
       font-weight: 800;
-      color: #92400e;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
+      color: #5c4827;
+      letter-spacing: 0.3px;
     }
-    .welcome-note {
-      font-size: 11px;
+    .welcome-panel-sub {
+      font-size: 10.5px;
       font-weight: 600;
-      color: #78350f;
+      color: #7c6847;
       margin-top: 1px;
     }
 
     /* 1. ADIM: ŞUBE SEÇİMİ */
     #step-branches {
-      flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      margin-top: 6px;
-      min-height: 0;
+      gap: 10px;
     }
 
-    /* ŞUBE DİKKAT UYARI BANDI */
-    .branch-attention-box {
+    /* 2. OPERASYONEL DİKKAT PANELİ: NET TURUNCU / KEHRİBAR UYARI TONU */
+    .branch-attention-panel {
       background: #fffbeb;
-      border: 1.2px solid #f59e0b;
+      border: 1px solid #fde68a;
+      border-left: 3.5px solid #d97706;
       border-radius: 9px;
-      padding: 6px 10px;
-      text-align: center;
-      margin-bottom: 6px;
-      flex-shrink: 0;
+      padding: 7px 10px;
+      text-align: left;
     }
     .branch-attention-title {
       font-size: 11px;
       font-weight: 900;
       color: #92400e;
       text-transform: uppercase;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
     .branch-attention-desc {
       font-size: 10.5px;
-      color: #b45309;
-      font-weight: 700;
-      margin-top: 1px;
+      color: #78350f;
+      font-weight: 600;
+      margin-top: 2px;
+      line-height: 1.3;
     }
 
     .selection-hint {
@@ -139,32 +136,28 @@
       font-weight: 800;
       color: #334155;
       text-align: center;
-      margin-bottom: 4px;
-      flex-shrink: 0;
+      margin: 1px 0;
     }
 
+    /* BUTONLAR ARASI BOŞLUKLAR SIKILAŞTIRILDI (KOMPAKT & DÜZENLİ) */
     .branch-list {
-      flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
-      gap: 8px;
-      margin-bottom: 8px;
+      gap: 10px;
     }
     
     .branch-card-btn {
       background: #fafaf9;
       border: 1.8px solid #e2e8f0;
       border-radius: 13px;
-      padding: 8px 12px;
+      padding: 10px 12px;
       cursor: pointer;
       display: flex;
       align-items: center;
       position: relative;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       -webkit-tap-highlight-color: transparent;
-      flex: 1;
-      max-height: 74px;
+      min-height: 64px;
     }
     .branch-card-btn:active {
       transform: scale(0.98);
@@ -181,8 +174,8 @@
 
     /* Sol Rozet İkon Kutusu */
     .branch-icon-badge {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 10px;
       background: linear-gradient(135deg, #fffdf5, #fef3c7);
       border: 1.4px solid #d4af37;
@@ -201,7 +194,7 @@
     .branch-text-wrapper {
       flex: 1;
       text-align: center;
-      padding-right: 40px;
+      padding-right: 42px;
     }
     .branch-card-title {
       font-size: 14.5px;
@@ -244,10 +237,10 @@
       background: linear-gradient(145deg, #0f172a, #1e293b);
       border: 1.4px solid #d4af37;
       border-radius: 13px;
-      padding: 8px 10px;
+      padding: 9px 10px;
       text-align: center;
       box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
-      flex-shrink: 0;
+      margin-top: 2px;
     }
     .app-header-badge {
       display: inline-flex;
@@ -322,12 +315,9 @@
 
     /* 2. ADIM: BANKA SEÇİM EKRANI */
     #step-banks {
-      flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      min-height: 0;
-      margin-top: 6px;
+      gap: 10px;
     }
     
     .selected-branch-pill {
@@ -338,7 +328,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 8px;
       box-shadow: 0 4px 10px rgba(245, 158, 11, 0.1);
     }
     .selected-branch-pill-title {
@@ -368,13 +357,11 @@
       transform: scale(0.96);
     }
 
+    /* BANKA BUTONLARI ARASI BOŞLUKLAR SIKILAŞTIRILDI */
     .bank-select-list {
-      flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
-      gap: 8px;
-      margin-bottom: 10px;
+      gap: 10px;
     }
     .bank-select-btn {
       background: #fafaf9;
@@ -387,8 +374,7 @@
       justify-content: space-between;
       transition: all 0.2s ease;
       -webkit-tap-highlight-color: transparent;
-      flex: 1;
-      max-height: 70px;
+      min-height: 60px;
     }
     .bank-select-btn:active {
       border-color: #c5a059;
@@ -416,7 +402,7 @@
       background: #0f172a;
       color: #ffffff;
       border: 1.8px solid #d4af37;
-      padding: 11px 14px;
+      padding: 12px 14px;
       border-radius: 11px;
       font-size: 12.5px;
       font-weight: 900;
@@ -430,7 +416,7 @@
       transition: all 0.2s ease;
       -webkit-tap-highlight-color: transparent;
       letter-spacing: 0.3px;
-      flex-shrink: 0;
+      margin-top: 2px;
     }
     .btn-back-main:active {
       background: #1e293b;
@@ -440,13 +426,9 @@
 
     /* 3. ADIM: TEK BANKA IBAN VE KOPYALAMA DETAYI */
     #step-details {
-      flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      min-height: 0;
-      margin-top: 4px;
-      gap: 6px;
+      gap: 10px;
     }
     .nav-breadcrumb-bar {
       display: flex;
@@ -460,7 +442,6 @@
       color: #334155;
       font-weight: 800;
       box-shadow: 0 2px 6px rgba(212, 175, 55, 0.08);
-      flex-shrink: 0;
     }
     .breadcrumb-text span {
       color: #92400e;
@@ -469,10 +450,9 @@
     .single-bank-card {
       border: 1.8px solid #e2e8f0;
       border-radius: 14px;
-      padding: 10px 12px;
+      padding: 11px 12px;
       background: #ffffff;
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
-      flex-shrink: 0;
     }
     .bank-card-top {
       display: flex;
@@ -515,7 +495,7 @@
       background: #f8fafc;
       border: 1.4px dashed #cbd5e1;
       border-radius: 8px;
-      padding: 7px 6px;
+      padding: 8px 6px;
       font-family: 'Consolas', monospace;
       font-size: 13.5px;
       font-weight: 800;
@@ -535,7 +515,7 @@
       color: #ffffff;
       border: none;
       border-radius: 8px;
-      padding: 8px;
+      padding: 9px;
       font-size: 11.5px;
       font-weight: 700;
       cursor: pointer;
@@ -551,19 +531,18 @@
     .btn-gold-all { background: #fffdf5; border: 1.4px solid #c5a059; color: #854d0e; }
     .btn.copied { background: #16a34a !important; border-color: #16a34a !important; color: #ffffff !important; }
 
-    /* YENİ KİBAR VE KURUMSAL AÇIKLAMA KUTUSU (TASLAK 2) */
-    .courteous-box {
-      background: #fffdf7;
-      border: 1.4px solid #eab308;
+    /* KIRMIZI ALARM FORMATINDA AÇIKLAMA KUTUSU (TASLAK A) */
+    .red-alarm-box {
+      background: #fef2f2;
+      border: 1.5px solid #ef4444;
       border-radius: 12px;
-      padding: 8px 10px;
+      padding: 9px 10px;
       text-align: left;
-      flex-shrink: 0;
-      box-shadow: 0 2px 8px rgba(234, 179, 8, 0.08);
+      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);
     }
-    .courteous-title {
+    .red-alarm-title {
       font-weight: 900;
-      color: #854d0e;
+      color: #991b1b;
       font-size: 11px;
       display: flex;
       align-items: center;
@@ -572,27 +551,28 @@
       text-transform: uppercase;
       letter-spacing: 0.3px;
     }
-    .courteous-text {
+    .red-alarm-text {
       font-size: 10.5px;
-      color: #334155;
+      color: #1f2937;
       line-height: 1.3;
       margin-bottom: 5px;
     }
-    .courteous-badge {
-      background: #fef08a;
-      border: 1.2px dashed #ca8a04;
+    .red-alarm-badge {
+      background: #fee2e2;
+      border: 1.2px dashed #dc2626;
       border-radius: 7px;
       padding: 5px 6px;
       font-size: 11px;
       font-weight: 900;
-      color: #713f12;
+      color: #991b1b;
       text-align: center;
       margin-bottom: 5px;
     }
-    .courteous-note {
-      font-size: 9.8px;
-      color: #64748b;
-      line-height: 1.25;
+    .red-alarm-note {
+      font-size: 10px;
+      color: #b91c1c;
+      font-weight: 700;
+      line-height: 1.3;
     }
 
     .hidden {
@@ -615,21 +595,24 @@
       <div class="gold-divider"></div>
       <p class="sub-title">Banka Hesap ve Havale/EFT Bilgileri</p>
 
-      <div class="brand-motto-box">
-        <div class="motto-tag">✨ Güven ve Kalitenin Adresi</div>
-        <div class="welcome-note">Hoş geldiniz, iyi alışverişler dileriz.</div>
+      <!-- 1. KARŞILAMA PANELİ: FİLDİŞİ VE ALTIN ZARAFETİ -->
+      <div class="welcome-panel">
+        <div class="welcome-panel-title">✨ Mağazamıza Hoş Geldiniz</div>
+        <div class="welcome-panel-sub">Güveniniz ve tercihiniz için gönülden teşekkür ederiz.</div>
       </div>
     </div>
 
     <!-- 1. ADIM: ŞUBE SEÇİM EKRANI -->
     <div id="step-branches">
-      <!-- ŞUBE SEÇİMİ DİKKAT UYARISI -->
-      <div class="branch-attention-box">
+      <!-- 2. ŞUBE SEÇİMİ DİKKAT PANELİ: NET OPERASYONEL UYARI -->
+      <div class="branch-attention-panel">
         <div class="branch-attention-title">⚠️ Şube Seçimine Dikkat Ediniz</div>
-        <div class="branch-attention-desc">Her mağazamızın banka hesapları birbirinden farklıdır.</div>
+        <div class="branch-attention-desc">Lütfen işlem yaptığınız mağazayı seçiniz. Her şubemizin banka hesapları birbirinden farklıdır.</div>
       </div>
 
       <div class="selection-hint">Lütfen İşlem Yapacağınız Şubeyi Seçiniz:</div>
+      
+      <!-- SIKI VE KOMPAKT ŞUBE LİSTESİ -->
       <div class="branch-list">
         
         <!-- 1. MERKEZ MAĞAZA: TAŞ KEMER -->
@@ -666,8 +649,8 @@
           </div>
         </div>
 
-        <!-- 3. TOPTAN & KURUMSAL: HAS KÜLÇE BLOKLARI -->
-        <div class="branch-card-btn" onclick="selectBranch('toptan', 'Toptan & Kurumsal Satış Ofisi', this)">
+        <!-- 3. TOPTAN VE KURUMSAL: HAS KÜLÇE BLOKLARI -->
+        <div class="branch-card-btn" onclick="selectBranch('toptan', 'Toptan ve Kurumsal Satış Ofisi', this)">
           <span class="branch-check-badge">✓ Seçildi</span>
           <div class="branch-icon-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="#b4861f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -677,8 +660,8 @@
             </svg>
           </div>
           <div class="branch-text-wrapper">
-            <div class="branch-card-title">Toptan & Kurumsal Satış Ofisi</div>
-            <div class="branch-card-desc">Yalnızca Toptan & Kurumsal İşlemler</div>
+            <div class="branch-card-title">Toptan ve Kurumsal Satış Ofisi</div>
+            <div class="branch-card-desc">Yalnızca Toptan ve Kurumsal İşlemler</div>
           </div>
         </div>
 
@@ -728,6 +711,7 @@
 
       <div class="selection-hint">Lütfen İşlem Yapacağınız Bankayı Seçiniz:</div>
 
+      <!-- SIKI VE KOMPAKT BANKA LİSTESİ -->
       <div class="bank-select-list">
         <!-- Ziraat -->
         <div class="bank-select-btn" onclick="selectBank('ziraat')">
@@ -808,18 +792,18 @@
         </div>
       </div>
 
-      <!-- KİBAR VE KURUMSAL AÇIKLAMA KUTUSU (TASLAK 2) -->
-      <div class="courteous-box">
-        <div class="courteous-title">📋 Transfer Açıklaması Hakkında Ricamız</div>
-        <div class="courteous-text">
-          İşleminizi en kısa sürede tamamlayabilmemiz adına havale/EFT açıklama kısmına:
+      <!-- KIRMIZI ALARM FORMATINDA AÇIKLAMA KUTUSU (TASLAK A) -->
+      <div class="red-alarm-box">
+        <div class="red-alarm-title">🚨 DİKKAT: HAVALE VE EFT AÇIKLAMA KURALI</div>
+        <div class="red-alarm-text">
+          Banka uygulamanızda para transferini onaylamadan önce karşınıza çıkan <strong>"Açıklama"</strong> satırına yalnızca:
         </div>
-        <div class="courteous-badge">
+        <div class="red-alarm-badge">
           👉 T.C. Kimlik Numaranız - Altın Alımı<br>
-          <span style="font-weight:600; font-size:10px; color:#854d0e;">(Örnek: 12345678901 - Altın Alımı)</span>
+          <span style="font-weight:600; font-size:10px; color:#b91c1c;">(Örnek: 12345678901 - Altın Alımı)</span>
         </div>
-        <div class="courteous-note">
-          yazmanızı istirham ederiz. Bankacılık kuralları çerçevesinde ek bir tutar/TL yazılmaması rica olunur. Hayırlı alışverişler dileriz.
+        <div class="red-alarm-note">
+          ⛔ Ödemenizin siparişinizle sorunsuz eşleşebilmesi adına açıklama alanına tutar veya TL ibaresi yazmamanızı rica ederiz.
         </div>
       </div>
 
@@ -851,7 +835,7 @@
         }
       },
       toptan: {
-        name: "Toptan & Kurumsal Satış Ofisi",
+        name: "Toptan ve Kurumsal Satış Ofisi",
         banks: {
           ziraat: { name: "Ziraat Bankası", ibanRaw: "TR330000000000000000000001", ibanFormatted: "TR33 0000 0000 0000 0000 0000 01", class: "logo-ziraat", icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2"><path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/></svg>' },
           halkbank: { name: "Halkbank", ibanRaw: "TR330000000000000000000002", ibanFormatted: "TR33 0000 0000 0000 0000 0000 02", class: "logo-halkbank", icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 4h4v16H5z" fill="#ffffff"/><path d="M15 4h4v16h-4z" fill="#ffffff"/><path d="M9 10h6v4H9z" fill="#38bdf8"/></svg>' },
@@ -863,7 +847,7 @@
     let currentBranch = 'merkez';
     let currentBank = 'ziraat';
 
-    // 1. ADIM: ŞUBE SEÇİMİ (380MS GECİKMEYLE TİKİ HİSSETTİRİR)
+    // 1. ADIM: ŞUBE SEÇİMİ (380MS TIKLAMA HİSSİYATI)
     function selectBranch(branchKey, branchTitle, btnElement) {
       document.querySelectorAll('.branch-card-btn').forEach(b => b.classList.remove('selected-branch'));
       btnElement.classList.add('selected-branch');
@@ -935,7 +919,7 @@
       
       const fullText = 
 `Merhaba, Sağlam Mücevherat'ı tercih ettiğiniz için teşekkür ederiz.
-${branch.name} şubemize ait havale - EFT bilgileri aşağıdadır:
+${branch.name} şubemize ait havale ve EFT bilgileri aşağıdadır:
 
 🏦 Banka:
 ${bank.name}
@@ -947,11 +931,11 @@ Sağlam Mücevherat Kuyumculuk
 ${bank.ibanRaw}
 
 ✍ Açıklama Alanı:
-11 Haneli TC Kimlik Numaranız - Altın Alımı
+11 Haneli T.C. Kimlik Numaranız - Altın Alımı
 (Örnek: 12345678901 - Altın Alımı)
 
 ⚠️ Önemli Not:
-Açıklama alanına lütfen tutar veya TL ibaresi yazmayınız.
+Ödemenizin siparişinizle sorunsuz eşleşebilmesi adına açıklama alanına tutar veya TL ibaresi yazmamanızı rica ederiz.
 
 Alışverişinizin hayırlı ve bereketli olmasını dileriz.`;
 
