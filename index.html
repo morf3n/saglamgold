@@ -108,53 +108,60 @@
       font-weight: bold;
     }
 
-    /* 2. ADIM: VURGULU ŞUBE TEYİT BANDI */
-    .branch-confirmation-banner {
-      background: #f8fafc;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 12px;
-      padding: 12px;
-      margin-bottom: 14px;
-      display: flex;
+    /* 2. ADIM: SEÇENEK 3 - BELİRGİN VE MERKEZİ ŞUBE TEYİT KARTI */
+    .branch-confirmation-card {
+      background: #fffdf5;
+      border: 2px solid #f59e0b;
+      border-radius: 14px;
+      padding: 16px 14px;
+      margin-bottom: 18px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.12);
+    }
+    .confirmation-pin-badge {
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .banner-text-group {
-      text-align: left;
-    }
-    .banner-label {
-      font-size: 11px;
-      color: #64748b;
-      font-weight: 700;
+      gap: 5px;
+      background: #fef3c7;
+      color: #92400e;
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 2px;
+      margin-bottom: 8px;
     }
-    .banner-branch-name {
-      font-size: 14.5px;
-      font-weight: 800;
+    .confirmation-branch-name {
+      font-size: 18px;
+      font-weight: 900;
       color: #0f172a;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    .banner-hint {
-      font-size: 11px;
-      color: #b45309;
-      font-weight: 600;
-      margin-top: 2px;
-    }
-    .banner-change-btn {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      color: #0f172a;
-      font-size: 11.5px;
+    .confirmation-warning-text {
+      font-size: 12.5px;
+      color: #dc2626;
       font-weight: 700;
-      padding: 8px 10px;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .confirmation-change-btn {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 14px;
       cursor: pointer;
-      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       transition: all 0.2s;
     }
-    .banner-change-btn:active {
+    .confirmation-change-btn:active {
       background: #f1f5f9;
       border-color: #94a3b8;
     }
@@ -365,15 +372,16 @@
 
     <!-- 2. AŞAMA: HESAP DETAY EKRANI -->
     <div id="step-details" class="hidden">
-      <!-- Vurgulu Şube Bilgilendirme ve Değiştirme Bandı -->
-      <div class="branch-confirmation-banner">
-        <div class="banner-text-group">
-          <div class="banner-label">📍 Seçilen Şube</div>
-          <div class="banner-branch-name" id="banner-branch-title">Şube Adı</div>
-          <div class="banner-hint">İşleminizi bu şubeden yaptığınızdan emin olunuz</div>
+      <!-- Vurgulu, Büyük ve Merkezi Şube Teyit Kartı (Seçenek 3) -->
+      <div class="branch-confirmation-card">
+        <div class="confirmation-pin-badge">📍 Seçilen Şube</div>
+        <div class="confirmation-branch-name" id="banner-branch-title">Şube Adı</div>
+        <div class="confirmation-warning-text">
+          ⚠️ Lütfen işleminizi bu şubeden yaptığınızdan emin olunuz.<br>
+          Yanlış şube seçimi transferinizin gecikmesine sebep olur!
         </div>
-        <button class="banner-change-btn" onclick="goBack()">
-          🔄 Değiştir
+        <button class="confirmation-change-btn" onclick="goBack()">
+          🔄 Yanlış Şube mi? Değiştirmek İçin Dokunun
         </button>
       </div>
 
@@ -571,6 +579,7 @@
       document.getElementById('step-selection').classList.add('hidden');
       document.getElementById('step-details').classList.remove('hidden');
 
+      // Vurgulu Seçenek 3 kartındaki başlığı güncelle
       document.getElementById('banner-branch-title').innerText = branchTitle;
 
       document.querySelectorAll('.branch-data').forEach(el => el.classList.add('hidden'));
@@ -598,7 +607,7 @@
       });
     }
 
-    // SEÇENEK 3: Tüm telefon ekranlarıyla uyumlu WhatsApp kalın metin (*...*) formatı
+    // WhatsApp uyumlu kalın başlık formatı
     function copyAllInfo(btn, bankName, iban) {
       const fullText = 
 `*SAĞLAM MÜCEVHERAT | HAVALE BİLGİLERİ*
