@@ -10,9 +10,10 @@
     html, body {
       min-height: 100%;
       min-height: 100dvh;
-      background: radial-gradient(circle at top, #1e293b, #0f172a 80%);
+      background: radial-gradient(circle at 50% 0%, #f7f3ee 0%, #ede4da 100%);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       overflow-x: hidden;
+      color: #2b1810;
     }
 
     body {
@@ -23,15 +24,15 @@
     }
 
     .card {
-      background: #ffffff;
+      background: #fdfbf7;
       border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.25);
-      padding: 16px 14px;
+      box-shadow: 0 16px 36px rgba(43, 24, 16, 0.12), 0 0 0 1.5px rgba(212, 175, 55, 0.35);
+      padding: 18px 16px;
       max-width: 440px;
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
 
     /* ÜST BAŞLIK ALANI */
@@ -40,186 +41,190 @@
       flex-shrink: 0;
     }
     .gold-crest {
-      width: 38px;
-      height: 38px;
-      margin: 0 auto 4px;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 5px;
       background: linear-gradient(135deg, #d4af37, #fef08a, #b4861f);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
     }
     .gold-crest svg {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
     }
-    h2 {
-      color: #0f172a;
-      font-size: 15.5px;
-      font-weight: 800;
+    h1 {
+      color: #1e100a;
+      font-size: 16px;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
       line-height: 1.25;
     }
     .gold-divider {
-      width: 46px;
+      width: 50px;
       height: 2px;
       background: linear-gradient(90deg, transparent, #c5a059, transparent);
-      margin: 4px auto;
+      margin: 5px auto;
     }
     .sub-title {
-      color: #64748b;
-      font-size: 11.5px;
-      font-weight: 600;
+      color: #6c584c;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
     }
 
-    /* 1. KARŞILAMA PANELİ: ZARİF, ILIK VE PRESTİJLİ FİLDİŞİ / ALTIN */
+    /* 1. KARŞILAMA PANELİ: PRESTİJLİ VE SICAK FİLDİŞİ */
     .welcome-panel {
-      margin-top: 2px;
-      background: linear-gradient(180deg, #faf8f5 0%, #f5efe6 100%);
-      border: 1px solid #e2d7c3;
-      border-radius: 11px;
-      padding: 7px 10px;
+      margin-top: 3px;
+      background: #f8f4ee;
+      border: 1px solid #e5d8cb;
+      border-radius: 12px;
+      padding: 8px 12px;
       text-align: center;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 2px 6px rgba(43, 24, 16, 0.03);
     }
     .welcome-panel-title {
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 800;
-      color: #5c4827;
+      color: #43281c;
       letter-spacing: 0.3px;
     }
     .welcome-panel-sub {
-      font-size: 10.5px;
+      font-size: 11px;
       font-weight: 600;
-      color: #7c6847;
-      margin-top: 1px;
+      color: #6b5344;
+      margin-top: 2px;
     }
 
     /* 1. ADIM: ŞUBE SEÇİMİ */
     #step-branches {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
 
-    /* 2. OPERASYONEL DİKKAT PANELİ: NET TURUNCU / KEHRİBAR UYARI TONU */
+    /* 2. OPERASYONEL DİKKAT PANELİ: TAM ORTALANMIŞ, TDK UYUMLU VE NET */
     .branch-attention-panel {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      border-left: 3.5px solid #d97706;
-      border-radius: 9px;
-      padding: 7px 10px;
-      text-align: left;
+      background: #fff9f2;
+      border: 1.5px solid #e0a96d;
+      border-radius: 12px;
+      padding: 9px 14px;
+      text-align: center; /* Tam ortalandı */
+      box-shadow: 0 2px 8px rgba(224, 169, 109, 0.15);
     }
     .branch-attention-title {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 900;
-      color: #92400e;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      display: flex;
+      color: #8c4308;
+      letter-spacing: 0.3px;
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 5px;
     }
     .branch-attention-desc {
-      font-size: 10.5px;
-      color: #78350f;
+      font-size: 11px;
+      color: #703e1b;
       font-weight: 600;
-      margin-top: 2px;
-      line-height: 1.3;
+      margin-top: 3px;
+      line-height: 1.35;
     }
 
     .selection-hint {
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 800;
-      color: #334155;
+      color: #2b1810;
       text-align: center;
-      margin: 1px 0;
+      margin-top: 2px;
     }
 
-    /* BUTONLAR ARASI BOŞLUKLAR SIKILAŞTIRILDI (KOMPAKT & DÜZENLİ) */
+    /* BUTONLAR ARASI BOŞLUKLAR BİR TIK AÇILDI (13px - 14px) */
     .branch-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 13px;
     }
     
+    /* BUTON KARTLARI: BEYAZ ZEMİN & ULTRA OKUNUR KOYU ESPRESSO YAZILAR */
     .branch-card-btn {
-      background: #fafaf9;
-      border: 1.8px solid #e2e8f0;
-      border-radius: 13px;
-      padding: 10px 12px;
+      background: #ffffff;
+      border: 1.8px solid #e8ded4;
+      border-radius: 14px;
+      padding: 12px 14px;
       cursor: pointer;
       display: flex;
       align-items: center;
       position: relative;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       -webkit-tap-highlight-color: transparent;
-      min-height: 64px;
+      box-shadow: 0 3px 8px rgba(43, 24, 16, 0.04);
+      min-height: 68px;
     }
     .branch-card-btn:active {
       transform: scale(0.98);
+      background: #fdfbf7;
     }
     .branch-card-btn.selected-branch {
       border: 2.2px solid #b4861f !important;
-      background: #fffdf0 !important;
-      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25), 0 6px 16px rgba(180, 134, 31, 0.18) !important;
+      background: #fffdf5 !important;
+      box-shadow: 0 0 0 3.5px rgba(212, 175, 55, 0.28), 0 8px 20px rgba(180, 134, 31, 0.18) !important;
       transform: scale(0.99);
     }
     .branch-card-btn.selected-branch .branch-card-title {
-      color: #78350f !important;
+      color: #8c4308 !important;
     }
 
     /* Sol Rozet İkon Kutusu */
     .branch-icon-badge {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #fffdf5, #fef3c7);
-      border: 1.4px solid #d4af37;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #fffdf8, #fbf2db);
+      border: 1.6px solid #d4af37;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(212, 175, 55, 0.18);
+      box-shadow: 0 3px 8px rgba(212, 175, 55, 0.2);
     }
     .branch-icon-badge svg {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
     }
 
-    /* Buton Metinleri (Karta Göre Ortalanmış) */
+    /* Buton Metinleri: Belirgin, Net ve Tam Dengeli */
     .branch-text-wrapper {
       flex: 1;
       text-align: center;
-      padding-right: 42px;
+      padding-right: 44px; /* Sol ikon genişliği ile simetrik ortalama */
     }
     .branch-card-title {
-      font-size: 14.5px;
+      font-size: 15.5px;
       font-weight: 900;
-      color: #0f172a;
+      color: #1e100a; /* Tok derin espresso - göz kamaştırmaz, anında okunur */
       letter-spacing: 0.3px;
-      line-height: 1.2;
-      margin-bottom: 2px;
+      line-height: 1.25;
+      margin-bottom: 3px;
     }
     .branch-card-desc {
-      font-size: 10.5px;
-      color: #64748b;
+      font-size: 11.5px;
+      color: #5c4a3e; /* Belirgin tok vizon */
       font-weight: 600;
     }
 
     .branch-check-badge {
       display: none;
       position: absolute;
-      top: 5px;
+      top: 6px;
       right: 8px;
-      background: #16a34a;
+      background: #15803d;
       color: #ffffff;
-      font-size: 9.5px;
+      font-size: 10px;
       font-weight: 800;
-      padding: 2px 6px;
+      padding: 3px 8px;
       border-radius: 10px;
       letter-spacing: 0.3px;
       animation: popIn 0.2s ease-out;
@@ -232,45 +237,45 @@
       to { transform: scale(1); opacity: 1; }
     }
 
-    /* MOBİL UYGULAMA ALANI */
+    /* MOBİL UYGULAMA ALANI: LÜKS ESPRESSO & ALTIN DETAY */
     .app-section {
-      background: linear-gradient(145deg, #0f172a, #1e293b);
-      border: 1.4px solid #d4af37;
-      border-radius: 13px;
-      padding: 9px 10px;
+      background: linear-gradient(145deg, #24140e, #3a2218);
+      border: 1.5px solid #d4af37;
+      border-radius: 14px;
+      padding: 10px 12px;
       text-align: center;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+      box-shadow: 0 6px 18px rgba(36, 20, 14, 0.25);
       margin-top: 2px;
     }
     .app-header-badge {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      background: rgba(212, 175, 55, 0.18);
-      border: 1px solid rgba(212, 175, 55, 0.4);
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid rgba(212, 175, 55, 0.45);
       color: #fef08a;
-      font-size: 9.5px;
+      font-size: 10px;
       font-weight: 800;
-      padding: 2px 6px;
+      padding: 2px 7px;
       border-radius: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.3px;
-      margin-bottom: 2px;
+      letter-spacing: 0.4px;
+      margin-bottom: 3px;
     }
     .app-section-title {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 800;
       color: #ffffff;
-      line-height: 1.15;
+      line-height: 1.2;
     }
     .app-section-subtitle {
-      font-size: 10px;
-      color: #94a3b8;
-      margin-bottom: 6px;
+      font-size: 10.5px;
+      color: #d1b8a5;
+      margin-bottom: 8px;
     }
     .app-buttons {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       justify-content: center;
     }
     .app-badge-btn {
@@ -278,37 +283,37 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      background: #111827;
+      gap: 7px;
+      background: #180c07;
       color: #ffffff;
-      padding: 6px 8px;
-      border-radius: 9px;
+      padding: 7px 10px;
+      border-radius: 10px;
       text-decoration: none;
       transition: all 0.2s ease;
-      border: 1.2px solid #334155;
+      border: 1.2px solid #54392a;
     }
     .app-badge-btn:active {
       transform: scale(0.97);
       border-color: #d4af37;
     }
     .app-badge-btn svg {
-      width: 18px;
-      height: 18px;
+      width: 19px;
+      height: 19px;
       flex-shrink: 0;
       fill: #ffffff;
     }
     .app-badge-text {
       text-align: left;
-      line-height: 1.1;
+      line-height: 1.15;
     }
     .app-badge-sub {
-      font-size: 7.5px;
-      color: #94a3b8;
+      font-size: 8px;
+      color: #d1b8a5;
       text-transform: uppercase;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.3px;
     }
     .app-badge-main {
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 800;
       color: #ffffff;
     }
@@ -317,109 +322,110 @@
     #step-banks {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
     
     .selected-branch-pill {
-      background: #fffdf5;
-      border: 1.8px solid #f59e0b;
-      border-radius: 12px;
-      padding: 8px 12px;
+      background: #ffffff;
+      border: 1.8px solid #d4af37;
+      border-radius: 13px;
+      padding: 9px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 4px 10px rgba(245, 158, 11, 0.1);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.12);
     }
     .selected-branch-pill-title {
-      font-size: 13.5px;
+      font-size: 14.5px;
       font-weight: 900;
-      color: #0f172a;
+      color: #1e100a;
     }
 
     .btn-change-prominent {
-      background: #fef3c7;
-      border: 1.6px solid #d97706;
-      color: #92400e;
-      padding: 5px 10px;
-      border-radius: 8px;
+      background: #fbf5eb;
+      border: 1.6px solid #b4861f;
+      color: #78350f;
+      padding: 6px 11px;
+      border-radius: 9px;
       font-size: 11.5px;
       font-weight: 900;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      box-shadow: 0 2px 5px rgba(217, 119, 6, 0.18);
+      box-shadow: 0 2px 5px rgba(180, 134, 31, 0.15);
       transition: all 0.15s ease;
       -webkit-tap-highlight-color: transparent;
     }
     .btn-change-prominent:active {
-      background: #fde68a;
+      background: #f7ebce;
       transform: scale(0.96);
     }
 
-    /* BANKA BUTONLARI ARASI BOŞLUKLAR SIKILAŞTIRILDI */
+    /* BANKA BUTONLARI: 13px BOŞLUK VE YÜKSEK KONTRAST */
     .bank-select-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 13px;
     }
     .bank-select-btn {
-      background: #fafaf9;
-      border: 1.8px solid #e2e8f0;
-      border-radius: 13px;
-      padding: 12px 14px;
+      background: #ffffff;
+      border: 1.8px solid #e8ded4;
+      border-radius: 14px;
+      padding: 13px 16px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
       transition: all 0.2s ease;
       -webkit-tap-highlight-color: transparent;
-      min-height: 60px;
+      min-height: 64px;
+      box-shadow: 0 3px 8px rgba(43, 24, 16, 0.04);
     }
     .bank-select-btn:active {
-      border-color: #c5a059;
-      background: #fffdf5;
+      border-color: #b4861f;
+      background: #fffdf8;
       transform: translateY(-1px);
     }
     .bank-select-left {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     .bank-select-name {
-      font-size: 14.5px;
-      font-weight: 800;
-      color: #0f172a;
+      font-size: 15px;
+      font-weight: 900;
+      color: #1e100a;
     }
     .arrow-bank {
-      font-size: 18px;
-      color: #c5a059;
+      font-size: 20px;
+      color: #b4861f;
       font-weight: bold;
     }
 
     /* ANA GERİ DÖNÜŞ BUTONU */
     .btn-back-main {
-      background: #0f172a;
+      background: #24140e;
       color: #ffffff;
       border: 1.8px solid #d4af37;
-      padding: 12px 14px;
-      border-radius: 11px;
-      font-size: 12.5px;
+      padding: 13px 16px;
+      border-radius: 12px;
+      font-size: 13px;
       font-weight: 900;
       cursor: pointer;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
+      gap: 8px;
+      box-shadow: 0 6px 16px rgba(36, 20, 14, 0.25);
       transition: all 0.2s ease;
       -webkit-tap-highlight-color: transparent;
       letter-spacing: 0.3px;
-      margin-top: 2px;
+      margin-top: 3px;
     }
     .btn-back-main:active {
-      background: #1e293b;
+      background: #3a2218;
       transform: scale(0.98);
       border-color: #fef08a;
     }
@@ -428,151 +434,151 @@
     #step-details {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
     .nav-breadcrumb-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #fffdf5;
-      border: 1.4px solid #fde68a;
-      border-radius: 11px;
-      padding: 6px 10px;
-      font-size: 11.5px;
-      color: #334155;
+      background: #ffffff;
+      border: 1.4px solid #e0a96d;
+      border-radius: 12px;
+      padding: 7px 12px;
+      font-size: 12px;
+      color: #2b1810;
       font-weight: 800;
-      box-shadow: 0 2px 6px rgba(212, 175, 55, 0.08);
+      box-shadow: 0 2px 6px rgba(224, 169, 109, 0.1);
     }
     .breadcrumb-text span {
-      color: #92400e;
+      color: #8c4308;
     }
 
     .single-bank-card {
-      border: 1.8px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 11px 12px;
+      border: 1.8px solid #e8ded4;
+      border-radius: 15px;
+      padding: 13px 14px;
       background: #ffffff;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 14px rgba(43, 24, 16, 0.05);
     }
     .bank-card-top {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-      padding-bottom: 6px;
-      border-bottom: 1px dashed #e2e8f0;
+      gap: 10px;
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed #e8ded4;
     }
     .bank-card-title {
-      font-size: 14.5px;
+      font-size: 15px;
       font-weight: 900;
-      color: #0f172a;
+      color: #1e100a;
     }
     .receiver-box {
-      font-size: 11px;
-      color: #64748b;
+      font-size: 11.5px;
+      color: #5c4a3e;
       font-weight: 600;
     }
     .receiver-box strong {
-      color: #0f172a;
-      font-weight: 800;
+      color: #1e100a;
+      font-weight: 900;
     }
 
     .bank-logo-box {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
     }
     .logo-ziraat { background: #e11d48; }
     .logo-halkbank { background: #0284c7; }
     .logo-isbank { background: #1e3a8a; }
 
     .iban-box {
-      background: #f8fafc;
-      border: 1.4px dashed #cbd5e1;
-      border-radius: 8px;
-      padding: 8px 6px;
+      background: #fbf9f5;
+      border: 1.5px dashed #cbb79f;
+      border-radius: 9px;
+      padding: 9px 8px;
       font-family: 'Consolas', monospace;
-      font-size: 13.5px;
-      font-weight: 800;
-      color: #0f172a;
+      font-size: 14px;
+      font-weight: 900;
+      color: #1e100a;
       text-align: center;
       word-break: break-all;
-      letter-spacing: 0.4px;
-      margin: 6px 0 8px;
+      letter-spacing: 0.5px;
+      margin: 8px 0 10px;
     }
 
     .btn-group {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
     }
     .btn {
       color: #ffffff;
       border: none;
-      border-radius: 8px;
-      padding: 9px;
-      font-size: 11.5px;
-      font-weight: 700;
+      border-radius: 9px;
+      padding: 10px;
+      font-size: 12px;
+      font-weight: 800;
       cursor: pointer;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
+      gap: 6px;
       transition: all 0.15s;
     }
-    .btn-primary-iban { background: #0f172a; color: #f8fafc; }
-    .btn-outline-alici { background: #ffffff; border: 1.4px solid #cbd5e1; color: #1e293b; }
-    .btn-gold-all { background: #fffdf5; border: 1.4px solid #c5a059; color: #854d0e; }
-    .btn.copied { background: #16a34a !important; border-color: #16a34a !important; color: #ffffff !important; }
+    .btn-primary-iban { background: #24140e; color: #ffffff; }
+    .btn-outline-alici { background: #ffffff; border: 1.5px solid #d1b8a5; color: #24140e; }
+    .btn-gold-all { background: #fffcf4; border: 1.5px solid #b4861f; color: #78350f; }
+    .btn.copied { background: #15803d !important; border-color: #15803d !important; color: #ffffff !important; }
 
     /* KIRMIZI ALARM FORMATINDA AÇIKLAMA KUTUSU (TASLAK A) */
     .red-alarm-box {
-      background: #fef2f2;
-      border: 1.5px solid #ef4444;
-      border-radius: 12px;
-      padding: 9px 10px;
+      background: #fff5f5;
+      border: 1.6px solid #e11d48;
+      border-radius: 13px;
+      padding: 10px 12px;
       text-align: left;
-      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);
+      box-shadow: 0 3px 10px rgba(225, 29, 72, 0.1);
     }
     .red-alarm-title {
       font-weight: 900;
-      color: #991b1b;
-      font-size: 11px;
+      color: #9f1239;
+      font-size: 11.5px;
       display: flex;
       align-items: center;
       gap: 5px;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
       text-transform: uppercase;
       letter-spacing: 0.3px;
     }
     .red-alarm-text {
-      font-size: 10.5px;
-      color: #1f2937;
-      line-height: 1.3;
-      margin-bottom: 5px;
+      font-size: 11px;
+      color: #2b1810;
+      line-height: 1.35;
+      margin-bottom: 6px;
     }
     .red-alarm-badge {
-      background: #fee2e2;
-      border: 1.2px dashed #dc2626;
-      border-radius: 7px;
-      padding: 5px 6px;
-      font-size: 11px;
+      background: #ffe4e6;
+      border: 1.3px dashed #e11d48;
+      border-radius: 8px;
+      padding: 6px 8px;
+      font-size: 11.5px;
       font-weight: 900;
-      color: #991b1b;
+      color: #881337;
       text-align: center;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
     .red-alarm-note {
-      font-size: 10px;
-      color: #b91c1c;
+      font-size: 10.5px;
+      color: #9f1239;
       font-weight: 700;
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
     .hidden {
@@ -585,17 +591,17 @@
   <div class="card">
     <div class="header">
       <div class="gold-crest">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#24140e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 3h12l4 6-10 12L2 9z"/>
           <path d="M11 3L8 9l4 12 4-12-3-6"/>
           <path d="M2 9h20"/>
         </svg>
       </div>
-      <h2>SAĞLAM MÜCEVHERAT KUYUMCULUK</h2>
+      <h1>SAĞLAM MÜCEVHERAT KUYUMCULUK</h1>
       <div class="gold-divider"></div>
-      <p class="sub-title">Banka Hesap ve Havale/EFT Bilgileri</p>
+      <p class="sub-title">Banka Hesap ve Havale / EFT Bilgileri</p>
 
-      <!-- 1. KARŞILAMA PANELİ: FİLDİŞİ VE ALTIN ZARAFETİ -->
+      <!-- 1. KARŞILAMA PANELİ -->
       <div class="welcome-panel">
         <div class="welcome-panel-title">✨ Mağazamıza Hoş Geldiniz</div>
         <div class="welcome-panel-sub">Güveniniz ve tercihiniz için gönülden teşekkür ederiz.</div>
@@ -604,22 +610,22 @@
 
     <!-- 1. ADIM: ŞUBE SEÇİM EKRANI -->
     <div id="step-branches">
-      <!-- 2. ŞUBE SEÇİMİ DİKKAT PANELİ: NET OPERASYONEL UYARI -->
+      <!-- 2. ŞUBE SEÇİMİ DİKKAT PANELİ: TAM ORTALANMIŞ & TDK UYUMLU -->
       <div class="branch-attention-panel">
         <div class="branch-attention-title">⚠️ Şube Seçimine Dikkat Ediniz</div>
-        <div class="branch-attention-desc">Lütfen işlem yaptığınız mağazayı seçiniz. Her şubemizin banka hesapları birbirinden farklıdır.</div>
+        <div class="branch-attention-desc">Lütfen işlem yaptığınız mağazamızı seçiniz. Her şubemizin banka hesapları birbirinden farklıdır.</div>
       </div>
 
       <div class="selection-hint">Lütfen İşlem Yapacağınız Şubeyi Seçiniz:</div>
       
-      <!-- SIKI VE KOMPAKT ŞUBE LİSTESİ -->
+      <!-- BİR TIK DAHA AÇIK (13px) VE NET BUTONLAR LİSTESİ -->
       <div class="branch-list">
         
         <!-- 1. MERKEZ MAĞAZA: TAŞ KEMER -->
         <div class="branch-card-btn" onclick="selectBranch('merkez', 'Merkez Mağaza (Taşmağazalar)', this)">
           <span class="branch-check-badge">✓ Seçildi</span>
           <div class="branch-icon-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#b4861f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#8c4308" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 21h18"/>
               <path d="M5 21V9"/>
               <path d="M19 21V9"/>
@@ -637,7 +643,7 @@
         <div class="branch-card-btn" onclick="selectBranch('horasan', 'Horasan Mağazası', this)">
           <span class="branch-check-badge">✓ Seçildi</span>
           <div class="branch-icon-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#b4861f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#8c4308" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="9"/>
               <circle cx="12" cy="12" r="6" stroke-dasharray="2 2"/>
               <path d="M12 9v6M9.5 10.5h5"/>
@@ -653,7 +659,7 @@
         <div class="branch-card-btn" onclick="selectBranch('toptan', 'Toptan ve Kurumsal Satış Ofisi', this)">
           <span class="branch-check-badge">✓ Seçildi</span>
           <div class="branch-icon-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#b4861f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#8c4308" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 17l4-6h10l4 6H3z"/>
               <path d="M7 11l3.5-5h5l3.5 5"/>
               <path d="M4 17h16v3H4z"/>
@@ -667,11 +673,11 @@
 
       </div>
 
-      <!-- MOBİL UYGULAMA VİTRİNİ -->
+      <!-- MOBİL UYGULAMA ALANI -->
       <div class="app-section">
-        <div class="app-header-badge">📲 Resmi Mobil Uygulamamız</div>
+        <div class="app-header-badge">📲 Resmî Mobil Uygulamamız</div>
         <div class="app-section-title">Canlı Altın ve Döviz Fiyatları</div>
-        <div class="app-section-subtitle">Piyasa anlık fiyatlarını ücretsiz takip edin</div>
+        <div class="app-section-subtitle">Piyasa anlık fiyatlarını ücretsiz takip edebilirsiniz.</div>
         
         <div class="app-buttons">
           <a href="https://apps.apple.com/tr/app/sa%C4%9Flam-alt%C4%B1n/id6469431880" target="_blank" rel="noopener noreferrer" class="app-badge-btn">
@@ -701,7 +707,7 @@
     <div id="step-banks" class="hidden">
       <div class="selected-branch-pill">
         <div>
-          <div style="font-size:10px; color:#b45309; font-weight:900; text-transform:uppercase; letter-spacing:0.3px;">📍 SEÇİLEN ŞUBE</div>
+          <div style="font-size:10px; color:#8c4308; font-weight:900; text-transform:uppercase; letter-spacing:0.4px;">📍 SEÇİLEN ŞUBE</div>
           <div class="selected-branch-pill-title" id="display-branch-name">Merkez Mağaza</div>
         </div>
         <button class="btn-change-prominent" onclick="goToStep(1)">
@@ -711,7 +717,7 @@
 
       <div class="selection-hint">Lütfen İşlem Yapacağınız Bankayı Seçiniz:</div>
 
-      <!-- SIKI VE KOMPAKT BANKA LİSTESİ -->
+      <!-- BANKA LİSTESİ: 13px BOŞLUK -->
       <div class="bank-select-list">
         <!-- Ziraat -->
         <div class="bank-select-btn" onclick="selectBank('ziraat')">
@@ -782,7 +788,7 @@
           </div>
         </div>
 
-        <div style="font-size:10px; color:#64748b; font-weight:800; text-transform:uppercase; text-align:center;">IBAN Numarası</div>
+        <div style="font-size:10px; color:#6c584c; font-weight:800; text-transform:uppercase; text-align:center;">IBAN Numarası</div>
         <div class="iban-box" id="card-iban-text">TR88 0001 0004 7897 6168 6150 01</div>
 
         <div class="btn-group">
@@ -800,7 +806,7 @@
         </div>
         <div class="red-alarm-badge">
           👉 T.C. Kimlik Numaranız - Altın Alımı<br>
-          <span style="font-weight:600; font-size:10px; color:#b91c1c;">(Örnek: 12345678901 - Altın Alımı)</span>
+          <span style="font-weight:600; font-size:10px; color:#881337;">(Örnek: 12345678901 - Altın Alımı)</span>
         </div>
         <div class="red-alarm-note">
           ⛔ Ödemenizin siparişinizle sorunsuz eşleşebilmesi adına açıklama alanına tutar veya TL ibaresi yazmamanızı rica ederiz.
@@ -912,7 +918,7 @@
       });
     }
 
-    // ARALARINDA BİRER SATIR BOŞLUK BULUNAN GÜNCEL KOPYALAMA ŞABLONU
+    // 1'ER SATIR BOŞLUKLU GÜNCEL KOPYALAMA ŞABLONU
     function copyFull(btn) {
       const branch = IBAN_DATA[currentBranch];
       const bank = branch.banks[currentBank];
