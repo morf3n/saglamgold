@@ -301,7 +301,6 @@
       color: #0f172a;
     }
 
-    /* YENİ VE ÇOK BELİRGİN: ÜST DEĞİŞTİR BUTONLARI */
     .btn-change-prominent {
       background: #fef3c7;
       border: 1.8px solid #d97706;
@@ -367,7 +366,6 @@
       font-weight: bold;
     }
 
-    /* YENİ VE ÇOK BELİRGİN: ŞUBE SEÇİMİNE GERİ DÖN BUTONU */
     .btn-back-main {
       background: #0f172a;
       color: #ffffff;
@@ -420,7 +418,6 @@
       color: #92400e;
     }
 
-    /* Tek Banka Kartı */
     .single-bank-card {
       border: 2px solid #e2e8f0;
       border-radius: 16px;
@@ -482,7 +479,6 @@
       margin: 8px 0 10px;
     }
 
-    /* Buton Grubu */
     .btn-group {
       display: flex;
       flex-direction: column;
@@ -508,7 +504,6 @@
     .btn-gold-all { background: #fffdf5; border: 1.5px solid #c5a059; color: #854d0e; }
     .btn.copied { background: #16a34a !important; border-color: #16a34a !important; color: #ffffff !important; }
 
-    /* UYARI KUTUSU */
     .warning-box {
       background: #fef2f2;
       border: 1.5px solid #ef4444;
@@ -634,14 +629,13 @@
       </div>
     </div>
 
-    <!-- 2. ADIM: BANKA SEÇİM EKRANI (BELİRGİN ŞUBE KARTI VE GERİ DÖN BUTONU) -->
+    <!-- 2. ADIM: BANKA SEÇİM EKRANI -->
     <div id="step-banks" class="hidden">
       <div class="selected-branch-pill">
         <div>
           <div style="font-size:10.5px; color:#b45309; font-weight:900; text-transform:uppercase; letter-spacing:0.4px;">📍 SEÇİLEN ŞUBE</div>
           <div class="selected-branch-pill-title" id="display-branch-name">Merkez Mağaza</div>
         </div>
-        <!-- Belirgin Değiştir Butonu -->
         <button class="btn-change-prominent" onclick="goToStep(1)">
           🔄 Şubeyi Değiştir
         </button>
@@ -693,7 +687,6 @@
         </div>
       </div>
 
-      <!-- Belirgin, Kalın ve Gölgeli Şube Seçimine Geri Dön Butonu -->
       <button class="btn-back-main" onclick="goToStep(1)">
         <span>⬅</span> Şube Seçimine Geri Dön
       </button>
@@ -705,7 +698,6 @@
         <div class="breadcrumb-text">
           <span id="detail-branch-title">Merkez Mağaza</span> › <span id="detail-bank-title">Ziraat Bankası</span>
         </div>
-        <!-- Belirgin Banka Değiştir Butonu -->
         <button class="btn-change-prominent" onclick="goToStep(2)">
           🔄 Banka Değiştir
         </button>
@@ -714,9 +706,7 @@
       <!-- TEK BANKA KARTI -->
       <div class="single-bank-card">
         <div class="bank-card-top">
-          <div class="bank-logo-box" id="detail-logo-box">
-            <!-- Dinamik logo svg buraya gelir -->
-          </div>
+          <div class="bank-logo-box" id="detail-logo-box"></div>
           <div>
             <div class="bank-card-title" id="card-bank-name">Ziraat Bankası</div>
             <div class="receiver-box">Alıcı: <strong>Sağlam Mücevherat Kuyumculuk</strong></div>
@@ -754,7 +744,7 @@
     // Şube ve Banka IBAN Veritabanı
     const IBAN_DATA = {
       merkez: {
-        name: "Merkez Mağaza",
+        name: "Merkez Mağaza (Taşmağazalar)",
         banks: {
           ziraat: { name: "Ziraat Bankası", ibanRaw: "TR880001000478976168615001", ibanFormatted: "TR88 0001 0004 7897 6168 6150 01", class: "logo-ziraat", icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2"><path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/></svg>' },
           halkbank: { name: "Halkbank", ibanRaw: "TR560001200934200010262802", ibanFormatted: "TR56 0001 2009 3420 0010 2628 02", class: "logo-halkbank", icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 4h4v16H5z" fill="#ffffff"/><path d="M15 4h4v16h-4z" fill="#ffffff"/><path d="M9 10h6v4H9z" fill="#38bdf8"/></svg>' },
@@ -770,7 +760,7 @@
         }
       },
       toptan: {
-        name: "Toptan & Kurumsal Satış",
+        name: "Toptan & Kurumsal Satış Ofisi",
         banks: {
           ziraat: { name: "Ziraat Bankası", ibanRaw: "TR330000000000000000000001", ibanFormatted: "TR33 0000 0000 0000 0000 0000 01", class: "logo-ziraat", icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2"><path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/></svg>' },
           halkbank: { name: "Halkbank", ibanRaw: "TR330000000000000000000002", ibanFormatted: "TR33 0000 0000 0000 0000 0000 02", class: "logo-halkbank", icon: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 4h4v16H5z" fill="#ffffff"/><path d="M15 4h4v16h-4z" fill="#ffffff"/><path d="M9 10h6v4H9z" fill="#38bdf8"/></svg>' },
@@ -847,27 +837,27 @@
       });
     }
 
+    // YENİ ONAYLANAN SAMİMİ VE ÖRNEKLİ METİN FORMATI
     function copyFull(btn) {
-      const b = IBAN_DATA[currentBranch].banks[currentBank];
+      const branch = IBAN_DATA[currentBranch];
+      const bank = branch.banks[currentBank];
+      
       const fullText = 
-`İyi alışverişler dileriz. Banka hesap ve havale/EFT bilgilerimiz aşağıda yer almaktadır:
+`Merhaba, Sağlam Mücevherat'ı tercih ettiğiniz için teşekkür ederiz.
+${branch.name} şubemize ait havale - EFT bilgileri aşağıdadır:
 
-HAVALE / EFT BİLGİLERİ
+🏦 Banka: ${bank.name}
+👤 Alıcı: Sağlam Mücevherat Kuyumculuk
+💳 IBAN: ${bank.ibanRaw}
 
-🏦 Banka:
-${b.name}
+✍ Açıklama Alanı:
+11 Haneli TC Kimlik Numaranız - Altın Alımı
+(Örnek: 12345678901 - Altın Alımı)
 
-👤 Hesap Alıcı Adı:
-Sağlam Mücevherat Kuyumculuk
+⚠️ Önemli Not:
+Açıklama alanına lütfen tutar veya TL ibaresi yazmayınız.
 
-💳 IBAN:
-${b.ibanRaw}
-
-✍ Açıklama:
-TC Kimlik Numaranız - Altın Alımı
-
-⚠️ Not:
-Açıklamaya lütfen tutar veya TL yazmayınız.`;
+Alışverişinizin hayırlı ve bereketli olmasını dileriz.`;
 
       navigator.clipboard.writeText(fullText).then(() => {
         const originalText = btn.innerText;
