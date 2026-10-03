@@ -598,22 +598,22 @@
       });
     }
 
-    // ALTERNATİF A: Banka alan adlarıyla birebir eşleşen rehber şablonu
+    // SEÇENEK 3: Tüm telefon ekranlarıyla uyumlu WhatsApp kalın metin (*...*) formatı
     function copyAllInfo(btn, bankName, iban) {
       const fullText = 
-`🏛️ SAĞLAM MÜCEVHERAT | HAVALE/EFT BİLGİLERİ
-🏦 Banka: ${bankName}
-──────────────────────
-💳 1. IBAN ALANINA:
+`*SAĞLAM MÜCEVHERAT | HAVALE BİLGİLERİ*
+*Banka:* ${bankName}
+
+*1. IBAN ALANINA:*
 ${iban}
-──────────────────────
-👤 2. ALICI (AD SOYAD / UNVAN) KISMINA:
+
+*2. ALICI (AD SOYAD / UNVAN) KISMINA:*
 Sağlam Mücevherat Kuyumculuk
-──────────────────────
-✍️ 3. AÇIKLAMA KISMINA:
+
+*3. AÇIKLAMA KISMINA:*
 11 Haneli TC Kimlik Numaranız - Altın Alımı
-──────────────────────
-⛔ ÖNEMLİ: Açıklamaya kesinlikle TL veya tutar yazmayınız!`;
+
+⚠️ *Not:* Açıklamaya kesinlikle TL veya tutar yazmayınız!`;
 
       navigator.clipboard.writeText(fullText).then(() => {
         const originalText = btn.innerText;
