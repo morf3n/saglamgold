@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Sağlam Mücevherat Kuyumculuk - Banka Hesap Bilgileri</title>
   <style>
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     
     html, body {
       height: 100%;
@@ -29,7 +25,7 @@
     .card {
       background: #ffffff;
       border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(212, 175, 55, 0.25);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.25);
       padding: 18px 16px;
       max-width: 440px;
       width: 100%;
@@ -40,6 +36,7 @@
       justify-content: space-between;
     }
 
+    /* ÜST BAŞLIK ALANI */
     .header {
       text-align: center;
       flex-shrink: 0;
@@ -53,7 +50,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
     }
     .gold-crest svg {
       width: 20px;
@@ -79,6 +76,7 @@
       font-weight: 600;
     }
 
+    /* GÜVEN VE KALİTE KARŞILAMA ROZETİ */
     .brand-motto-box {
       margin-top: 6px;
       background: #fffdf5;
@@ -102,6 +100,7 @@
       margin-top: 1px;
     }
 
+    /* 1. ADIM: ŞUBE SEÇİMİ (SEÇENEK B: SOLDAN İKONLU, YAZISI ORTALI) */
     #step-branches {
       flex: 1;
       display: flex;
@@ -126,8 +125,7 @@
       gap: 10px;
       margin-bottom: 10px;
     }
-
-    /* Option B: Left Gold Icon Badge + Centered Text */
+    
     .branch-card-btn {
       background: #fafaf9;
       border: 1.8px solid #e2e8f0;
@@ -145,33 +143,45 @@
     .branch-card-btn:active {
       transform: scale(0.98);
     }
+    .branch-card-btn.selected-branch {
+      border: 2.2px solid #b4861f !important;
+      background: #fffdf0 !important;
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.25), 0 8px 18px rgba(180, 134, 31, 0.2) !important;
+      transform: scale(0.99);
+    }
+    .branch-card-btn.selected-branch .branch-card-title {
+      color: #78350f !important;
+    }
 
+    /* Sol Rozet İkon Kutusu */
     .branch-icon-badge {
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      background: linear-gradient(135deg, #fffdf5, #fef3c7);
       border: 1.5px solid #d4af37;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 3px 8px rgba(212, 175, 55, 0.2);
-      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(212, 175, 55, 0.18);
+    }
+    .branch-icon-badge svg {
+      width: 24px;
+      height: 24px;
     }
 
+    /* Buton Metinleri (Karta Göre Ortalanmış) */
     .branch-text-wrapper {
       flex: 1;
       text-align: center;
-      padding: 0 8px;
-      margin-right: 44px; /* Counter-balance the left icon for true geometric centering */
+      padding-right: 44px; /* Sol ikon ile dengelenip tam ortalanması için */
     }
-
     .branch-card-title {
       font-size: 15.5px;
       font-weight: 900;
       color: #0f172a;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.4px;
       line-height: 1.25;
       margin-bottom: 2px;
     }
@@ -179,25 +189,6 @@
       font-size: 11px;
       color: #64748b;
       font-weight: 600;
-    }
-
-    /* Active clicked state with noticeable gold glow & tick */
-    .branch-card-btn.selected-branch {
-      border: 2.2px solid #b4861f !important;
-      background: #fffdf0 !important;
-      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.28), 0 8px 18px rgba(180, 134, 31, 0.22) !important;
-      transform: scale(0.99);
-    }
-    .branch-card-btn.selected-branch .branch-icon-badge {
-      background: linear-gradient(135deg, #d4af37 0%, #b4861f 100%);
-      border-color: #78350f;
-    }
-    .branch-card-btn.selected-branch .branch-icon-badge svg {
-      stroke: #ffffff;
-      fill: #ffffff;
-    }
-    .branch-card-btn.selected-branch .branch-card-title {
-      color: #78350f !important;
     }
 
     .branch-check-badge {
@@ -222,6 +213,7 @@
       to { transform: scale(1); opacity: 1; }
     }
 
+    /* MOBİL UYGULAMA ALANI */
     .app-section {
       background: linear-gradient(145deg, #0f172a, #1e293b);
       border: 1.5px solid #d4af37;
@@ -302,6 +294,7 @@
       color: #ffffff;
     }
 
+    /* 2. ADIM: BANKA SEÇİM EKRANI */
     #step-banks {
       flex: 1;
       display: flex;
@@ -418,6 +411,7 @@
       border-color: #fef08a;
     }
 
+    /* 3. ADIM: TEK BANKA IBAN VE KOPYALAMA DETAYI */
     #step-details {
       flex: 1;
       display: flex;
@@ -597,65 +591,55 @@
       </div>
     </div>
 
+    <!-- 1. ADIM: ŞUBE SEÇİM EKRANI (SEÇENEK B: SOLDA ALTIN ROZET İKONLAR, YAZILAR ORTALI) -->
     <div id="step-branches">
       <div class="selection-hint">Lütfen İşlem Yapacağınız Şubeyi Seçiniz:</div>
       <div class="branch-list">
         
-        <!-- 1. MERKEZ MAĞAZA (Taşmağazalar Taş Kemeri İkonu) -->
+        <!-- 1. MERKEZ MAĞAZA: TAŞMAĞAZALAR TAŞ KEMERİ İKONU -->
         <div class="branch-card-btn" onclick="selectBranch('merkez', 'Merkez Mağaza (Taşmağazalar)', this)">
           <span class="branch-check-badge">✓ Seçildi</span>
-          
           <div class="branch-icon-badge">
-            <!-- Tarihi Taş Kemeri SVG İkonu -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#b4861f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 21h18"/>
-              <path d="M4 21V11"/>
-              <path d="M20 21V11"/>
-              <path d="M4 11c0-4.418 3.582-8 8-8s8 3.582 8 8"/>
-              <path d="M8 21v-7a4 4 0 0 1 8 0v7"/>
-              <circle cx="12" cy="7" r="1" fill="#b45309"/>
+              <path d="M5 21V9"/>
+              <path d="M19 21V9"/>
+              <path d="M5 9c0-3.87 3.13-7 7-7s7 3.13 7 7"/>
+              <path d="M9 21v-7a3 3 0 0 1 6 0v7"/>
             </svg>
           </div>
-
           <div class="branch-text-wrapper">
             <div class="branch-card-title">Merkez Mağaza</div>
             <div class="branch-card-desc">Taşmağazalar / Erzurum Merkez</div>
           </div>
         </div>
 
-        <!-- 2. HORASAN MAĞAZASI (Darphane Ziynet Altın Sikkesi İkonu) -->
+        <!-- 2. HORASAN MAĞAZASI: DARPHANE ZİYNET ALTIN SİKKESİ İKONU -->
         <div class="branch-card-btn" onclick="selectBranch('horasan', 'Horasan Mağazası (İlçe Mağazamız)', this)">
           <span class="branch-check-badge">✓ Seçildi</span>
-
           <div class="branch-icon-badge">
-            <!-- Ziynet Altın Sikkesi SVG İkonu -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#b4861f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="9"/>
               <circle cx="12" cy="12" r="6" stroke-dasharray="2 2"/>
-              <path d="M12 9v6"/>
-              <path d="M9.5 12h5"/>
+              <path d="M12 9v6M9.5 10.5h5"/>
             </svg>
           </div>
-
           <div class="branch-text-wrapper">
             <div class="branch-card-title">Horasan Mağazası</div>
             <div class="branch-card-desc">İlçe Mağazamızdan Yapılan İşlemler</div>
           </div>
         </div>
 
-        <!-- 3. TOPTAN & KURUMSAL SATIŞ OFİSİ (Has Külçe Altın Blokları İkonu) -->
+        <!-- 3. TOPTAN & KURUMSAL: HAS KÜLÇE ALTIN BLOKLARI İKONU -->
         <div class="branch-card-btn" onclick="selectBranch('toptan', 'Toptan & Kurumsal Satış Ofisi', this)">
           <span class="branch-check-badge">✓ Seçildi</span>
-
           <div class="branch-icon-badge">
-            <!-- Has Külçe Altın Blokları SVG İkonu -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 18h16l-2-6H6l-2 6z"/>
-              <path d="M8 12l2-6h4l2 6"/>
-              <path d="M10 6h4"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#b4861f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 17l4-6h10l4 6H3z"/>
+              <path d="M7 11l3.5-5h5l3.5 5"/>
+              <path d="M4 17h16v3H4z"/>
             </svg>
           </div>
-
           <div class="branch-text-wrapper">
             <div class="branch-card-title">Toptan & Kurumsal Satış Ofisi</div>
             <div class="branch-card-desc">Yalnızca Toptan & Kurumsal İşlemler</div>
@@ -664,6 +648,7 @@
 
       </div>
 
+      <!-- MOBİL UYGULAMA VİTRİNİ -->
       <div class="app-section">
         <div class="app-header-badge">📲 Resmi Mobil Uygulamamız</div>
         <div class="app-section-title">Canlı Altın ve Döviz Fiyatları</div>
@@ -693,6 +678,7 @@
       </div>
     </div>
 
+    <!-- 2. ADIM: BANKA SEÇİM EKRANI -->
     <div id="step-banks" class="hidden">
       <div class="selected-branch-pill">
         <div>
@@ -707,7 +693,7 @@
       <div class="selection-hint">Lütfen İşlem Yapacağınız Bankayı Seçiniz:</div>
 
       <div class="bank-select-list">
-        <!-- Ziraat Bankası -->
+        <!-- Ziraat -->
         <div class="bank-select-btn" onclick="selectBank('ziraat')">
           <div class="bank-select-left">
             <div class="bank-logo-box logo-ziraat">
@@ -735,7 +721,7 @@
           <span class="arrow-bank">›</span>
         </div>
 
-        <!-- Türkiye İş Bankası -->
+        <!-- İş Bankası -->
         <div class="bank-select-btn" onclick="selectBank('isbank')">
           <div class="bank-select-left">
             <div class="bank-logo-box logo-isbank">
@@ -755,6 +741,7 @@
       </button>
     </div>
 
+    <!-- 3. ADIM: TEK BANKA IBAN VE KOPYALAMA DETAYI -->
     <div id="step-details" class="hidden">
       <div class="nav-breadcrumb-bar">
         <div class="breadcrumb-text">
@@ -803,6 +790,7 @@
   </div>
 
   <script>
+    // Şube ve Banka IBAN Veritabanı
     const IBAN_DATA = {
       merkez: {
         name: "Merkez Mağaza (Taşmağazalar)",
@@ -833,6 +821,7 @@
     let currentBranch = 'merkez';
     let currentBank = 'ziraat';
 
+    // 1. ADIM: ŞUBE SEÇİMİ (380MS GECİKMEYLE TİKİ HİSSETTİRİR)
     function selectBranch(branchKey, branchTitle, btnElement) {
       document.querySelectorAll('.branch-card-btn').forEach(b => b.classList.remove('selected-branch'));
       btnElement.classList.add('selected-branch');
@@ -845,6 +834,7 @@
       }, 380);
     }
 
+    // 2. ADIM: BANKA SEÇİMİ
     function selectBank(bankKey) {
       currentBank = bankKey;
       const bankInfo = IBAN_DATA[currentBranch].banks[currentBank];
@@ -860,6 +850,7 @@
       goToStep(3);
     }
 
+    // ADIM DEĞİŞTİRME FONKSİYONU
     function goToStep(stepNumber) {
       document.getElementById('step-branches').classList.add('hidden');
       document.getElementById('step-banks').classList.add('hidden');
@@ -875,65 +866,43 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // KOPYALAMA FONKSİYONLARI
     function copyIban(btn) {
       const ibanToCopy = IBAN_DATA[currentBranch].banks[currentBank].ibanRaw;
       copyText(btn, ibanToCopy, "IBAN Kopyalandı!");
     }
 
     function copyText(btn, textToCopy, successMsg) {
-      try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(textToCopy).then(() => {
-            showCopySuccess(btn, successMsg);
-          }).catch(() => {
-            fallbackCopyText(btn, textToCopy, successMsg);
-          });
-        } else {
-          fallbackCopyText(btn, textToCopy, successMsg);
-        }
-      } catch (e) {
-        fallbackCopyText(btn, textToCopy, successMsg);
-      }
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = "✓ " + successMsg;
+        btn.classList.add("copied");
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove("copied");
+        }, 2000);
+      }).catch(err => {
+        alert("Kopyalanamadı, lütfen metni seçiniz.");
+      });
     }
 
-    function fallbackCopyText(btn, textToCopy, successMsg) {
-      const textarea = document.createElement("textarea");
-      textarea.value = textToCopy;
-      textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
-      textarea.focus();
-      textarea.select();
-      try {
-        document.execCommand('copy');
-        showCopySuccess(btn, successMsg);
-      } catch (err) {
-        // Fallback if execution fails
-      }
-      document.body.removeChild(textarea);
-    }
-
-    function showCopySuccess(btn, successMsg) {
-      const originalText = btn.innerText;
-      btn.innerText = "✓ " + successMsg;
-      btn.classList.add("copied");
-      setTimeout(() => {
-        btn.innerText = originalText;
-        btn.classList.remove("copied");
-      }, 2000);
-    }
-
+    // BANKA, ALICI VE IBAN ARASINA BİRER SATIR BOŞLUK BIRAKILMIŞ GÜNCEL KOPYALAMA FONKSİYONU
     function copyFull(btn) {
       const branch = IBAN_DATA[currentBranch];
       const bank = branch.banks[currentBank];
       
       const fullText = 
 `Merhaba, Sağlam Mücevherat'ı tercih ettiğiniz için teşekkür ederiz.
-${branch.name} şubemize ait havale - EFT bilgileri aşağıdadır:
+${branch.name} Şubemize Ait Havale / EFT Bilgileri Aşağıdadır:
 
-🏦 Banka: ${bank.name}
-👤 Alıcı: Sağlam Mücevherat Kuyumculuk
-💳 IBAN: ${bank.ibanRaw}
+🏦 Banka:
+${bank.name}
+
+👤 Alıcı:
+Sağlam Mücevherat Kuyumculuk
+
+💳 IBAN:
+${bank.ibanRaw}
 
 ✍ Açıklama Alanı:
 11 Haneli TC Kimlik Numaranız - Altın Alımı
@@ -944,8 +913,17 @@ Açıklama alanına lütfen tutar veya TL ibaresi yazmayınız.
 
 Alışverişinizin hayırlı ve bereketli olmasını dileriz.`;
 
-      copyText(btn, fullText, "Tüm Bilgiler Kopyalandı!");
+      navigator.clipboard.writeText(fullText).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = "✓ 3. Tüm Bilgiler Kopyalandı!";
+        btn.classList.add("copied");
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove("copied");
+        }, 2000);
+      });
     }
   </script>
+
 </body>
 </html>
