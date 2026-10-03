@@ -100,6 +100,7 @@
     .branch-card-desc {
       font-size: 12px;
       color: #78716c;
+      font-weight: 500;
     }
     .arrow-icon {
       font-size: 20px;
@@ -107,33 +108,55 @@
       font-weight: bold;
     }
 
-    /* 2. ADIM: DETAY EKRANI */
-    .back-btn {
-      background: none;
-      border: none;
-      color: #78716c;
-      font-size: 13px;
-      font-weight: 600;
-      display: inline-flex;
+    /* 2. ADIM: VURGULU ŞUBE TEYİT BANDI (4. MADDE) */
+    .branch-confirmation-banner {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 14px;
+      display: flex;
       align-items: center;
-      gap: 5px;
-      cursor: pointer;
-      padding: 0 0 14px 0;
+      justify-content: space-between;
+      gap: 10px;
     }
-    .back-btn:hover {
+    .banner-text-group {
+      text-align: left;
+    }
+    .banner-label {
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+    .banner-branch-name {
+      font-size: 14.5px;
+      font-weight: 800;
       color: #0f172a;
     }
-    .current-branch-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      border: 1px solid #c5a059;
-      color: #fef08a;
-      font-size: 12px;
+    .banner-hint {
+      font-size: 11px;
+      color: #b45309;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .banner-change-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      color: #0f172a;
+      font-size: 11.5px;
       font-weight: 700;
-      padding: 5px 12px;
-      border-radius: 20px;
-      margin-bottom: 12px;
-      letter-spacing: 0.3px;
+      padding: 8px 10px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .banner-change-btn:active {
+      background: #f1f5f9;
+      border-color: #94a3b8;
     }
 
     /* Alıcı Kartı */
@@ -335,26 +358,26 @@
     <div id="step-selection">
       <div class="selection-hint">Lütfen işlem yapacağınız şubeyi seçiniz:</div>
       <div class="branch-list">
-        <div class="branch-card-btn" onclick="openBranch('horasan')">
+        <div class="branch-card-btn" onclick="openBranch('horasan', 'Horasan Mağazası')">
           <div>
             <div class="branch-card-title">Horasan Mağazası</div>
-            <div class="branch-card-desc">Banka ve IBAN bilgileri için tıklayınız</div>
+            <div class="branch-card-desc">İlçe Mağazamızdan Yapılan İşlemler</div>
           </div>
           <span class="arrow-icon">›</span>
         </div>
 
-        <div class="branch-card-btn" onclick="openBranch('merkez')">
+        <div class="branch-card-btn" onclick="openBranch('merkez', 'Merkez Mağaza')">
           <div>
             <div class="branch-card-title">Merkez Mağaza</div>
-            <div class="branch-card-desc">Banka ve IBAN bilgileri için tıklayınız</div>
+            <div class="branch-card-desc">Taşmağazalar / Erzurum Merkez Şubemiz</div>
           </div>
           <span class="arrow-icon">›</span>
         </div>
 
-        <div class="branch-card-btn" onclick="openBranch('toptan')">
+        <div class="branch-card-btn" onclick="openBranch('toptan', 'Toptan & Kurumsal Satış Ofisi')">
           <div>
             <div class="branch-card-title">Toptan & Kurumsal Satış Ofisi</div>
-            <div class="branch-card-desc">Banka ve IBAN bilgileri için tıklayınız</div>
+            <div class="branch-card-desc">Yalnızca Toptan & Kurumsal İşlemler İçin</div>
           </div>
           <span class="arrow-icon">›</span>
         </div>
@@ -363,14 +386,20 @@
 
     <!-- 2. AŞAMA: HESAP DETAY EKRANI -->
     <div id="step-details" class="hidden">
-      <button class="back-btn" onclick="goBack()">
-        ← Şube Değiştir
-      </button>
+      <!-- Vurgulu Şube Bilgilendirme ve Değiştirme Bandı -->
+      <div class="branch-confirmation-banner">
+        <div class="banner-text-group">
+          <div class="banner-label">📍 Seçilen Şube</div>
+          <div class="banner-branch-name" id="banner-branch-title">Şube Adı</div>
+          <div class="banner-hint">İşleminizi bu şubeden yaptığınızdan emin olunuz</div>
+        </div>
+        <button class="banner-change-btn" onclick="goBack()">
+          🔄 Değiştir
+        </button>
+      </div>
 
       <!-- 1. HORASAN MAĞAZASI BİLGİLERİ -->
       <div id="content-horasan" class="branch-data hidden">
-        <div class="current-branch-badge">📍 Horasan Mağazası</div>
-        
         <div class="alici-card">
           <div class="alici-label">Alıcı / Hesap Sahibi</div>
           <div class="alici-title">Sağlam Mücevherat Kuyumculuk</div>
@@ -431,14 +460,13 @@
 
       <!-- 2. MERKEZ MAĞAZA BİLGİLERİ -->
       <div id="content-merkez" class="branch-data hidden">
-        <div class="current-branch-badge">📍 Merkez Mağaza</div>
         <div class="alici-card">
           <div class="alici-label">Alıcı / Hesap Sahibi</div>
           <div class="alici-title">Sağlam Mücevherat Kuyumculuk</div>
           <button class="btn btn-secondary" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">Alıcı Adını Kopyala</button>
         </div>
 
-        <!-- Ziraat -->
+        <!-- Ziraat Bankası -->
         <div class="bank-card">
           <div class="bank-header">
             <div class="bank-logo-icon" style="background:#e11d48;">
@@ -448,10 +476,10 @@
             </div>
             <span class="bank-name">Ziraat Bankası</span>
           </div>
-          <div class="iban-box">TR11 0000 0000 0000 0000 0000 01</div>
+          <div class="iban-box">TR88 0001 0004 7897 6168 6150 01</div>
           <div class="btn-group">
-            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR110000000000000000000001')">📋 Tüm Bilgileri Kopyala</button>
-            <button class="btn btn-outline" onclick="copyText(this, 'TR110000000000000000000001', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Ziraat Bankası', 'TR880001000478976168615001')">📋 Tüm Bilgileri Kopyala</button>
+            <button class="btn btn-outline" onclick="copyText(this, 'TR880001000478976168615001', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
           </div>
         </div>
 
@@ -465,10 +493,10 @@
             </div>
             <span class="bank-name">Halkbank</span>
           </div>
-          <div class="iban-box">TR11 0000 0000 0000 0000 0000 02</div>
+          <div class="iban-box">TR56 0001 2009 3420 0010 2628 02</div>
           <div class="btn-group">
-            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Halkbank', 'TR110000000000000000000002')">📋 Tüm Bilgileri Kopyala</button>
-            <button class="btn btn-outline" onclick="copyText(this, 'TR110000000000000000000002', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
+            <button class="btn btn-gold" onclick="copyAllInfo(this, 'Halkbank', 'TR560001200934200010262802')">📋 Tüm Bilgileri Kopyala</button>
+            <button class="btn btn-outline" onclick="copyText(this, 'TR560001200934200010262802', 'IBAN Kopyalandı!')">Yalnızca IBAN'ı Kopyala</button>
           </div>
         </div>
 
@@ -492,7 +520,6 @@
 
       <!-- 3. TOPTAN & KURUMSAL SATIŞ OFİSİ BİLGİLERİ -->
       <div id="content-toptan" class="branch-data hidden">
-        <div class="current-branch-badge">📍 Toptan & Kurumsal Satış Ofisi</div>
         <div class="alici-card">
           <div class="alici-label">Alıcı / Hesap Sahibi</div>
           <div class="alici-title">Sağlam Mücevherat Kuyumculuk</div>
@@ -570,9 +597,12 @@
   </div>
 
   <script>
-    function openBranch(branchId) {
+    function openBranch(branchId, branchTitle) {
       document.getElementById('step-selection').classList.add('hidden');
       document.getElementById('step-details').classList.remove('hidden');
+
+      // Vurgulu banner başlığını dinamik güncelle
+      document.getElementById('banner-branch-title').innerText = branchTitle;
 
       document.querySelectorAll('.branch-data').forEach(el => el.classList.add('hidden'));
       document.getElementById('content-' + branchId).classList.remove('hidden');
@@ -599,7 +629,6 @@
       });
     }
 
-    // Tireli ve parantezsiz kopyalama formatı
     function copyAllInfo(btn, bankName, iban) {
       const fullText = `Alıcı: Sağlam Mücevherat Kuyumculuk\nBanka: ${bankName}\nIBAN: ${iban}\nAçıklama: 11 Haneli TC Kimlik Numaranız - Altın Alımı (Lütfen tutar veya TL yazmayınız)`;
       navigator.clipboard.writeText(fullText).then(() => {
