@@ -104,12 +104,12 @@
       gap: 12px;
     }
 
-    /* ŞUBE DİKKAT PANELİ */
+    /* ŞUBE DİKKAT PANELİ (SEÇENEK 1 - ALT ALTA & İKONLU) */
     .branch-attention-panel {
       background: #fffbeb;
       border: 1.5px solid #f59e0b;
       border-radius: 11px;
-      padding: 8px 12px;
+      padding: 9px 12px;
       text-align: center;
       box-shadow: 0 2px 6px rgba(245, 158, 11, 0.1);
     }
@@ -123,13 +123,22 @@
       align-items: center;
       justify-content: center;
       gap: 5px;
+      margin-bottom: 4px;
     }
     .branch-attention-desc {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
       font-size: 11px;
       color: #78350f;
       font-weight: 600;
-      margin-top: 2px;
       line-height: 1.35;
+    }
+    .branch-attention-line {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
     }
 
     .selection-hint {
@@ -231,7 +240,7 @@
       to { transform: scale(1); opacity: 1; }
     }
 
-    /* MOBİL UYGULAMA ALANI: CANLI ALTIN IŞILTISI & ANİMASYON */
+    /* MOBİL UYGULAMA ALANI: CANLI ALTIN FİYATLARI & IŞILTI */
     .app-section {
       background: linear-gradient(145deg, #090e17 0%, #172236 100%);
       border: 1.8px solid #d4af37;
@@ -244,7 +253,6 @@
       animation: cardGoldPulse 3.5s infinite ease-in-out;
     }
 
-    /* Yüzeyden akan lüks altın ışık efekti */
     .app-section::before {
       content: "";
       position: absolute;
@@ -659,9 +667,13 @@
 
     <!-- 1. ADIM: ŞUBE SEÇİM EKRANI -->
     <div id="step-branches">
+      <!-- ŞUBE SEÇİMİ DİKKAT PANELİ (SEÇENEK 1) -->
       <div class="branch-attention-panel">
         <div class="branch-attention-title">⚠️ Şube Seçimine Dikkat Ediniz</div>
-        <div class="branch-attention-desc">Lütfen işlem yaptığınız mağazamızı seçiniz. Her şubemizin banka hesapları birbirinden farklıdır.</div>
+        <div class="branch-attention-desc">
+          <div class="branch-attention-line">📍 Lütfen işlem yaptığınız mağazamızı seçiniz.</div>
+          <div class="branch-attention-line">ℹ️ Her şubemizin banka hesapları birbirinden farklıdır.</div>
+        </div>
       </div>
 
       <div class="selection-hint">Lütfen İşlem Yapacağınız Şubeyi Seçiniz:</div>
@@ -720,7 +732,7 @@
 
       </div>
 
-      <!-- MOBİL UYGULAMA ALANI: ANİMASYONLU & CANLI ALTIN FİYATLARI -->
+      <!-- MOBİL UYGULAMA ALANI -->
       <div class="app-section">
         <div class="app-header-badge">
           <span class="live-dot"></span>
