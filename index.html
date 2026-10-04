@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Sağlam Mücevherat Kuyumculuk - Banka Hesap Bilgileri</title>
   <style>
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     
     html, body {
       min-height: 100%;
@@ -17,7 +13,6 @@
       background: radial-gradient(circle at top, #1e293b, #0f172a 80%);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       overflow-x: hidden;
-      color: #0f172a;
     }
 
     body {
@@ -109,7 +104,7 @@
       gap: 12px;
     }
 
-    /* ŞUBE DİKKAT PANELİ: ORTALI */
+    /* ŞUBE DİKKAT PANELİ */
     .branch-attention-panel {
       background: #fffbeb;
       border: 1.5px solid #f59e0b;
@@ -145,7 +140,6 @@
       margin-top: 2px;
     }
 
-    /* ŞUBE BUTONLARI */
     .branch-list {
       display: flex;
       flex-direction: column;
@@ -179,7 +173,6 @@
       color: #78350f !important;
     }
 
-    /* Sol Rozet İkon Kutusu */
     .branch-icon-badge {
       width: 42px;
       height: 42px;
@@ -197,7 +190,6 @@
       height: 23px;
     }
 
-    /* Buton Metinleri */
     .branch-text-wrapper {
       flex: 1;
       text-align: center;
@@ -239,42 +231,98 @@
       to { transform: scale(1); opacity: 1; }
     }
 
-    /* MOBİL UYGULAMA ALANI */
+    /* MOBİL UYGULAMA ALANI: CANLI ALTIN IŞILTISI & ANİMASYON */
     .app-section {
-      background: linear-gradient(145deg, #0f172a, #1e293b);
-      border: 1.4px solid #d4af37;
-      border-radius: 14px;
-      padding: 10px 12px;
+      background: linear-gradient(145deg, #090e17 0%, #172236 100%);
+      border: 1.8px solid #d4af37;
+      border-radius: 15px;
+      padding: 12px 14px;
       text-align: center;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.25);
+      position: relative;
+      overflow: hidden;
       margin-top: 2px;
+      animation: cardGoldPulse 3.5s infinite ease-in-out;
     }
+
+    /* Yüzeyden akan lüks altın ışık efekti */
+    .app-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(115deg, transparent 20%, rgba(254, 240, 138, 0.18) 50%, transparent 80%);
+      transform: skewX(-25deg);
+      animation: goldShimmer 4s infinite linear;
+      pointer-events: none;
+    }
+
+    @keyframes goldShimmer {
+      0% { left: -150%; }
+      30%, 100% { left: 180%; }
+    }
+
+    @keyframes cardGoldPulse {
+      0%, 100% {
+        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.3), 0 0 0 0 rgba(212, 175, 55, 0.25);
+        border-color: #d4af37;
+      }
+      50% {
+        box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35), 0 0 12px rgba(212, 175, 55, 0.3);
+        border-color: #fef08a;
+      }
+    }
+
     .app-header-badge {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      background: rgba(212, 175, 55, 0.18);
-      border: 1px solid rgba(212, 175, 55, 0.4);
+      gap: 5px;
+      background: rgba(212, 175, 55, 0.22);
+      border: 1px solid rgba(254, 240, 138, 0.55);
       color: #fef08a;
-      font-size: 9.5px;
+      font-size: 10px;
       font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 10px;
+      padding: 3px 9px;
+      border-radius: 12px;
       text-transform: uppercase;
       letter-spacing: 0.4px;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #22c55e;
+      animation: liveBlink 1.4s infinite ease-in-out;
+      display: inline-block;
+    }
+
+    @keyframes liveBlink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.8); }
+    }
+
     .app-section-title {
-      font-size: 12.5px;
-      font-weight: 800;
+      font-size: 14px;
+      font-weight: 900;
       color: #ffffff;
       line-height: 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
     .app-section-subtitle {
       font-size: 10.5px;
-      color: #94a3b8;
-      margin-bottom: 7px;
+      color: #cbd5e1;
+      margin-top: 2px;
+      margin-bottom: 8px;
     }
+
     .app-buttons {
       display: flex;
       gap: 9px;
@@ -286,21 +334,23 @@
       align-items: center;
       justify-content: center;
       gap: 7px;
-      background: #111827;
+      background: #0f172a;
       color: #ffffff;
-      padding: 7px 9px;
-      border-radius: 9px;
+      padding: 8px 10px;
+      border-radius: 10px;
       text-decoration: none;
       transition: all 0.2s ease;
       border: 1.2px solid #334155;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
     .app-badge-btn:active {
       transform: scale(0.97);
       border-color: #d4af37;
+      background: #1e293b;
     }
     .app-badge-btn svg {
-      width: 18px;
-      height: 18px;
+      width: 19px;
+      height: 19px;
       flex-shrink: 0;
       fill: #ffffff;
     }
@@ -315,7 +365,7 @@
       letter-spacing: 0.3px;
     }
     .app-badge-main {
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 800;
       color: #ffffff;
     }
@@ -404,7 +454,6 @@
       font-weight: bold;
     }
 
-    /* ANA GERİ DÖNÜŞ BUTONU */
     .btn-back-main {
       background: #0f172a;
       color: #ffffff;
@@ -602,7 +651,6 @@
       <div class="gold-divider"></div>
       <p class="sub-title">Banka Hesap ve Havale / EFT Bilgileri</p>
 
-      <!-- KARŞILAMA PANELİ -->
       <div class="welcome-panel">
         <div class="welcome-panel-title">✨ Mağazamıza Hoş Geldiniz</div>
         <div class="welcome-panel-sub">Güveniniz ve tercihiniz için gönülden teşekkür ederiz.</div>
@@ -672,10 +720,15 @@
 
       </div>
 
-      <!-- MOBİL UYGULAMA ALANI -->
+      <!-- MOBİL UYGULAMA ALANI: ANİMASYONLU & CANLI ALTIN FİYATLARI -->
       <div class="app-section">
-        <div class="app-header-badge">📲 Resmî Mobil Uygulamamız</div>
-        <div class="app-section-title">Canlı Altın ve Döviz Fiyatları</div>
+        <div class="app-header-badge">
+          <span class="live-dot"></span>
+          Resmî Mobil Uygulamamız
+        </div>
+        <div class="app-section-title">
+          ✨ Canlı Altın Fiyatları
+        </div>
         <div class="app-section-subtitle">Piyasa anlık fiyatlarını ücretsiz takip edebilirsiniz.</div>
         
         <div class="app-buttons">
@@ -717,7 +770,6 @@
       <div class="selection-hint">Lütfen İşlem Yapacağınız Bankayı Seçiniz:</div>
 
       <div class="bank-select-list">
-        <!-- Ziraat -->
         <div class="bank-select-btn" onclick="selectBank('ziraat')">
           <div class="bank-select-left">
             <div class="bank-logo-box logo-ziraat">
@@ -730,7 +782,6 @@
           <span class="arrow-bank">›</span>
         </div>
 
-        <!-- Halkbank -->
         <div class="bank-select-btn" onclick="selectBank('halkbank')">
           <div class="bank-select-left">
             <div class="bank-logo-box logo-halkbank">
@@ -745,7 +796,6 @@
           <span class="arrow-bank">›</span>
         </div>
 
-        <!-- İş Bankası -->
         <div class="bank-select-btn" onclick="selectBank('isbank')">
           <div class="bank-select-left">
             <div class="bank-logo-box logo-isbank">
@@ -776,7 +826,6 @@
         </button>
       </div>
 
-      <!-- TEK BANKA KARTI -->
       <div class="single-bank-card">
         <div class="bank-card-top">
           <div class="bank-logo-box" id="detail-logo-box"></div>
@@ -796,7 +845,6 @@
         </div>
       </div>
 
-      <!-- KIRMIZI ALARM FORMATINDA AÇIKLAMA KUTUSU -->
       <div class="red-alarm-box">
         <div class="red-alarm-title">🚨 DİKKAT: HAVALE VE EFT AÇIKLAMA KURALI</div>
         <div class="red-alarm-text">
@@ -811,7 +859,6 @@
         </div>
       </div>
 
-      <!-- ŞUBE SEÇİMİNE GERİ DÖNÜŞ ANA BUTONU -->
       <button class="btn-back-main" onclick="goToStep(1)">
         <span>⬅</span> Şube Seçimine Geri Dön
       </button>
@@ -898,49 +945,19 @@
     }
 
     function copyText(btn, textToCopy, successMsg) {
-      try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(textToCopy).then(() => {
-            showCopySuccess(btn, successMsg);
-          }).catch(() => {
-            fallbackCopyText(btn, textToCopy, successMsg);
-          });
-        } else {
-          fallbackCopyText(btn, textToCopy, successMsg);
-        }
-      } catch (e) {
-        fallbackCopyText(btn, textToCopy, successMsg);
-      }
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = "✓ " + successMsg;
+        btn.classList.add("copied");
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove("copied");
+        }, 2000);
+      }).catch(err => {
+        alert("Kopyalanamadı, lütfen metni seçiniz.");
+      });
     }
 
-    function fallbackCopyText(btn, textToCopy, successMsg) {
-      const textarea = document.createElement("textarea");
-      textarea.value = textToCopy;
-      textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
-      textarea.focus();
-      textarea.select();
-      try {
-        document.execCommand('copy');
-        showCopySuccess(btn, successMsg);
-      } catch (err) {
-        // Fallback
-      }
-      document.body.removeChild(textarea);
-    }
-
-    function showCopySuccess(btn, successMsg) {
-      const originalText = btn.innerText;
-      btn.innerText = "✓ " + successMsg;
-      btn.classList.add("copied");
-      setTimeout(() => {
-        btn.innerText = originalText;
-        btn.classList.remove("copied");
-      }, 2000);
-    }
-
-    /* TALEP EDİLEN BAŞLIK DÜZENİ VE TDK UYUMLU KOPYALAMA ŞABLONU */
     function copyFull(btn) {
       const branch = IBAN_DATA[currentBranch];
       const bank = branch.banks[currentBank];
@@ -967,7 +984,15 @@ ${bank.ibanRaw}
 
 Alışverişinizin hayırlı ve bereketli olmasını dileriz.`;
 
-      copyText(btn, fullText, "Tüm Bilgiler Kopyalandı!");
+      navigator.clipboard.writeText(fullText).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = "✓ 3. Tüm Bilgiler Kopyalandı!";
+        btn.classList.add("copied");
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove("copied");
+        }, 2000);
+      });
     }
   </script>
 
