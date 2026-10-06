@@ -91,19 +91,19 @@
       <div class="grid grid-cols-4 gap-1.5 text-center">
         <div class="bg-[#060B17] p-1.5 rounded-lg border border-[#1E293B]">
           <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">Has Satış</span>
-          <input type="number" id="rateHasSatis" value="6600" inputmode="numeric" oninput="updateAllLivePreviews()" class="w-full text-center bg-transparent font-mono font-black text-xs text-amber-400 focus:outline-none">
+          <input type="number" id="rateHasSatis" value="6600" inputmode="numeric" oninput="saveAndSyncRates()" class="w-full text-center bg-transparent font-mono font-black text-xs text-amber-400 focus:outline-none">
         </div>
         <div class="bg-[#060B17] p-1.5 rounded-lg border border-[#1E293B]">
           <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">Has Alış</span>
-          <input type="number" id="rateHasAlis" value="6550" inputmode="numeric" oninput="updateAllLivePreviews()" class="w-full text-center bg-transparent font-mono font-black text-xs text-sky-400 focus:outline-none">
+          <input type="number" id="rateHasAlis" value="6550" inputmode="numeric" oninput="saveAndSyncRates()" class="w-full text-center bg-transparent font-mono font-black text-xs text-sky-400 focus:outline-none">
         </div>
         <div class="bg-[#060B17] p-1.5 rounded-lg border border-[#1E293B]">
           <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">$ Satış</span>
-          <input type="number" step="0.05" id="rateUsdSatis" value="38.70" inputmode="decimal" oninput="syncDovizInputs()" class="w-full text-center bg-transparent font-mono font-black text-xs text-emerald-400 focus:outline-none">
+          <input type="number" step="0.05" id="rateUsdSatis" value="38.70" inputmode="decimal" oninput="saveAndSyncRates()" class="w-full text-center bg-transparent font-mono font-black text-xs text-emerald-400 focus:outline-none">
         </div>
         <div class="bg-[#060B17] p-1.5 rounded-lg border border-[#1E293B]">
           <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">$ Alış</span>
-          <input type="number" step="0.05" id="rateUsdAlis" value="38.40" inputmode="decimal" oninput="syncDovizInputs()" class="w-full text-center bg-transparent font-mono font-black text-xs text-emerald-300 focus:outline-none">
+          <input type="number" step="0.05" id="rateUsdAlis" value="38.40" inputmode="decimal" oninput="saveAndSyncRates()" class="w-full text-center bg-transparent font-mono font-black text-xs text-emerald-300 focus:outline-none">
         </div>
       </div>
     </div>
@@ -826,6 +826,39 @@
       syncDovizInputs();
     }
 
+    /* ----------------------------------------------------
+       YEREL HAFIZA (LOCALSTORAGE) KALICI KUR YÖNETİMİ
+       ---------------------------------------------------- */
+    function saveAndSyncRates() {
+      const rates = {
+        hasSatis: document.getElementById('rateHasSatis').value,
+        hasAlis: document.getElementById('rateHasAlis').value,
+        usdSatis: document.getElementById('rateUsdSatis').value,
+        usdAlis: document.getElementById('rateUsdAlis').value
+      };
+      try {
+        localStorage.setItem('kuyumcu_son_kurlar', JSON.stringify(rates));
+      } catch (e) {
+        console.error('Kurlar kaydedilemedi:', e);
+      }
+      updateAllLivePreviews();
+    }
+
+    function loadSavedRates() {
+      try {
+        const saved = localStorage.getItem('kuyumcu_son_kurlar');
+        if (saved) {
+          const rates = JSON.parse(saved);
+          if (rates.hasSatis) document.getElementById('rateHasSatis').value = rates.hasSatis;
+          if (rates.hasAlis) document.getElementById('rateHasAlis').value = rates.hasAlis;
+          if (rates.usdSatis) document.getElementById('rateUsdSatis').value = rates.usdSatis;
+          if (rates.usdAlis) document.getElementById('rateUsdAlis').value = rates.usdAlis;
+        }
+      } catch (e) {
+        console.error('Kaydedilen kurlar okunamadı:', e);
+      }
+    }
+
     // Fişi WhatsApp veya Metin Olarak Kopyalama
     function copyReceiptText() {
       if (cart.length === 0) {
@@ -1121,6 +1154,7 @@
 
     // İlk Yükleme
     window.onload = function() {
+      loadSavedRates();
       autoFillTakiDefaults();
       calcHurdaPreview();
       calcZiynetPreview();
