@@ -282,17 +282,17 @@
           <input type="text" id="ziynetAd" value="Tam Altın" placeholder="Örn: Tam Altın, Kutu, İp parası..." class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 text-sm text-white font-bold focus:border-amber-400 focus:outline-none">
         </div>
 
-        <div class="grid grid-cols-2 gap-2">
-          <div>
+        <div class="grid grid-cols-12 gap-2">
+          <div class="col-span-7">
             <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Birim Fiyat (₺)</label>
             <input type="number" id="ziynetBirimFiyat" value="43200" placeholder="0" inputmode="numeric" oninput="calcZiynetPreview()" class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 font-mono font-black text-amber-400 focus:border-amber-400 focus:outline-none">
           </div>
-          <div>
+          <div class="col-span-5">
             <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Adet</label>
-            <div class="flex items-center gap-1">
-              <button type="button" onclick="adjustZiynetAdet(-1)" class="w-12 h-12 rounded-xl bg-[#17233F] border border-[#1E293B] text-lg font-black text-white active:scale-90">-</button>
-              <input type="number" id="ziynetAdet" value="1" min="1" inputmode="numeric" oninput="calcZiynetPreview()" class="h-12 flex-1 bg-[#060B17] border border-[#1E293B] rounded-xl text-center font-mono font-black text-white focus:border-amber-400 focus:outline-none">
-              <button type="button" onclick="adjustZiynetAdet(1)" class="w-12 h-12 rounded-xl bg-[#17233F] border border-[#1E293B] text-lg font-black text-white active:scale-90">+</button>
+            <div class="flex items-center bg-[#060B17] border border-[#1E293B] rounded-xl h-12 p-1 gap-1">
+              <button type="button" onclick="adjustZiynetAdet(-1)" class="w-8 h-full rounded-lg bg-[#17233F] hover:bg-[#203056] text-base font-black text-white active:scale-90 flex items-center justify-center shrink-0 transition">-</button>
+              <input type="number" id="ziynetAdet" value="1" min="1" inputmode="numeric" oninput="calcZiynetPreview()" class="w-full min-w-0 bg-transparent text-center font-mono font-black text-sm text-white focus:outline-none p-0">
+              <button type="button" onclick="adjustZiynetAdet(1)" class="w-8 h-full rounded-lg bg-[#17233F] hover:bg-[#203056] text-base font-black text-white active:scale-90 flex items-center justify-center shrink-0 transition">+</button>
             </div>
           </div>
         </div>
