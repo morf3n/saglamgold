@@ -3,1010 +3,837 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Sağlam Mücevherat Kuyumculuk - Banka Hesap Bilgileri</title>
+  <title>Kuyumcu Mobil Hızlı Tezgâh</title>
+  <!-- Google Fonts & Tailwind CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            kiosk: {
+              bg: '#0A0F1D',
+              card: '#141D33',
+              subcard: '#1D2A4A',
+              border: '#2A3C66',
+              accent: '#38BDF8',
+              gold: '#F59E0B',
+              goldLight: '#FDE68A',
+              green: '#10B981',
+              blue: '#0284C7',
+              red: '#EF4444'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    html, body {
-      min-height: 100%;
-      min-height: 100dvh;
-      background: radial-gradient(circle at top, #1e293b, #0f172a 80%);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-      overflow-x: hidden;
-    }
-
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 12px;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.25);
-      padding: 18px 16px;
-      max-width: 440px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    /* ÜST BAŞLIK ALANI */
-    .header {
-      text-align: center;
-      flex-shrink: 0;
-    }
-    .gold-crest {
-      width: 40px;
-      height: 40px;
-      margin: 0 auto 5px;
-      background: linear-gradient(135deg, #d4af37, #fef08a, #b4861f);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-    }
-    .gold-crest svg {
-      width: 20px;
-      height: 20px;
-    }
-    h1 {
-      color: #0f172a;
-      font-size: 16px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      line-height: 1.25;
-    }
-    .gold-divider {
-      width: 48px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #c5a059, transparent);
-      margin: 5px auto;
-    }
-    .sub-title {
-      color: #64748b;
-      font-size: 11.5px;
-      font-weight: 600;
-    }
-
-    /* KARŞILAMA PANELİ */
-    .welcome-panel {
-      margin-top: 3px;
-      background: linear-gradient(180deg, #faf8f5 0%, #f5efe6 100%);
-      border: 1px solid #e2d7c3;
-      border-radius: 11px;
-      padding: 8px 12px;
-      text-align: center;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
-    }
-    .welcome-panel-title {
-      font-size: 12px;
-      font-weight: 800;
-      color: #5c4827;
-      letter-spacing: 0.3px;
-    }
-    .welcome-panel-sub {
-      font-size: 11px;
-      font-weight: 600;
-      color: #7c6847;
-      margin-top: 2px;
-    }
-
-    /* 1. ADIM: ŞUBE SEÇİMİ */
-    #step-branches {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    /* ŞUBE DİKKAT PANELİ (SEÇENEK 1 - ALT ALTA & İKONLU) */
-    .branch-attention-panel {
-      background: #fffbeb;
-      border: 1.5px solid #f59e0b;
-      border-radius: 11px;
-      padding: 9px 12px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(245, 158, 11, 0.1);
-    }
-    .branch-attention-title {
-      font-size: 11.5px;
-      font-weight: 900;
-      color: #92400e;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      margin-bottom: 4px;
-    }
-    .branch-attention-desc {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      font-size: 11px;
-      color: #78350f;
-      font-weight: 600;
-      line-height: 1.35;
-    }
-    .branch-attention-line {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-    }
-
-    .selection-hint {
-      font-size: 12.5px;
-      font-weight: 800;
-      color: #334155;
-      text-align: center;
-      margin-top: 2px;
-    }
-
-    .branch-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    
-    .branch-card-btn {
-      background: #fafaf9;
-      border: 1.8px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 12px 14px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      position: relative;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Dokunmatik mobil optimizasyonu */
+    * {
       -webkit-tap-highlight-color: transparent;
-      min-height: 66px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      user-select: none;
     }
-    .branch-card-btn:active {
-      transform: scale(0.98);
+    input, select, textarea {
+      user-select: text;
     }
-    .branch-card-btn.selected-branch {
-      border: 2.2px solid #b4861f !important;
-      background: #fffdf0 !important;
-      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25), 0 6px 16px rgba(180, 134, 31, 0.18) !important;
-      transform: scale(0.99);
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
     }
-    .branch-card-btn.selected-branch .branch-card-title {
-      color: #78350f !important;
+    input[type=number] {
+      -moz-appearance: textfield;
     }
-
-    .branch-icon-badge {
-      width: 42px;
-      height: 42px;
-      border-radius: 11px;
-      background: linear-gradient(135deg, #fffdf5, #fef3c7);
-      border: 1.5px solid #d4af37;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(212, 175, 55, 0.18);
+    .touch-h {
+      min-height: 48px;
     }
-    .branch-icon-badge svg {
-      width: 23px;
-      height: 23px;
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
     }
-
-    .branch-text-wrapper {
-      flex: 1;
-      text-align: center;
-      padding-right: 42px;
-    }
-    .branch-card-title {
-      font-size: 15px;
-      font-weight: 900;
-      color: #0f172a;
-      letter-spacing: 0.3px;
-      line-height: 1.25;
-      margin-bottom: 2px;
-    }
-    .branch-card-desc {
-      font-size: 11px;
-      color: #64748b;
-      font-weight: 600;
-    }
-
-    .branch-check-badge {
-      display: none;
-      position: absolute;
-      top: 6px;
-      right: 8px;
-      background: #16a34a;
-      color: #ffffff;
-      font-size: 9.5px;
-      font-weight: 800;
-      padding: 3px 7px;
-      border-radius: 10px;
-      letter-spacing: 0.3px;
-      animation: popIn 0.2s ease-out;
-    }
-    .branch-card-btn.selected-branch .branch-check-badge {
-      display: inline-block;
-    }
-    @keyframes popIn {
-      from { transform: scale(0.5); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    /* MOBİL UYGULAMA ALANI: CANLI ALTIN FİYATLARI & IŞILTI */
-    .app-section {
-      background: linear-gradient(145deg, #090e17 0%, #172236 100%);
-      border: 1.8px solid #d4af37;
-      border-radius: 15px;
-      padding: 12px 14px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      margin-top: 2px;
-      animation: cardGoldPulse 3.5s infinite ease-in-out;
-    }
-
-    .app-section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -150%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(115deg, transparent 20%, rgba(254, 240, 138, 0.18) 50%, transparent 80%);
-      transform: skewX(-25deg);
-      animation: goldShimmer 4s infinite linear;
-      pointer-events: none;
-    }
-
-    @keyframes goldShimmer {
-      0% { left: -150%; }
-      30%, 100% { left: 180%; }
-    }
-
-    @keyframes cardGoldPulse {
-      0%, 100% {
-        box-shadow: 0 4px 14px rgba(15, 23, 42, 0.3), 0 0 0 0 rgba(212, 175, 55, 0.25);
-        border-color: #d4af37;
-      }
-      50% {
-        box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35), 0 0 12px rgba(212, 175, 55, 0.3);
-        border-color: #fef08a;
-      }
-    }
-
-    .app-header-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: rgba(212, 175, 55, 0.22);
-      border: 1px solid rgba(254, 240, 138, 0.55);
-      color: #fef08a;
-      font-size: 10px;
-      font-weight: 800;
-      padding: 3px 9px;
-      border-radius: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      margin-bottom: 4px;
-    }
-
-    .live-dot {
-      width: 7px;
-      height: 7px;
-      background-color: #22c55e;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #22c55e;
-      animation: liveBlink 1.4s infinite ease-in-out;
-      display: inline-block;
-    }
-
-    @keyframes liveBlink {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.3; transform: scale(0.8); }
-    }
-
-    .app-section-title {
-      font-size: 14px;
-      font-weight: 900;
-      color: #ffffff;
-      line-height: 1.2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    }
-    .app-section-subtitle {
-      font-size: 10.5px;
-      color: #cbd5e1;
-      margin-top: 2px;
-      margin-bottom: 8px;
-    }
-
-    .app-buttons {
-      display: flex;
-      gap: 9px;
-      justify-content: center;
-    }
-    .app-badge-btn {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      background: #0f172a;
-      color: #ffffff;
-      padding: 8px 10px;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      border: 1.2px solid #334155;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-    .app-badge-btn:active {
-      transform: scale(0.97);
-      border-color: #d4af37;
-      background: #1e293b;
-    }
-    .app-badge-btn svg {
-      width: 19px;
-      height: 19px;
-      flex-shrink: 0;
-      fill: #ffffff;
-    }
-    .app-badge-text {
-      text-align: left;
-      line-height: 1.15;
-    }
-    .app-badge-sub {
-      font-size: 7.5px;
-      color: #94a3b8;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-    .app-badge-main {
-      font-size: 11.5px;
-      font-weight: 800;
-      color: #ffffff;
-    }
-
-    /* 2. ADIM: BANKA SEÇİM EKRANI */
-    #step-banks {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    
-    .selected-branch-pill {
-      background: #fffdf5;
-      border: 1.8px solid #f59e0b;
-      border-radius: 13px;
-      padding: 9px 13px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 4px 10px rgba(245, 158, 11, 0.1);
-    }
-    .selected-branch-pill-title {
-      font-size: 14px;
-      font-weight: 900;
-      color: #0f172a;
-    }
-
-    .btn-change-prominent {
-      background: #fef3c7;
-      border: 1.6px solid #d97706;
-      color: #92400e;
-      padding: 5px 10px;
-      border-radius: 8px;
-      font-size: 11.5px;
-      font-weight: 900;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      box-shadow: 0 2px 5px rgba(217, 119, 6, 0.18);
-      transition: all 0.15s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .btn-change-prominent:active {
-      background: #fde68a;
-      transform: scale(0.96);
-    }
-
-    .bank-select-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .bank-select-btn {
-      background: #fafaf9;
-      border: 1.8px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 13px 15px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.2s ease;
-      -webkit-tap-highlight-color: transparent;
-      min-height: 62px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-    }
-    .bank-select-btn:active {
-      border-color: #c5a059;
-      background: #fffdf5;
-      transform: translateY(-1px);
-    }
-    .bank-select-left {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-    }
-    .bank-select-name {
-      font-size: 15px;
-      font-weight: 800;
-      color: #0f172a;
-    }
-    .arrow-bank {
-      font-size: 19px;
-      color: #c5a059;
-      font-weight: bold;
-    }
-
-    .btn-back-main {
-      background: #0f172a;
-      color: #ffffff;
-      border: 1.8px solid #d4af37;
-      padding: 13px 15px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 900;
-      cursor: pointer;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
-      transition: all 0.2s ease;
-      -webkit-tap-highlight-color: transparent;
-      letter-spacing: 0.3px;
-      margin-top: 2px;
-    }
-    .btn-back-main:active {
-      background: #1e293b;
-      transform: scale(0.98);
-      border-color: #fef08a;
-    }
-
-    /* 3. ADIM: TEK BANKA IBAN VE KOPYALAMA DETAYI */
-    #step-details {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .nav-breadcrumb-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #fffdf5;
-      border: 1.4px solid #fde68a;
-      border-radius: 12px;
-      padding: 7px 11px;
-      font-size: 12px;
-      color: #334155;
-      font-weight: 800;
-      box-shadow: 0 2px 6px rgba(212, 175, 55, 0.08);
-    }
-    .breadcrumb-text span {
-      color: #92400e;
-    }
-
-    .single-bank-card {
-      border: 1.8px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 12px 13px;
-      background: #ffffff;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
-    }
-    .bank-card-top {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 7px;
-      padding-bottom: 7px;
-      border-bottom: 1px dashed #e2e8f0;
-    }
-    .bank-card-title {
-      font-size: 15px;
-      font-weight: 900;
-      color: #0f172a;
-    }
-    .receiver-box {
-      font-size: 11.5px;
-      color: #64748b;
-      font-weight: 600;
-    }
-    .receiver-box strong {
-      color: #0f172a;
-      font-weight: 800;
-    }
-
-    .bank-logo-box {
-      width: 34px;
-      height: 34px;
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .logo-ziraat { background: #e11d48; }
-    .logo-halkbank { background: #0284c7; }
-    .logo-isbank { background: #1e3a8a; }
-
-    .iban-box {
-      background: #f8fafc;
-      border: 1.5px dashed #cbd5e1;
-      border-radius: 9px;
-      padding: 9px 7px;
-      font-family: 'Consolas', monospace;
-      font-size: 14px;
-      font-weight: 800;
-      color: #0f172a;
-      text-align: center;
-      word-break: break-all;
-      letter-spacing: 0.5px;
-      margin: 7px 0 9px;
-    }
-
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .btn {
-      color: #ffffff;
-      border: none;
-      border-radius: 9px;
-      padding: 9.5px;
-      font-size: 12px;
-      font-weight: 800;
-      cursor: pointer;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: all 0.15s;
-    }
-    .btn-primary-iban { background: #0f172a; color: #f8fafc; }
-    .btn-outline-alici { background: #ffffff; border: 1.5px solid #cbd5e1; color: #1e293b; }
-    .btn-gold-all { background: #fffdf5; border: 1.5px solid #c5a059; color: #854d0e; }
-    .btn.copied { background: #16a34a !important; border-color: #16a34a !important; color: #ffffff !important; }
-
-    /* KIRMIZI ALARM FORMATINDA AÇIKLAMA KUTUSU */
-    .red-alarm-box {
-      background: #fef2f2;
-      border: 1.6px solid #ef4444;
-      border-radius: 13px;
-      padding: 10px 12px;
-      text-align: left;
-      box-shadow: 0 3px 10px rgba(239, 68, 68, 0.12);
-    }
-    .red-alarm-title {
-      font-weight: 900;
-      color: #991b1b;
-      font-size: 11.5px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      margin-bottom: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-    .red-alarm-text {
-      font-size: 11px;
-      color: #1f2937;
-      line-height: 1.35;
-      margin-bottom: 6px;
-    }
-    .red-alarm-badge {
-      background: #fee2e2;
-      border: 1.3px dashed #dc2626;
-      border-radius: 8px;
-      padding: 6px 8px;
-      font-size: 11.5px;
-      font-weight: 900;
-      color: #991b1b;
-      text-align: center;
-      margin-bottom: 6px;
-    }
-    .red-alarm-note {
-      font-size: 10.5px;
-      color: #b91c1c;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    .hidden {
-      display: none !important;
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #2A3C66;
+      border-radius: 999px;
     }
   </style>
 </head>
-<body>
+<body class="bg-[#0A0F1D] text-slate-100 font-sans antialiased min-h-screen pb-32">
 
-  <div class="card">
-    <div class="header">
-      <div class="gold-crest">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 3h12l4 6-10 12L2 9z"/>
-          <path d="M11 3L8 9l4 12 4-12-3-6"/>
-          <path d="M2 9h20"/>
-        </svg>
-      </div>
-      <h1>SAĞLAM MÜCEVHERAT KUYUMCULUK</h1>
-      <div class="gold-divider"></div>
-      <p class="sub-title">Banka Hesap ve Havale / EFT Bilgileri</p>
-
-      <div class="welcome-panel">
-        <div class="welcome-panel-title">✨ Mağazamıza Hoş Geldiniz</div>
-        <div class="welcome-panel-sub">Güveniniz ve tercihiniz için gönülden teşekkür ederiz.</div>
-      </div>
-    </div>
-
-    <!-- 1. ADIM: ŞUBE SEÇİM EKRANI -->
-    <div id="step-branches">
-      <!-- ŞUBE SEÇİMİ DİKKAT PANELİ (SEÇENEK 1) -->
-      <div class="branch-attention-panel">
-        <div class="branch-attention-title">⚠️ Şube Seçimine Dikkat Ediniz</div>
-        <div class="branch-attention-desc">
-          <div class="branch-attention-line">📍 Lütfen işlem yaptığınız mağazamızı seçiniz.</div>
-          <div class="branch-attention-line">ℹ️ Her şubemizin banka hesapları birbirinden farklıdır.</div>
+  <header class="sticky top-0 z-30 bg-[#141D33]/95 backdrop-blur-md border-b border-[#2A3C66] px-3 py-2 shadow-lg">
+    <div class="flex items-center justify-between gap-2 max-w-xl mx-auto">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center font-black text-slate-950 text-base shadow">
+          ₺
         </div>
-      </div>
-
-      <div class="selection-hint">Lütfen İşlem Yapacağınız Şubeyi Seçiniz:</div>
-      
-      <div class="branch-list">
-        
-        <!-- 1. MERKEZ MAĞAZA: TAŞ KEMER -->
-        <div class="branch-card-btn" onclick="selectBranch('merkez', 'Merkez Mağaza (Taşmağazalar)', this)">
-          <span class="branch-check-badge">✓ Seçildi</span>
-          <div class="branch-icon-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#b4861f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 21h18"/>
-              <path d="M5 21V9"/>
-              <path d="M19 21V9"/>
-              <path d="M5 9c0-3.87 3.13-7 7-7s7 3.13 7 7"/>
-              <path d="M9 21v-7a3 3 0 0 1 6 0v7"/>
-            </svg>
-          </div>
-          <div class="branch-text-wrapper">
-            <div class="branch-card-title">Merkez Mağaza</div>
-            <div class="branch-card-desc">Taşmağazalar / Erzurum Merkez</div>
-          </div>
-        </div>
-
-        <!-- 2. HORASAN MAĞAZASI: DARPHANE ZİYNET SİKKESİ -->
-        <div class="branch-card-btn" onclick="selectBranch('horasan', 'Horasan Mağazası', this)">
-          <span class="branch-check-badge">✓ Seçildi</span>
-          <div class="branch-icon-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#b4861f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <circle cx="12" cy="12" r="6" stroke-dasharray="2 2"/>
-              <path d="M12 9v6M9.5 10.5h5"/>
-            </svg>
-          </div>
-          <div class="branch-text-wrapper">
-            <div class="branch-card-title">Horasan Mağazası</div>
-            <div class="branch-card-desc">İlçe Mağazamızdan Yapılan İşlemler</div>
-          </div>
-        </div>
-
-        <!-- 3. TOPTAN VE KURUMSAL: HAS KÜLÇE BLOKLARI -->
-        <div class="branch-card-btn" onclick="selectBranch('toptan', 'Toptan ve Kurumsal Satış Ofisi', this)">
-          <span class="branch-check-badge">✓ Seçildi</span>
-          <div class="branch-icon-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#b4861f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 17l4-6h10l4 6H3z"/>
-              <path d="M7 11l3.5-5h5l3.5 5"/>
-              <path d="M4 17h16v3H4z"/>
-            </svg>
-          </div>
-          <div class="branch-text-wrapper">
-            <div class="branch-card-title">Toptan ve Kurumsal Satış Ofisi</div>
-            <div class="branch-card-desc">Yalnızca Toptan ve Kurumsal İşlemler</div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- MOBİL UYGULAMA ALANI -->
-      <div class="app-section">
-        <div class="app-header-badge">
-          <span class="live-dot"></span>
-          Resmî Mobil Uygulamamız
-        </div>
-        <div class="app-section-title">
-          ✨ Canlı Altın Fiyatları
-        </div>
-        <div class="app-section-subtitle">Piyasa anlık fiyatlarını ücretsiz takip edebilirsiniz.</div>
-        
-        <div class="app-buttons">
-          <a href="https://apps.apple.com/tr/app/sa%C4%9Flam-alt%C4%B1n/id6469431880" target="_blank" rel="noopener noreferrer" class="app-badge-btn">
-            <svg viewBox="0 0 24 24">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 0.92-2.87-.9.04-2.01.61-2.66 1.36-.58.67-1.09 1.74-.96 2.78 1.02.08 2.08-.53 2.7-1.27z"/>
-            </svg>
-            <div class="app-badge-text">
-              <div class="app-badge-sub">İndirin</div>
-              <div class="app-badge-main">App Store</div>
-            </div>
-          </a>
-
-          <a href="https://play.google.com/store/apps/details?id=com.erz.saglamaltin&hl=tr" target="_blank" rel="noopener noreferrer" class="app-badge-btn">
-            <svg viewBox="0 0 24 24">
-              <path d="M3.609 1.814L13.793 12 3.61 22.186a2.046 2.046 0 0 1-.61-1.468V3.282c0-.573.227-1.097.609-1.468zm11.242 11.244l2.562 2.563-12.784 7.38 10.222-9.943zm0-2.116L4.629.999l12.784 7.38-2.562 2.563zm1.484 1.058l3.666 2.117c.995.575.995 1.517 0 2.091l-3.666 2.117-2.34-2.34 2.34-1.985z"/>
-            </svg>
-            <div class="app-badge-text">
-              <div class="app-badge-sub">Keşfedin</div>
-              <div class="app-badge-main">Google Play</div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2. ADIM: BANKA SEÇİM EKRANI -->
-    <div id="step-banks" class="hidden">
-      <div class="selected-branch-pill">
         <div>
-          <div style="font-size:10px; color:#b45309; font-weight:900; text-transform:uppercase; letter-spacing:0.3px;">📍 SEÇİLEN ŞUBE</div>
-          <div class="selected-branch-pill-title" id="display-branch-name">Merkez Mağaza</div>
-        </div>
-        <button class="btn-change-prominent" onclick="goToStep(1)">
-          🔄 Şubeyi Değiştir
-        </button>
-      </div>
-
-      <div class="selection-hint">Lütfen İşlem Yapacağınız Bankayı Seçiniz:</div>
-
-      <div class="bank-select-list">
-        <div class="bank-select-btn" onclick="selectBank('ziraat')">
-          <div class="bank-select-left">
-            <div class="bank-logo-box logo-ziraat">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2">
-                <path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/>
-              </svg>
-            </div>
-            <span class="bank-select-name">Ziraat Bankası</span>
-          </div>
-          <span class="arrow-bank">›</span>
-        </div>
-
-        <div class="bank-select-btn" onclick="selectBank('halkbank')">
-          <div class="bank-select-left">
-            <div class="bank-logo-box logo-halkbank">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M5 4h4v16H5z" fill="#ffffff"/>
-                <path d="M15 4h4v16h-4z" fill="#ffffff"/>
-                <path d="M9 10h6v4H9z" fill="#38bdf8"/>
-              </svg>
-            </div>
-            <span class="bank-select-name">Halkbank</span>
-          </div>
-          <span class="arrow-bank">›</span>
-        </div>
-
-        <div class="bank-select-btn" onclick="selectBank('isbank')">
-          <div class="bank-select-left">
-            <div class="bank-logo-box logo-isbank">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="4.5" r="2.2" fill="#ffffff"/>
-                <path d="M7 8.5h10l-4.5 4.5 4.5 5.5H7l4.5-5.5-4.5-4.5z" fill="#ffffff"/>
-              </svg>
-            </div>
-            <span class="bank-select-name">Türkiye İş Bankası</span>
-          </div>
-          <span class="arrow-bank">›</span>
+          <div class="text-xs font-black tracking-tight text-white uppercase leading-none">Hızlı Tezgâh</div>
+          <div class="text-[10px] text-amber-400 font-semibold leading-tight">Sarraf Mobil Satış & Fiş</div>
         </div>
       </div>
-
-      <button class="btn-back-main" onclick="goToStep(1)">
-        <span>⬅</span> Şube Seçimine Geri Dön
+      <button onclick="toggleRatesPanel()" class="px-2.5 py-1 rounded-lg bg-[#1D2A4A] border border-[#2A3C66] text-[11px] font-bold text-amber-300 flex items-center gap-1 active:scale-95 transition">
+        <span>⚙️ Kurlar</span>
       </button>
     </div>
 
-    <!-- 3. ADIM: TEK BANKA IBAN VE KOPYALAMA DETAYI -->
-    <div id="step-details" class="hidden">
-      <div class="nav-breadcrumb-bar">
-        <div class="breadcrumb-text">
-          <span id="detail-branch-title">Merkez Mağaza</span> › <span id="detail-bank-title">Ziraat Bankası</span>
+    <!-- Kurlar Hızlı Barı (Düzenlenebilir) -->
+    <div id="quickRatesRow" class="grid grid-cols-4 gap-1.5 mt-2 max-w-xl mx-auto text-center">
+      <div class="bg-[#0A0F1D] p-1 rounded-lg border border-[#2A3C66]/70">
+        <span class="block text-[9px] font-bold text-slate-400 uppercase">Has Satış</span>
+        <input type="number" id="rateHasSatis" value="6600" inputmode="numeric" onchange="recalculateAll()" class="w-full text-center bg-transparent font-mono font-black text-xs text-amber-400 focus:outline-none">
+      </div>
+      <div class="bg-[#0A0F1D] p-1 rounded-lg border border-[#2A3C66]/70">
+        <span class="block text-[9px] font-bold text-slate-400 uppercase">Has Alış</span>
+        <input type="number" id="rateHasAlis" value="6550" inputmode="numeric" onchange="recalculateAll()" class="w-full text-center bg-transparent font-mono font-black text-xs text-sky-400 focus:outline-none">
+      </div>
+      <div class="bg-[#0A0F1D] p-1 rounded-lg border border-[#2A3C66]/70">
+        <span class="block text-[9px] font-bold text-slate-400 uppercase">$ Satış</span>
+        <input type="number" step="0.05" id="rateUsdSatis" value="38.70" inputmode="decimal" onchange="syncDovizInputs()" class="w-full text-center bg-transparent font-mono font-black text-xs text-emerald-400 focus:outline-none">
+      </div>
+      <div class="bg-[#0A0F1D] p-1 rounded-lg border border-[#2A3C66]/70">
+        <span class="block text-[9px] font-bold text-slate-400 uppercase">$ Alış</span>
+        <input type="number" step="0.05" id="rateUsdAlis" value="38.40" inputmode="decimal" onchange="syncDovizInputs()" class="w-full text-center bg-transparent font-mono font-black text-xs text-emerald-300 focus:outline-none">
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-xl mx-auto px-3 pt-3">
+    <!-- Ana Sekmeler (Mobil Başparmak Dostu) -->
+    <div class="grid grid-cols-4 gap-1.5 mb-3 bg-[#141D33] p-1.5 rounded-xl border border-[#2A3C66]">
+      <button onclick="switchTab('tabZiynet')" id="btnTabZiynet" class="tab-btn py-2 px-1 rounded-lg text-xs font-black transition text-center bg-amber-500 text-slate-950 shadow">
+        🪙 Ziynet & Serbest
+      </button>
+      <button onclick="switchTab('tabTaki')" id="btnTabTaki" class="tab-btn py-2 px-1 rounded-lg text-xs font-black transition text-center text-slate-300 hover:text-white">
+        ✨ Takı Satış
+      </button>
+      <button onclick="switchTab('tabBozum')" id="btnTabBozum" class="tab-btn py-2 px-1 rounded-lg text-xs font-black transition text-center text-slate-300 hover:text-white">
+        🔄 Hurda Bozum
+      </button>
+      <button onclick="switchTab('tabDoviz')" id="btnTabDoviz" class="tab-btn py-2 px-1 rounded-lg text-xs font-black transition text-center text-slate-300 hover:text-white">
+        💵 Döviz
+      </button>
+    </div>
+
+    <!-- 1. ZİYNET (TAM / ÇEYREK) VE SERBEST HIZLI FİYAT PANELİ -->
+    <div id="tabZiynet" class="tab-panel bg-[#141D33] border border-[#2A3C66] rounded-2xl p-3.5 space-y-3 shadow-xl">
+      <div class="flex items-center justify-between border-b border-[#2A3C66] pb-2">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+          <span class="text-xs font-black tracking-wide text-white uppercase">Hızlı Ziynet & Serbest Fiyat</span>
         </div>
-        <button class="btn-change-prominent" onclick="goToStep(2)">
-          🔄 Banka Değiştir
-        </button>
+        <span class="text-[10px] text-amber-300/80 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800/40">Doğrudan Fiyat & Adet</span>
       </div>
 
-      <div class="single-bank-card">
-        <div class="bank-card-top">
-          <div class="bank-logo-box" id="detail-logo-box"></div>
+      <!-- Hızlı Hazır Butonlar (Tek Dokunuşla Doldurur) -->
+      <div>
+        <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1.5">Hızlı Ürün Seç:</label>
+        <div class="grid grid-cols-3 gap-1.5">
+          <button type="button" onclick="setQuickZiynet('Çeyrek Altın', 10800)" class="py-2 px-1 rounded-lg bg-[#1D2A4A] border border-[#2A3C66] text-xs font-extrabold text-amber-300 active:scale-95 transition">
+            Çeyrek
+          </button>
+          <button type="button" onclick="setQuickZiynet('Yarım Altın', 21600)" class="py-2 px-1 rounded-lg bg-[#1D2A4A] border border-[#2A3C66] text-xs font-extrabold text-amber-300 active:scale-95 transition">
+            Yarım
+          </button>
+          <button type="button" onclick="setQuickZiynet('Tam Altın', 43200)" class="py-2 px-1 rounded-lg bg-[#1D2A4A] border border-[#2A3C66] text-xs font-extrabold text-amber-300 active:scale-95 transition">
+            Tam Altın
+          </button>
+          <button type="button" onclick="setQuickZiynet('Ata Lira (Cumhuriyet)', 44500)" class="py-2 px-1 rounded-lg bg-[#1D2A4A] border border-[#2A3C66] text-xs font-extrabold text-amber-300 active:scale-95 transition">
+            Ata Lira
+          </button>
+          <button type="button" onclick="setQuickZiynet('Gremse (10x)', 108000)" class="py-2 px-1 rounded-lg bg-[#1D2A4A] border border-[#2A3C66] text-xs font-extrabold text-amber-300 active:scale-95 transition">
+            Gremse
+          </button>
+          <button type="button" onclick="setQuickZiynet('İp / Kutu / Özel', '')" class="py-2 px-1 rounded-lg bg-[#1D2A4A] border border-dashed border-slate-500 text-xs font-extrabold text-slate-200 active:scale-95 transition">
+            Serbest / Özel
+          </button>
+        </div>
+      </div>
+
+      <!-- Giriş Alanları: İsim, Birim Fiyat, Adet -->
+      <div class="space-y-2.5">
+        <div>
+          <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Ürün / Kalem Açıklaması</label>
+          <input type="text" id="ziynetAd" value="Tam Altın" placeholder="Örn: Çeyrek Altın, Tam, İp parası..." class="touch-h w-full bg-[#0A0F1D] border border-[#2A3C66] rounded-xl px-3 text-sm text-white font-bold focus:border-amber-400 focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
           <div>
-            <div class="bank-card-title" id="card-bank-name">Ziraat Bankası</div>
-            <div class="receiver-box">Alıcı: <strong>Sağlam Mücevherat Kuyumculuk</strong></div>
+            <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Birim Fiyatı (₺)</label>
+            <input type="number" id="ziynetBirimFiyat" value="43200" placeholder="Örn: 43200" inputmode="numeric" oninput="calcZiynetTotalPreview()" class="touch-h w-full bg-[#0A0F1D] border border-[#2A3C66] rounded-xl px-3 font-mono font-black text-base text-amber-400 focus:border-amber-400 focus:outline-none">
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Adet</label>
+            <div class="flex items-center gap-1">
+              <button type="button" onclick="adjustZiynetAdet(-1)" class="w-11 touch-h rounded-xl bg-[#1D2A4A] border border-[#2A3C66] text-lg font-black text-white active:scale-90">-</button>
+              <input type="number" id="ziynetAdet" value="1" min="1" inputmode="numeric" oninput="calcZiynetTotalPreview()" class="touch-h flex-1 bg-[#0A0F1D] border border-[#2A3C66] rounded-xl text-center font-mono font-black text-base text-white focus:border-amber-400 focus:outline-none">
+              <button type="button" onclick="adjustZiynetAdet(1)" class="w-11 touch-h rounded-xl bg-[#1D2A4A] border border-[#2A3C66] text-lg font-black text-white active:scale-90">+</button>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div style="font-size:10px; color:#64748b; font-weight:800; text-transform:uppercase; text-align:center;">IBAN Numarası</div>
-        <div class="iban-box" id="card-iban-text">TR88 0001 0004 7897 6168 6150 01</div>
+      <!-- Toplam Önizleme -->
+      <div class="bg-[#0A0F1D] p-3 rounded-xl border border-[#2A3C66] flex justify-between items-center">
+        <div>
+          <span class="text-[10px] text-slate-400 font-bold uppercase block">Kalem Toplamı:</span>
+          <span id="previewZiynetFormula" class="text-[11px] text-slate-300 font-mono">1 x 43.200 ₺</span>
+        </div>
+        <div id="previewZiynetGrand" class="text-lg font-mono font-black text-amber-400">43.200 ₺</div>
+      </div>
 
-        <div class="btn-group">
-          <button class="btn btn-primary-iban" id="btn-copy-iban" onclick="copyIban(this)">💳 1. IBAN'ı Kopyala</button>
-          <button class="btn btn-outline-alici" onclick="copyText(this, 'Sağlam Mücevherat Kuyumculuk', 'Alıcı Adı Kopyalandı!')">👤 2. Alıcı Adını Kopyala</button>
-          <button class="btn btn-gold-all" id="btn-copy-all" onclick="copyFull(this)">📋 3. Tüm Bilgileri Kopyala</button>
+      <!-- İşlem Türü Butonları (Satış + veya Bozum -) -->
+      <div class="grid grid-cols-2 gap-2 pt-1">
+        <button type="button" onclick="addZiynetCustom('satis')" class="touch-h rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 active:scale-95 text-slate-950 font-black text-sm flex items-center justify-center gap-1.5 shadow-md shadow-emerald-500/20">
+          <span>+ Satışa Ekle</span>
+        </button>
+        <button type="button" onclick="addZiynetCustom('alis')" class="touch-h rounded-xl bg-gradient-to-r from-sky-600 to-sky-500 active:scale-95 text-slate-950 font-black text-sm flex items-center justify-center gap-1.5 shadow-md shadow-sky-500/20">
+          <span>- Bozuma Ekle</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 2. TAKI SATIŞ FORMU (GRAM, MİLYEM, SERBEST İŞÇİLİK) -->
+    <div id="tabTaki" class="tab-panel hidden bg-[#141D33] border border-[#2A3C66] rounded-2xl p-3.5 space-y-3 shadow-xl">
+      <div class="flex items-center justify-between border-b border-[#2A3C66] pb-2">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+          <span class="text-xs font-black tracking-wide text-white uppercase">İşçilikli Takı Satışı</span>
+        </div>
+        <span class="text-[10px] text-amber-300/80 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800/40">Müşteriye Satış</span>
+      </div>
+
+      <div>
+        <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Ayar / Ürün Modeli</label>
+        <select id="takiAyarSelect" onchange="autoFillTakiDefaults()" class="touch-h w-full bg-[#0A0F1D] border border-[#2A3C66] rounded-xl px-3 text-sm text-white font-bold focus:border-amber-400 focus:outline-none">
+          <option value="0.976" data-name="22 Ayar Zincir / Kolye" data-isc="1.2">22 Ayar Zincir / Kolye (0.976)</option>
+          <option value="0.685" data-name="14 Ayar Zincir" data-isc="1.3">14 Ayar Zincir Kolye (0.685)</option>
+          <option value="0.685" data-name="14 Ayar Küpe / Yüzük / Taşlı" data-isc="1.8">14 Ayar Yüzük / Küpe / Taşlı (0.685)</option>
+          <option value="0.930" data-name="22 Ayar Ray / Burma Bilezik" data-isc="0">22 Ayar Düz Ray / Bilezik (0.930)</option>
+          <option value="1.000" data-name="24 Ayar Has / Külçe" data-isc="0">24 Ayar Has / Külçe (1.000)</option>
+        </select>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Gramaj</label>
+          <input type="number" step="0.01" id="takiGram" placeholder="0.00" inputmode="decimal" oninput="calcTakiPreview()" class="touch-h w-full bg-[#0A0F1D] border border-[#2A3C66] rounded-xl px-3 font-mono font-black text-base text-amber-300 focus:border-amber-400 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1 flex justify-between">
+            <span>İşçilik (Has)</span>
+            <span class="text-[9px] text-amber-400">Serbest</span>
+          </label>
+          <input type="number" step="0.1" id="takiIscilik" value="1.2" inputmode="decimal" oninput="calcTakiPreview()" class="touch-h w-full bg-[#0A0F1D] border border-[#2A3C66] rounded-xl px-3 font-mono font-black text-base text-white focus:border-amber-400 focus:outline-none">
         </div>
       </div>
 
-      <div class="red-alarm-box">
-        <div class="red-alarm-title">🚨 DİKKAT: HAVALE VE EFT AÇIKLAMA KURALI</div>
-        <div class="red-alarm-text">
-          Banka uygulamanızda para transferini onaylamadan önce karşınıza çıkan <strong>"Açıklama"</strong> satırına yalnızca:
+      <div class="bg-[#0A0F1D] p-3 rounded-xl border border-[#2A3C66] flex justify-between items-center">
+        <div>
+          <span class="text-[10px] text-slate-400 font-bold uppercase block">Hesap Formülü:</span>
+          <span class="text-[11px] text-slate-300 font-mono">(Gram × Milyem + İşçilik) × Has</span>
         </div>
-        <div class="red-alarm-badge">
-          👉 T.C. Kimlik Numaranız - Altın Alımı<br>
-          <span style="font-weight:600; font-size:10px; color:#b91c1c;">(Örnek: 12345678901 - Altın Alımı)</span>
-        </div>
-        <div class="red-alarm-note">
-          ⛔ Ödemenizin siparişinizle sorunsuz eşleşebilmesi adına açıklama alanına tutar veya TL ibaresi yazmamanızı rica ederiz.
-        </div>
+        <div id="previewTakiTutar" class="text-lg font-mono font-black text-amber-400">0 ₺</div>
       </div>
 
-      <button class="btn-back-main" onclick="goToStep(1)">
-        <span>⬅</span> Şube Seçimine Geri Dön
+      <button type="button" onclick="addTakiToCart()" class="touch-h w-full rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 active:scale-95 text-slate-950 font-black text-sm flex items-center justify-center gap-1.5 shadow-md shadow-amber-500/20">
+        <span>+ Takıyı Satış Fişine Ekle</span>
       </button>
     </div>
 
+    <!-- 3. HURDA BOZUM VE ALIŞ FORMU -->
+    <div id="tabBozum" class="tab-panel hidden bg-[#141D33] border border-[#2A3C66] rounded-2xl p-3.5 space-y-3 shadow-xl">
+      <div class="flex items-center justify-between border-b border-[#2A3C66] pb-2">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+          <span class="text-xs font-black tracking-wide text-white uppercase">Hurda / Altın Bozum Alışı</span>
+        </div>
+        <span class="text-[10px] text-sky-300/80 bg-sky-950/60 px-2 py-0.5 rounded border border-sky-800/40">Müşteriye Ödenecek</span>
+      </div>
+
+      <div>
+        <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Bozum Milyemi</label>
+        <select id="hurdaAyarSelect" onchange="calcHurdaPreview()" class="touch-h w-full bg-[#0A0F1D] border border-[#2A3C66] rounded-xl px-3 text-sm text-white font-bold focus:border-sky-400 focus:outline-none">
+          <option value="0.910" data-name="22 Ayar Standart Bozum">22 Ayar Hurda / Zincir / Yüzük (0.910)</option>
+          <option value="0.916" data-name="22 Ayar Temiz Ray/Bilezik">22 Ayar Temiz Bilezik (0.916)</option>
+          <option value="0.560" data-name="14 Ayar Standart Bozum">14 Ayar Hurda / Zincir / Küpe (0.560)</option>
+          <option value="0.995" data-name="24 Ayar Külçe Bozum">24 Ayar Külçe Bozum (0.995)</option>
+        </select>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Gramaj</label>
+          <input type="number" step="0.01" id="hurdaGram" placeholder="0.00" inputmode="decimal" oninput="calcHurdaPreview()" class="touch-h w-full bg-[#0A0F1D] border border-[#2A3C66] rounded-xl px-3 font-mono font-black text-base text-sky-300 focus:border-sky-400 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Kesinti (₺)</label>
+          <input type="number" id="hurdaKesinti" value="0" placeholder="0" inputmode="numeric" oninput="calcHurdaPreview()" class="touch-h w-full bg-[#0A0F1D] border border-[#2A3C66] rounded-xl px-3 font-mono font-black text-base text-rose-300 focus:border-sky-400 focus:outline-none">
+        </div>
+      </div>
+
+      <!-- Hızlı Kesinti Butonları -->
+      <div class="flex items-center gap-1.5">
+        <span class="text-[10px] text-slate-400 font-bold uppercase">Hızlı Kesinti:</span>
+        <button type="button" onclick="setQuickKesinti(0)" class="px-2 py-1 bg-[#1D2A4A] rounded text-[11px] font-bold text-slate-300 hover:text-white">0 ₺</button>
+        <button type="button" onclick="setQuickKesinti(500)" class="px-2 py-1 bg-[#1D2A4A] rounded text-[11px] font-bold text-rose-300">-500 ₺</button>
+        <button type="button" onclick="setQuickKesinti(600)" class="px-2 py-1 bg-[#1D2A4A] rounded text-[11px] font-bold text-rose-300">-600 ₺</button>
+      </div>
+
+      <div class="bg-[#0A0F1D] p-3 rounded-xl border border-[#2A3C66] flex justify-between items-center">
+        <div>
+          <span class="text-[10px] text-slate-400 font-bold uppercase block">Ödeme Formülü:</span>
+          <span class="text-[11px] text-slate-300 font-mono">(Gram × Milyem × Has Alış) - Kesinti</span>
+        </div>
+        <div id="previewHurdaTutar" class="text-lg font-mono font-black text-sky-400">0 ₺</div>
+      </div>
+
+      <button type="button" onclick="addHurdaToCart()" class="touch-h w-full rounded-xl bg-gradient-to-r from-sky-500 to-sky-600 active:scale-95 text-slate-950 font-black text-sm flex items-center justify-center gap-1.5 shadow-md shadow-sky-500/20">
+        <span>+ Bozumu Fişe Ekle (Alış)</span>
+      </button>
+    </div>
+
+    <!-- 4. DÖVİZ ALIŞ VE SATIŞ FORMU -->
+    <div id="tabDoviz" class="tab-panel hidden bg-[#141D33] border border-[#2A3C66] rounded-2xl p-3.5 space-y-3 shadow-xl">
+      <div class="flex items-center justify-between border-b border-[#2A3C66] pb-2">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+          <span class="text-xs font-black tracking-wide text-white uppercase">Döviz İşlemi (Nakit)</span>
+        </div>
+      </div>
+
+      <!-- Alış / Satış Yönü -->
+      <div class="grid grid-cols-2 gap-2">
+        <button type="button" id="btnDovizSatisMode" onclick="setDovizDirection('satis')" class="touch-h rounded-xl font-black text-xs uppercase bg-emerald-500 text-slate-950 shadow">
+          Müşteriye Satış
+        </button>
+        <button type="button" id="btnDovizAlisMode" onclick="setDovizDirection('alis')" class="touch-h rounded-xl font-black text-xs uppercase bg-[#1D2A4A] text-slate-300 border border-[#2A3C66]">
+          Müşteriden Alış (Bozum)
+        </button>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Para Birimi</label>
+          <select id="dovizBirimSelect" onchange="syncDovizInputs()" class="touch-h w-full bg-[#0A0F1D] border border-[#2A3C66] rounded-xl px-3 text-sm text-white font-bold focus:border-emerald-400 focus:outline-none">
+            <option value="USD">Amerikan Doları ($)</option>
+            <option value="EUR">Euro (€)</option>
+            <option value="GBP">İngiliz Sterlini (£)</option>
+          </select>
+        </div>
+        <div>
+          <label id="lblDovizKur" class="block text-[11px] font-bold text-slate-400 uppercase mb-1">İşlem Kuru (₺)</label>
+          <input type="number" step="0.05" id="dovizKurInput" value="38.70" inputmode="decimal" oninput="calcDovizPreview()" class="touch-h w-full bg-[#0A0F1D] border border-[#2A3C66] rounded-xl px-3 font-mono font-black text-base text-emerald-400 focus:border-emerald-400 focus:outline-none">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Miktar (Banknot)</label>
+        <input type="number" id="dovizMiktarInput" placeholder="Örn: 50, 100" inputmode="numeric" oninput="calcDovizPreview()" class="touch-h w-full bg-[#0A0F1D] border border-[#2A3C66] rounded-xl px-3 font-mono font-black text-base text-white focus:border-emerald-400 focus:outline-none">
+      </div>
+
+      <!-- Hızlı Miktar Düğmeleri -->
+      <div class="grid grid-cols-4 gap-1.5">
+        <button type="button" onclick="quickAddDovizMiktar(50)" class="py-2 rounded-lg bg-[#1D2A4A] text-xs font-mono font-bold text-slate-300 hover:text-white">+50</button>
+        <button type="button" onclick="quickAddDovizMiktar(100)" class="py-2 rounded-lg bg-[#1D2A4A] text-xs font-mono font-bold text-slate-300 hover:text-white">+100</button>
+        <button type="button" onclick="quickAddDovizMiktar(200)" class="py-2 rounded-lg bg-[#1D2A4A] text-xs font-mono font-bold text-slate-300 hover:text-white">+200</button>
+        <button type="button" onclick="quickAddDovizMiktar(500)" class="py-2 rounded-lg bg-[#1D2A4A] text-xs font-mono font-bold text-slate-300 hover:text-white">+500</button>
+      </div>
+
+      <div class="bg-[#0A0F1D] p-3 rounded-xl border border-[#2A3C66] flex justify-between items-center">
+        <span class="text-[10px] text-slate-400 font-bold uppercase">TL Karşılığı:</span>
+        <div id="previewDovizTutar" class="text-lg font-mono font-black text-emerald-400">0 ₺</div>
+      </div>
+
+      <button type="button" id="btnDovizSubmit" onclick="addDovizToCart()" class="touch-h w-full rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 active:scale-95 text-slate-950 font-black text-sm flex items-center justify-center gap-1.5 shadow-md shadow-emerald-500/20">
+        <span>+ Döviz Satışını Fişe Ekle</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- ALT SABİT HIZLI ADİSYON BARI -->
+  <footer class="fixed bottom-0 left-0 right-0 z-40 bg-[#0A0F1D]/95 backdrop-blur-lg border-t border-[#2A3C66] px-4 py-2.5 shadow-[0_-10px_25px_rgba(0,0,0,0.6)]">
+    <div class="max-w-xl mx-auto flex items-center justify-between gap-3">
+      <div class="flex-1 cursor-pointer" onclick="toggleCartDrawer(true)">
+        <div class="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider" id="footerStatusLabel">
+          <span class="text-slate-400">NET TAHSİLAT</span>
+          <span id="footerCartCountBadge" class="w-4 h-4 rounded-full bg-amber-500 text-slate-950 font-black text-[9px] flex items-center justify-center">0</span>
+        </div>
+        <div id="footerGrandTotal" class="text-2xl font-mono font-black text-amber-400 leading-tight">
+          0 ₺
+        </div>
+      </div>
+
+      <button type="button" onclick="toggleCartDrawer(true)" class="touch-h px-5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 active:scale-95 text-slate-950 font-black text-sm flex items-center gap-2 shadow-lg shadow-amber-500/20">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        <span>Fişi Aç</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- AÇILIR FİŞ / ADİSYON BOTTOM SHEET (MODAL) -->
+  <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex flex-col justify-end" onclick="if(event.target === this) toggleCartDrawer(false)">
+    <div class="bg-[#141D33] border-t-2 border-amber-500 rounded-t-3xl max-h-[85vh] flex flex-col w-full max-w-xl mx-auto overflow-hidden shadow-2xl animate-in slide-in-from-bottom duration-200">
+      
+      <!-- Fiş Başlığı -->
+      <div class="p-4 border-b border-[#2A3C66] flex items-center justify-between">
+        <div>
+          <h3 class="text-base font-black text-white flex items-center gap-1.5">
+            <span>🧾 Müşteri Hesabı</span>
+            <span id="modalItemCount" class="text-xs font-bold text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded-full border border-amber-800/40">0 Kalem</span>
+          </h3>
+          <p class="text-[11px] text-slate-400">Satış ve bozum kalemleri anında netleşir</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="clearCart()" class="text-xs text-rose-400 font-bold px-2.5 py-1.5 rounded-lg bg-rose-950/40 border border-rose-900/60 active:scale-95">
+            Sıfırla
+          </button>
+          <button onclick="toggleCartDrawer(false)" class="w-8 h-8 rounded-full bg-[#1D2A4A] text-slate-300 font-bold flex items-center justify-center active:scale-90">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Fiş Kalemleri Listesi -->
+      <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-3.5 space-y-2 custom-scroll max-h-[48vh]">
+        <!-- JS ile dolacak -->
+      </div>
+
+      <!-- Fiş Alt Toplam & Netleştirme -->
+      <div class="p-4 bg-[#0A0F1D] border-t border-[#2A3C66] space-y-2">
+        <div class="flex justify-between text-xs text-slate-300">
+          <span>Satışlar Toplamı (Alınacak):</span>
+          <span id="modalTotalSatis" class="font-mono font-bold text-amber-400">0 ₺</span>
+        </div>
+        <div class="flex justify-between text-xs text-slate-300">
+          <span>Bozum/Alış Toplamı (Ödenecek):</span>
+          <span id="modalTotalAlis" class="font-mono font-bold text-sky-400">0 ₺</span>
+        </div>
+        <div class="pt-2 border-t border-slate-800 flex items-baseline justify-between">
+          <div>
+            <span class="text-[10px] font-black uppercase text-slate-400 block" id="modalNetStatusLabel">NET ALINACAK</span>
+            <span id="modalSubNote" class="text-[11px] text-amber-300 font-semibold">Müşteriden tahsil edilecek</span>
+          </div>
+          <div id="modalNetGrandTotal" class="text-2xl font-mono font-black text-amber-400">
+            0 ₺
+          </div>
+        </div>
+
+        <button onclick="toggleCartDrawer(false)" class="touch-h w-full mt-2 rounded-xl bg-[#1D2A4A] border border-[#2A3C66] text-white font-bold text-xs uppercase tracking-wider active:scale-95">
+          Hesaba Devam Et
+        </button>
+      </div>
+    </div>
   </div>
 
   <script>
-    const IBAN_DATA = {
-      merkez: {
-        name: "Merkez Mağaza (Taşmağazalar)",
-        banks: {
-          ziraat: { name: "Ziraat Bankası", ibanRaw: "TR880001000478976168615001", ibanFormatted: "TR88 0001 0004 7897 6168 6150 01", class: "logo-ziraat", icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2"><path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/></svg>' },
-          halkbank: { name: "Halkbank", ibanRaw: "TR560001200934200010262802", ibanFormatted: "TR56 0001 2009 3420 0010 2628 02", class: "logo-halkbank", icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 4h4v16H5z" fill="#ffffff"/><path d="M15 4h4v16h-4z" fill="#ffffff"/><path d="M9 10h6v4H9z" fill="#38bdf8"/></svg>' },
-          isbank: { name: "Türkiye İş Bankası", ibanRaw: "TR110000000000000000000003", ibanFormatted: "TR11 0000 0000 0000 0000 0000 03", class: "logo-isbank", icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="4.5" r="2.2" fill="#ffffff"/><path d="M7 8.5h10l-4.5 4.5 4.5 5.5H7l4.5-5.5-4.5-4.5z" fill="#ffffff"/></svg>' }
-        }
-      },
-      horasan: {
-        name: "Horasan Mağazası",
-        banks: {
-          ziraat: { name: "Ziraat Bankası", ibanRaw: "TR610001000478976168615002", ibanFormatted: "TR61 0001 0004 7897 6168 6150 02", class: "logo-ziraat", icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2"><path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/></svg>' },
-          halkbank: { name: "Halkbank", ibanRaw: "TR740001200166500010100267", ibanFormatted: "TR74 0001 2001 6650 0010 1002 67", class: "logo-halkbank", icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 4h4v16H5z" fill="#ffffff"/><path d="M15 4h4v16h-4z" fill="#ffffff"/><path d="M9 10h6v4H9z" fill="#38bdf8"/></svg>' },
-          isbank: { name: "Türkiye İş Bankası", ibanRaw: "TR440006400000193200444179", ibanFormatted: "TR44 0006 4000 0019 3200 4441 79", class: "logo-isbank", icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="4.5" r="2.2" fill="#ffffff"/><path d="M7 8.5h10l-4.5 4.5 4.5 5.5H7l4.5-5.5-4.5-4.5z" fill="#ffffff"/></svg>' }
-        }
-      },
-      toptan: {
-        name: "Toptan ve Kurumsal Satış Ofisi",
-        banks: {
-          ziraat: { name: "Ziraat Bankası", ibanRaw: "TR330000000000000000000001", ibanFormatted: "TR33 0000 0000 0000 0000 0000 01", class: "logo-ziraat", icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2"><path d="M12 2v20M7 7c2.5 1 5 1 5 1s2.5 0 5-1M6 12c3 1.5 6 1.5 6 1.5s3 0 6-1.5M7 17c2.5 1 5 1 5 1s2.5 0 5-1"/></svg>' },
-          halkbank: { name: "Halkbank", ibanRaw: "TR330000000000000000000002", ibanFormatted: "TR33 0000 0000 0000 0000 0000 02", class: "logo-halkbank", icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 4h4v16H5z" fill="#ffffff"/><path d="M15 4h4v16h-4z" fill="#ffffff"/><path d="M9 10h6v4H9z" fill="#38bdf8"/></svg>' },
-          isbank: { name: "Türkiye İş Bankası", ibanRaw: "TR330000000000000000000003", ibanFormatted: "TR33 0000 0000 0000 0000 0000 03", class: "logo-isbank", icon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="4.5" r="2.2" fill="#ffffff"/><path d="M7 8.5h10l-4.5 4.5 4.5 5.5H7l4.5-5.5-4.5-4.5z" fill="#ffffff"/></svg>' }
-        }
+    let cart = [];
+    let dovizDirection = 'satis'; // 'satis' veya 'alis'
+
+    function fmtMoney(amount) {
+      return Math.round(amount).toLocaleString('tr-TR') + ' ₺';
+    }
+
+    function toggleRatesPanel() {
+      const row = document.getElementById('quickRatesRow');
+      row.classList.toggle('hidden');
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.className = 'tab-btn py-2 px-1 rounded-lg text-xs font-black transition text-center text-slate-300 hover:text-white';
+      });
+
+      const activePanel = document.getElementById(tabId);
+      if (activePanel) activePanel.classList.remove('hidden');
+
+      const btnId = 'btn' + tabId.charAt(0).toUpperCase() + tabId.slice(1);
+      const activeBtn = document.getElementById(btnId);
+      if (activeBtn) {
+        activeBtn.className = 'tab-btn py-2 px-1 rounded-lg text-xs font-black transition text-center bg-amber-500 text-slate-950 shadow';
       }
+    }
+
+    /* ========================================================
+       1. ZİYNET & SERBEST HESAPLAMA MANTIĞI
+       ======================================================== */
+    function setQuickZiynet(name, price) {
+      document.getElementById('ziynetAd').value = name;
+      if (price !== '') {
+        document.getElementById('ziynetBirimFiyat').value = price;
+      } else {
+        document.getElementById('ziynetBirimFiyat').value = '';
+        document.getElementById('ziynetBirimFiyat').focus();
+      }
+      calcZiynetTotalPreview();
+    }
+
+    function adjustZiynetAdet(delta) {
+      const el = document.getElementById('ziynetAdet');
+      let val = (parseInt(el.value) || 1) + delta;
+      if (val < 1) val = 1;
+      el.value = val;
+      calcZiynetTotalPreview();
+    }
+
+    function calcZiynetTotalPreview() {
+      const adet = parseInt(document.getElementById('ziynetAdet').value) || 1;
+      const birim = parseFloat(document.getElementById('ziynetBirimFiyat').value) || 0;
+      const total = adet * birim;
+
+      document.getElementById('previewZiynetFormula').innerText = `${adet} Adet × ${fmtMoney(birim)}`;
+      document.getElementById('previewZiynetGrand').innerText = fmtMoney(total);
+      return { adet, birim, total };
+    }
+
+    function addZiynetCustom(direction) {
+      const calc = calcZiynetTotalPreview();
+      const ad = document.getElementById('ziynetAd').value.trim() || 'Ziynet Altın';
+
+      if (!calc.birim || calc.birim <= 0) {
+        alert('Lütfen birim fiyatını yazın!');
+        document.getElementById('ziynetBirimFiyat').focus();
+        return;
+      }
+
+      cart.push({
+        id: Date.now(),
+        type: direction,
+        title: `${calc.adet} Adet ${ad}`,
+        detail: `Birim: ${fmtMoney(calc.birim)} (${direction === 'satis' ? 'Satış' : 'Bozum Alış'})`,
+        amount: calc.total
+      });
+
+      renderCart();
+      toggleCartDrawer(true);
+    }
+
+    /* ========================================================
+       2. İŞÇİLİKLİ TAKI SATIŞI (FORMÜL: (Gr*Mil + İş) * Has)
+       ======================================================== */
+    function autoFillTakiDefaults() {
+      const sel = document.getElementById('takiAyarSelect');
+      const defIsc = sel.options[sel.selectedIndex].getAttribute('data-isc');
+      document.getElementById('takiIscilik').value = defIsc || '0';
+      calcTakiPreview();
+    }
+
+    function calcTakiPreview() {
+      const gram = parseFloat(document.getElementById('takiGram').value) || 0;
+      const iscilik = parseFloat(document.getElementById('takiIscilik').value) || 0;
+      const milyem = parseFloat(document.getElementById('takiAyarSelect').value) || 0;
+      const hasSatis = parseFloat(document.getElementById('rateHasSatis').value) || 0;
+
+      const totalHas = (gram * milyem) + iscilik;
+      const totalTutar = totalHas * hasSatis;
+
+      document.getElementById('previewTakiTutar').innerText = fmtMoney(totalTutar);
+      return { gram, milyem, iscilik, totalTutar };
+    }
+
+    function addTakiToCart() {
+      const calc = calcTakiPreview();
+      if (!calc.gram || calc.gram <= 0) {
+        alert('Lütfen gramaj girin!');
+        document.getElementById('takiGram').focus();
+        return;
+      }
+
+      const sel = document.getElementById('takiAyarSelect');
+      const urunAd = sel.options[sel.selectedIndex].getAttribute('data-name');
+
+      cart.push({
+        id: Date.now(),
+        type: 'satis',
+        title: `${calc.gram} gr ${urunAd}`,
+        detail: `Milyem: ${calc.milyem} | +${calc.iscilik} has işçilik`,
+        amount: calc.totalTutar
+      });
+
+      document.getElementById('takiGram').value = '';
+      calcTakiPreview();
+      renderCart();
+      toggleCartDrawer(true);
+    }
+
+    /* ========================================================
+       3. HURDA BOZUM (FORMÜL: (Gr * Mil * Has Alış) - Kesinti)
+       ======================================================== */
+    function setQuickKesinti(val) {
+      document.getElementById('hurdaKesinti').value = val;
+      calcHurdaPreview();
+    }
+
+    function calcHurdaPreview() {
+      const gram = parseFloat(document.getElementById('hurdaGram').value) || 0;
+      const kesinti = parseFloat(document.getElementById('hurdaKesinti').value) || 0;
+      const milyem = parseFloat(document.getElementById('hurdaAyarSelect').value) || 0;
+      const hasAlis = parseFloat(document.getElementById('rateHasAlis').value) || 0;
+
+      const totalTutar = Math.max(0, (gram * milyem * hasAlis) - kesinti);
+      document.getElementById('previewHurdaTutar').innerText = fmtMoney(totalTutar);
+      return { gram, milyem, kesinti, totalTutar };
+    }
+
+    function addHurdaToCart() {
+      const calc = calcHurdaPreview();
+      if (!calc.gram || calc.gram <= 0) {
+        alert('Lütfen gramaj girin!');
+        document.getElementById('hurdaGram').focus();
+        return;
+      }
+
+      const sel = document.getElementById('hurdaAyarSelect');
+      const urunAd = sel.options[sel.selectedIndex].getAttribute('data-name');
+
+      cart.push({
+        id: Date.now(),
+        type: 'alis',
+        title: `[BOZUM] ${calc.gram} gr ${urunAd}`,
+        detail: `Milyem: ${calc.milyem} ${calc.kesinti > 0 ? '| Kesinti: -' + calc.kesinti + ' ₺' : ''}`,
+        amount: calc.totalTutar
+      });
+
+      document.getElementById('hurdaGram').value = '';
+      calcHurdaPreview();
+      renderCart();
+      toggleCartDrawer(true);
+    }
+
+    /* ========================================================
+       4. DÖVİZ İŞLEMİ (USD / EUR / GBP ALIŞ-SATIŞ)
+       ======================================================== */
+    function setDovizDirection(dir) {
+      dovizDirection = dir;
+      const btnS = document.getElementById('btnDovizSatisMode');
+      const btnA = document.getElementById('btnDovizAlisMode');
+      const btnSubmit = document.getElementById('btnDovizSubmit');
+      const lblKur = document.getElementById('lblDovizKur');
+
+      if (dir === 'satis') {
+        btnS.className = 'touch-h rounded-xl font-black text-xs uppercase bg-emerald-500 text-slate-950 shadow';
+        btnA.className = 'touch-h rounded-xl font-black text-xs uppercase bg-[#1D2A4A] text-slate-300 border border-[#2A3C66]';
+        btnSubmit.className = 'touch-h w-full rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 active:scale-95 text-slate-950 font-black text-sm flex items-center justify-center gap-1.5 shadow-md shadow-emerald-500/20';
+        btnSubmit.innerText = '+ Döviz Satışını Fişe Ekle';
+        lblKur.innerText = 'Satış Kuru (₺)';
+      } else {
+        btnA.className = 'touch-h rounded-xl font-black text-xs uppercase bg-sky-500 text-slate-950 shadow';
+        btnS.className = 'touch-h rounded-xl font-black text-xs uppercase bg-[#1D2A4A] text-slate-300 border border-[#2A3C66]';
+        btnSubmit.className = 'touch-h w-full rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 active:scale-95 text-slate-950 font-black text-sm flex items-center justify-center gap-1.5 shadow-md shadow-sky-500/20';
+        btnSubmit.innerText = '+ Döviz Alışını (Bozum) Fişe Ekle';
+        lblKur.innerText = 'Alış Kuru (₺)';
+      }
+      syncDovizInputs();
+    }
+
+    function syncDovizInputs() {
+      const birim = document.getElementById('dovizBirimSelect').value;
+      const kurInput = document.getElementById('dovizKurInput');
+      const usdSat = parseFloat(document.getElementById('rateUsdSatis').value) || 38.70;
+      const usdAl = parseFloat(document.getElementById('rateUsdAlis').value) || 38.40;
+
+      if (birim === 'USD') {
+        kurInput.value = dovizDirection === 'satis' ? usdSat.toFixed(2) : usdAl.toFixed(2);
+      } else if (birim === 'EUR') {
+        kurInput.value = dovizDirection === 'satis' ? "41.90" : "41.50";
+      } else if (birim === 'GBP') {
+        kurInput.value = dovizDirection === 'satis' ? "49.80" : "49.10";
+      }
+      calcDovizPreview();
+    }
+
+    function quickAddDovizMiktar(val) {
+      const el = document.getElementById('dovizMiktarInput');
+      el.value = (parseFloat(el.value) || 0) + val;
+      calcDovizPreview();
+    }
+
+    function calcDovizPreview() {
+      const miktar = parseFloat(document.getElementById('dovizMiktarInput').value) || 0;
+      const kur = parseFloat(document.getElementById('dovizKurInput').value) || 0;
+      const total = miktar * kur;
+      document.getElementById('previewDovizTutar').innerText = fmtMoney(total);
+      return { miktar, kur, total };
+    }
+
+    function addDovizToCart() {
+      const calc = calcDovizPreview();
+      if (!calc.miktar || calc.miktar <= 0) {
+        alert('Lütfen döviz miktarı girin!');
+        document.getElementById('dovizMiktarInput').focus();
+        return;
+      }
+
+      const birim = document.getElementById('dovizBirimSelect').value;
+      const isSatis = dovizDirection === 'satis';
+
+      cart.push({
+        id: Date.now(),
+        type: isSatis ? 'satis' : 'alis',
+        title: `${calc.miktar} ${birim} (${isSatis ? 'Döviz Satışı' : 'Döviz Bozum Alışı'})`,
+        detail: `Kur: ${calc.kur} ₺`,
+        amount: calc.total
+      });
+
+      document.getElementById('dovizMiktarInput').value = '';
+      calcDovizPreview();
+      renderCart();
+      toggleCartDrawer(true);
+    }
+
+    /* ========================================================
+       5. SEPET / FİŞ VE NETLEŞTİRME YÖNETİMİ
+       ======================================================== */
+    function removeCartItem(id) {
+      cart = cart.filter(item => item.id !== id);
+      renderCart();
+    }
+
+    function clearCart() {
+      if (cart.length === 0) return;
+      cart = [];
+      renderCart();
+      toggleCartDrawer(false);
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cartDrawer');
+      if (open) {
+        drawer.classList.remove('hidden');
+      } else {
+        drawer.classList.add('hidden');
+      }
+    }
+
+    function recalculateAll() {
+      calcZiynetTotalPreview();
+      calcTakiPreview();
+      calcHurdaPreview();
+      syncDovizInputs();
+    }
+
+    function renderCart() {
+      const count = cart.length;
+      document.getElementById('footerCartCountBadge').innerText = count;
+      document.getElementById('modalItemCount').innerText = `${count} Kalem`;
+
+      const container = document.getElementById('cartItemsContainer');
+
+      if (count === 0) {
+        container.innerHTML = `
+          <div class="py-12 text-center text-slate-500">
+            <div class="text-3xl mb-1">🧾</div>
+            <p class="text-sm font-bold text-slate-400">Fişte henüz kayıtlı işlem yok.</p>
+            <p class="text-xs text-slate-600 mt-0.5">Yukarıdaki sekmelerden ürün veya döviz ekleyebilirsiniz.</p>
+          </div>
+        `;
+        document.getElementById('footerGrandTotal').innerText = '0 ₺';
+        document.getElementById('modalTotalSatis').innerText = '0 ₺';
+        document.getElementById('modalTotalAlis').innerText = '0 ₺';
+        document.getElementById('modalNetGrandTotal').innerText = '0 ₺';
+        document.getElementById('modalNetStatusLabel').innerText = 'NET ALINACAK';
+        document.getElementById('modalSubNote').innerText = 'Bakiye: 0 ₺';
+        return;
+      }
+
+      let totalSatis = 0;
+      let totalAlis = 0;
+      let html = '';
+
+      cart.forEach(item => {
+        const isSatis = item.type === 'satis';
+        if (isSatis) totalSatis += item.amount;
+        else totalAlis += item.amount;
+
+        const badgeClass = isSatis ? 'bg-amber-400/10 text-amber-400 border-amber-400/30' : 'bg-sky-400/10 text-sky-400 border-sky-400/30';
+        const badgeLabel = isSatis ? 'SATIŞ' : 'BOZUM';
+        const priceColor = isSatis ? 'text-amber-400' : 'text-sky-400';
+
+        html += `
+          <div class="bg-[#0A0F1D] border border-[#2A3C66] rounded-xl p-3 flex items-center justify-between gap-2 shadow-sm">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-1.5 mb-0.5">
+                <span class="text-[9px] font-black uppercase px-1.5 py-0.5 rounded border ${badgeClass}">${badgeLabel}</span>
+                <span class="text-xs font-bold text-white truncate">${item.title}</span>
+              </div>
+              <div class="text-[11px] font-mono text-slate-400 truncate">${item.detail}</div>
+            </div>
+            <div class="text-right flex items-center gap-2">
+              <div class="font-mono font-black text-sm ${priceColor}">
+                ${isSatis ? '+' : '-'}${fmtMoney(item.amount)}
+              </div>
+              <button onclick="removeCartItem(${item.id})" class="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-xs active:scale-90">
+                ✕
+              </button>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+
+      // Netleştirme Hesabı
+      const netTotal = totalSatis - totalAlis;
+      document.getElementById('modalTotalSatis').innerText = fmtMoney(totalSatis);
+      document.getElementById('modalTotalAlis').innerText = fmtMoney(totalAlis);
+
+      const netFormatted = fmtMoney(Math.abs(netTotal));
+      const footerTotal = document.getElementById('footerGrandTotal');
+      const modalNet = document.getElementById('modalNetGrandTotal');
+      const footerLabel = document.getElementById('footerStatusLabel');
+      const modalStatusLabel = document.getElementById('modalNetStatusLabel');
+      const modalSubNote = document.getElementById('modalSubNote');
+
+      if (netTotal > 0) {
+        footerLabel.innerHTML = `<span class="text-emerald-400">MÜŞTERİDEN ALINACAK</span><span class="w-4 h-4 rounded-full bg-emerald-500 text-slate-950 font-black text-[9px] flex items-center justify-center">${count}</span>`;
+        footerTotal.className = 'text-2xl font-mono font-black text-emerald-400 leading-tight';
+        footerTotal.innerText = netFormatted;
+
+        modalStatusLabel.innerText = 'NET ALINACAK TUTAR';
+        modalStatusLabel.className = 'text-[10px] font-black uppercase text-emerald-400 block';
+        modalSubNote.innerText = 'Müşteri dükkana ödeme yapacak (+)';
+        modalSubNote.className = 'text-[11px] text-emerald-400 font-semibold';
+        modalNet.className = 'text-2xl font-mono font-black text-emerald-400';
+        modalNet.innerText = netFormatted;
+      } else if (netTotal < 0) {
+        footerLabel.innerHTML = `<span class="text-sky-400">MÜŞTERİYE ÖDENECEK</span><span class="w-4 h-4 rounded-full bg-sky-500 text-slate-950 font-black text-[9px] flex items-center justify-center">${count}</span>`;
+        footerTotal.className = 'text-2xl font-mono font-black text-sky-400 leading-tight';
+        footerTotal.innerText = netFormatted;
+
+        modalStatusLabel.innerText = 'MÜŞTERİYE ÖDENECEK TUTAR';
+        modalStatusLabel.className = 'text-[10px] font-black uppercase text-sky-400 block';
+        modalSubNote.innerText = 'Dükkan müşteriye ödeme yapacak (-)';
+        modalSubNote.className = 'text-[11px] text-sky-400 font-semibold';
+        modalNet.className = 'text-2xl font-mono font-black text-sky-400';
+        modalNet.innerText = netFormatted;
+      } else {
+        footerLabel.innerHTML = `<span class="text-slate-400">NET BAKİYE</span><span class="w-4 h-4 rounded-full bg-slate-500 text-slate-950 font-black text-[9px] flex items-center justify-center">${count}</span>`;
+        footerTotal.className = 'text-2xl font-mono font-black text-slate-300 leading-tight';
+        footerTotal.innerText = '0 ₺';
+
+        modalStatusLabel.innerText = 'HESAP DENK (0 ₺)';
+        modalStatusLabel.className = 'text-[10px] font-black uppercase text-slate-400 block';
+        modalSubNote.innerText = 'Alış ve satış tutarları birbirini sıfırladı';
+        modalSubNote.className = 'text-[11px] text-slate-400 font-semibold';
+        modalNet.className = 'text-2xl font-mono font-black text-slate-200';
+        modalNet.innerText = '0 ₺';
+      }
+    }
+
+    // Sayfa Yüklenişi
+    window.onload = function() {
+      calcZiynetTotalPreview();
+      calcTakiPreview();
+      calcHurdaPreview();
+      syncDovizInputs();
     };
-
-    let currentBranch = 'merkez';
-    let currentBank = 'ziraat';
-
-    function selectBranch(branchKey, branchTitle, btnElement) {
-      document.querySelectorAll('.branch-card-btn').forEach(b => b.classList.remove('selected-branch'));
-      btnElement.classList.add('selected-branch');
-      currentBranch = branchKey;
-
-      setTimeout(() => {
-        document.getElementById('display-branch-name').innerText = IBAN_DATA[currentBranch].name;
-        document.getElementById('detail-branch-title').innerText = IBAN_DATA[currentBranch].name;
-        goToStep(2);
-      }, 350);
-    }
-
-    function selectBank(bankKey) {
-      currentBank = bankKey;
-      const bankInfo = IBAN_DATA[currentBranch].banks[currentBank];
-
-      document.getElementById('detail-bank-title').innerText = bankInfo.name;
-      document.getElementById('card-bank-name').innerText = bankInfo.name;
-      document.getElementById('card-iban-text').innerText = bankInfo.ibanFormatted;
-
-      const logoBox = document.getElementById('detail-logo-box');
-      logoBox.className = "bank-logo-box " + bankInfo.class;
-      logoBox.innerHTML = bankInfo.icon;
-
-      goToStep(3);
-    }
-
-    function goToStep(stepNumber) {
-      document.getElementById('step-branches').classList.add('hidden');
-      document.getElementById('step-banks').classList.add('hidden');
-      document.getElementById('step-details').classList.add('hidden');
-
-      if (stepNumber === 1) {
-        document.getElementById('step-branches').classList.remove('hidden');
-      } else if (stepNumber === 2) {
-        document.getElementById('step-banks').classList.remove('hidden');
-      } else if (stepNumber === 3) {
-        document.getElementById('step-details').classList.remove('hidden');
-      }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function copyIban(btn) {
-      const ibanToCopy = IBAN_DATA[currentBranch].banks[currentBank].ibanRaw;
-      copyText(btn, ibanToCopy, "IBAN Kopyalandı!");
-    }
-
-    function copyText(btn, textToCopy, successMsg) {
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        const originalText = btn.innerText;
-        btn.innerText = "✓ " + successMsg;
-        btn.classList.add("copied");
-        setTimeout(() => {
-          btn.innerText = originalText;
-          btn.classList.remove("copied");
-        }, 2000);
-      }).catch(err => {
-        alert("Kopyalanamadı, lütfen metni seçiniz.");
-      });
-    }
-
-    function copyFull(btn) {
-      const branch = IBAN_DATA[currentBranch];
-      const bank = branch.banks[currentBank];
-      
-      const fullText = 
-`Merhaba, Sağlam Mücevherat'ı tercih ettiğiniz için teşekkür ederiz.
-${branch.name} Şubemize Ait Havale / EFT Bilgileri Aşağıdadır:
-
-🏦 Banka:
-${bank.name}
-
-👤 Alıcı:
-Sağlam Mücevherat Kuyumculuk
-
-💳 IBAN:
-${bank.ibanRaw}
-
-✍ Açıklama Alanı:
-11 Haneli T.C. Kimlik Numaranız - Altın Alımı
-(Örnek: 12345678901 - Altın Alımı)
-
-⚠️ Önemli Not:
-Ödemenizin siparişinizle sorunsuz eşleşebilmesi adına açıklama alanına tutar veya TL ibaresi yazmamanızı rica ederiz.
-
-Alışverişinizin hayırlı ve bereketli olmasını dileriz.`;
-
-      navigator.clipboard.writeText(fullText).then(() => {
-        const originalText = btn.innerText;
-        btn.innerText = "✓ 3. Tüm Bilgiler Kopyalandı!";
-        btn.classList.add("copied");
-        setTimeout(() => {
-          btn.innerText = originalText;
-          btn.classList.remove("copied");
-        }, 2000);
-      });
-    }
   </script>
-
 </body>
 </html>
