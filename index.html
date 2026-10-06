@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Kuyumcu Hızlı Tezgâh & Hesap</title>
+  <title>Kuyumcu Hızlı Tezgâh & Hesap Makinesi</title>
   
   <!-- Font & Tailwind CDN -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,16 +20,10 @@
             mono: ['"JetBrains Mono"', 'monospace']
           },
           colors: {
-            tezgah: {
-              bg: '#070C18',
-              card: '#0E172C',
-              cardInner: '#17233F',
-              border: '#223254',
-              gold: '#F59E0B',
-              goldLight: '#FDE68A',
-              green: '#10B981',
-              blue: '#0284C7',
-              red: '#EF4444'
+            gold: {
+              400: '#FBBF24',
+              500: '#F59E0B',
+              600: '#D97706'
             }
           }
         }
@@ -38,7 +32,6 @@
   </script>
 
   <style>
-    /* Mobil Dokunmatik & Taşma Koruma Kuralları */
     *, *::before, *::after {
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
@@ -46,13 +39,13 @@
     html, body {
       max-width: 100vw;
       overflow-x: hidden;
-      background-color: #070C18;
-      color: #F1F5F9;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #060B17;
+      color: #F8FAFC;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
     }
-    /* iOS otomatik yakınlaştırmayı engellemek için min-font 16px */
+    /* iOS otomatik yakınlaştırmayı (zoom) engellemek için minimum 16px */
     input, select, textarea, button {
-      font-size: 16px;
+      font-size: 16px !important;
     }
     input[type=number]::-webkit-inner-spin-button, 
     input[type=number]::-webkit-outer-spin-button { 
@@ -62,7 +55,6 @@
     input[type=number] {
       -moz-appearance: textfield;
     }
-    /* iPhone home-bar koruması */
     .safe-bottom {
       padding-bottom: max(14px, env(safe-area-inset-bottom));
     }
@@ -70,7 +62,7 @@
       width: 4px;
     }
     .custom-scroll::-webkit-scrollbar-thumb {
-      background: #223254;
+      background: #1E293B;
       border-radius: 999px;
     }
   </style>
@@ -78,40 +70,38 @@
 <body class="flex flex-col min-h-screen pb-32">
 
   <!-- 1. ÜST SABİT FİYAT/KUR BARI -->
-  <header class="sticky top-0 z-30 bg-[#0E172C]/95 backdrop-blur-md border-b border-[#223254] px-3 py-2 shadow-lg">
+  <header class="sticky top-0 z-30 bg-[#0A1124]/95 backdrop-blur-md border-b border-[#1E293B] px-3 py-2 shadow-lg">
     <div class="max-w-md mx-auto">
       <div class="flex items-center justify-between gap-2 mb-2">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center font-black text-slate-950 text-base shadow">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-500 to-yellow-300 flex items-center justify-center font-black text-slate-950 text-base shadow">
             ₺
           </div>
           <div>
             <h1 class="text-xs font-black tracking-wider uppercase text-white leading-tight">HIZLI TEZGÂH</h1>
-            <div class="text-[10px] text-amber-400 font-bold leading-tight">Mobil Kuyumcu Hesap Makinesi</div>
+            <div class="text-[10px] text-amber-400 font-bold leading-tight">Mobil Kuyumcu & Döviz Adisyonu</div>
           </div>
         </div>
-        <div class="flex items-center gap-1">
-          <button onclick="clearCart()" type="button" class="px-2.5 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-bold active:scale-95 transition">
-            Fişi Sıfırla
-          </button>
-        </div>
+        <button onclick="clearCart()" type="button" class="px-2.5 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-bold active:scale-95 transition">
+          Fişi Sıfırla
+        </button>
       </div>
 
-      <!-- Kurlar (Kompakt 2x2 Taşmasız Izgara) -->
+      <!-- Kurlar (4'lü Taşmasız Izgara) -->
       <div class="grid grid-cols-4 gap-1.5 text-center">
-        <div class="bg-[#070C18] p-1.5 rounded-lg border border-[#223254]">
+        <div class="bg-[#060B17] p-1.5 rounded-lg border border-[#1E293B]">
           <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">Has Satış</span>
           <input type="number" id="rateHasSatis" value="6600" inputmode="numeric" oninput="updateAllLivePreviews()" class="w-full text-center bg-transparent font-mono font-black text-xs text-amber-400 focus:outline-none">
         </div>
-        <div class="bg-[#070C18] p-1.5 rounded-lg border border-[#223254]">
+        <div class="bg-[#060B17] p-1.5 rounded-lg border border-[#1E293B]">
           <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">Has Alış</span>
           <input type="number" id="rateHasAlis" value="6550" inputmode="numeric" oninput="updateAllLivePreviews()" class="w-full text-center bg-transparent font-mono font-black text-xs text-sky-400 focus:outline-none">
         </div>
-        <div class="bg-[#070C18] p-1.5 rounded-lg border border-[#223254]">
+        <div class="bg-[#060B17] p-1.5 rounded-lg border border-[#1E293B]">
           <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">$ Satış</span>
           <input type="number" step="0.05" id="rateUsdSatis" value="38.70" inputmode="decimal" oninput="syncDovizInputs()" class="w-full text-center bg-transparent font-mono font-black text-xs text-emerald-400 focus:outline-none">
         </div>
-        <div class="bg-[#070C18] p-1.5 rounded-lg border border-[#223254]">
+        <div class="bg-[#060B17] p-1.5 rounded-lg border border-[#1E293B]">
           <span class="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">$ Alış</span>
           <input type="number" step="0.05" id="rateUsdAlis" value="38.40" inputmode="decimal" oninput="syncDovizInputs()" class="w-full text-center bg-transparent font-mono font-black text-xs text-emerald-300 focus:outline-none">
         </div>
@@ -122,8 +112,8 @@
   <!-- 2. ANA İÇERİK & SEKMELER -->
   <main class="max-w-md mx-auto w-full px-3 pt-3 flex-1 flex flex-col gap-3">
     
-    <!-- Sekme Butonları (Tek Elle 4'lü Seçim) -->
-    <nav class="grid grid-cols-4 gap-1 bg-[#0E172C] p-1.5 rounded-xl border border-[#223254]">
+    <!-- Sekme Butonları (4'lü Mobil Menü) -->
+    <nav class="grid grid-cols-4 gap-1 bg-[#0A1124] p-1.5 rounded-xl border border-[#1E293B]">
       <button onclick="switchTab('tabTaki')" id="btnTabTaki" type="button" class="tab-btn py-2.5 px-1 rounded-lg text-xs font-black transition text-center bg-amber-500 text-slate-950 shadow">
         ✨ Takı
       </button>
@@ -139,8 +129,8 @@
     </nav>
 
     <!-- PANEL 1: TAKI SATIŞI (FORMÜL: (Gram * Milyem + İşçilik) * Has Satış) -->
-    <section id="tabTaki" class="tab-panel bg-[#0E172C] border border-[#223254] rounded-2xl p-4 flex flex-col gap-3 shadow-xl">
-      <div class="flex items-center justify-between border-b border-[#223254] pb-2">
+    <section id="tabTaki" class="tab-panel bg-[#0A1124] border border-[#1E293B] rounded-2xl p-4 flex flex-col gap-3 shadow-xl">
+      <div class="flex items-center justify-between border-b border-[#1E293B] pb-2">
         <div class="flex items-center gap-1.5">
           <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
           <span class="text-xs font-black text-white uppercase tracking-wider">İşçilikli Takı Satışı</span>
@@ -150,10 +140,9 @@
         </span>
       </div>
 
-      <!-- Ayar Seçimi -->
       <div>
         <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Ayar / Ürün Modeli</label>
-        <select id="takiAyarSelect" onchange="autoFillTakiDefaults()" class="h-12 w-full bg-[#070C18] border border-[#223254] rounded-xl px-3 text-sm text-white font-bold focus:border-amber-400 focus:outline-none">
+        <select id="takiAyarSelect" onchange="autoFillTakiDefaults()" class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 text-sm text-white font-bold focus:border-amber-400 focus:outline-none">
           <option value="0.976" data-name="22 Ayar Zincir / Kolye" data-isc="1.2">22 Ayar Zincir / Kolye (0.976)</option>
           <option value="0.685" data-name="14 Ayar Zincir Kolye" data-isc="1.3">14 Ayar Zincir Kolye (0.685)</option>
           <option value="0.685" data-name="14 Ayar Yüzük / Küpe / Taşlı" data-isc="1.8">14 Ayar Yüzük / Küpe / Taşlı (0.685)</option>
@@ -162,23 +151,21 @@
         </select>
       </div>
 
-      <!-- Gram & İşçilik Girişi -->
       <div class="grid grid-cols-2 gap-2">
         <div>
           <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Gramaj (gr)</label>
-          <input type="number" step="0.01" id="takiGram" placeholder="0.00" inputmode="decimal" oninput="calcTakiPreview()" class="h-12 w-full bg-[#070C18] border border-[#223254] rounded-xl px-3 font-mono font-black text-amber-300 focus:border-amber-400 focus:outline-none">
+          <input type="number" step="0.01" id="takiGram" placeholder="0.00" inputmode="decimal" oninput="calcTakiPreview()" class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 font-mono font-black text-amber-300 focus:border-amber-400 focus:outline-none">
         </div>
         <div>
           <div class="flex justify-between items-center mb-1">
             <label class="text-[11px] font-bold text-slate-400 uppercase">İşçilik (Has)</label>
             <span class="text-[9px] text-amber-400 font-bold">Serbest</span>
           </div>
-          <input type="number" step="0.1" id="takiIscilik" value="1.2" inputmode="decimal" oninput="calcTakiPreview()" class="h-12 w-full bg-[#070C18] border border-[#223254] rounded-xl px-3 font-mono font-black text-white focus:border-amber-400 focus:outline-none">
+          <input type="number" step="0.1" id="takiIscilik" value="1.2" inputmode="decimal" oninput="calcTakiPreview()" class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 font-mono font-black text-white focus:border-amber-400 focus:outline-none">
         </div>
       </div>
 
-      <!-- Canlı Hesap Önizleme -->
-      <div class="bg-[#070C18] p-3 rounded-xl border border-[#223254] flex justify-between items-center">
+      <div class="bg-[#060B17] p-3 rounded-xl border border-[#1E293B] flex justify-between items-center">
         <div>
           <span class="text-[10px] text-slate-400 font-bold uppercase block">Canlı Satış Tutarı:</span>
           <span id="previewTakiDetay" class="text-[11px] text-slate-400 font-mono">(0 × 0.976 + 1.2) × Has</span>
@@ -192,8 +179,8 @@
     </section>
 
     <!-- PANEL 2: HURDA BOZUM & ALIŞ (FORMÜL: (Gram * Milyem * Has Alış) - Kesinti) -->
-    <section id="tabBozum" class="tab-panel hidden bg-[#0E172C] border border-[#223254] rounded-2xl p-4 flex flex-col gap-3 shadow-xl">
-      <div class="flex items-center justify-between border-b border-[#223254] pb-2">
+    <section id="tabBozum" class="tab-panel hidden bg-[#0A1124] border border-[#1E293B] rounded-2xl p-4 flex flex-col gap-3 shadow-xl">
+      <div class="flex items-center justify-between border-b border-[#1E293B] pb-2">
         <div class="flex items-center gap-1.5">
           <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
           <span class="text-xs font-black text-white uppercase tracking-wider">Hurda / Altın Bozum Alışı</span>
@@ -205,7 +192,7 @@
 
       <div>
         <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Bozum Milyemi</label>
-        <select id="hurdaAyarSelect" onchange="calcHurdaPreview()" class="h-12 w-full bg-[#070C18] border border-[#223254] rounded-xl px-3 text-sm text-white font-bold focus:border-sky-400 focus:outline-none">
+        <select id="hurdaAyarSelect" onchange="calcHurdaPreview()" class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 text-sm text-white font-bold focus:border-sky-400 focus:outline-none">
           <option value="0.910" data-name="22 Ayar Hurda Bozum">22 Ayar Hurda / Kolye / Zincir (0.910)</option>
           <option value="0.916" data-name="22 Ayar Temiz Bilezik">22 Ayar Temiz Bilezik (0.916)</option>
           <option value="0.560" data-name="14 Ayar Standart Bozum">14 Ayar Hurda / Küpe / Yüzük (0.560)</option>
@@ -216,24 +203,23 @@
       <div class="grid grid-cols-2 gap-2">
         <div>
           <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Gramaj (gr)</label>
-          <input type="number" step="0.01" id="hurdaGram" placeholder="0.00" inputmode="decimal" oninput="calcHurdaPreview()" class="h-12 w-full bg-[#070C18] border border-[#223254] rounded-xl px-3 font-mono font-black text-sky-300 focus:border-sky-400 focus:outline-none">
+          <input type="number" step="0.01" id="hurdaGram" placeholder="0.00" inputmode="decimal" oninput="calcHurdaPreview()" class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 font-mono font-black text-sky-300 focus:border-sky-400 focus:outline-none">
         </div>
         <div>
           <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Kesinti (₺)</label>
-          <input type="number" id="hurdaKesinti" value="0" inputmode="numeric" oninput="calcHurdaPreview()" class="h-12 w-full bg-[#070C18] border border-[#223254] rounded-xl px-3 font-mono font-black text-rose-300 focus:border-sky-400 focus:outline-none">
+          <input type="number" id="hurdaKesinti" value="0" inputmode="numeric" oninput="calcHurdaPreview()" class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 font-mono font-black text-rose-300 focus:border-sky-400 focus:outline-none">
         </div>
       </div>
 
       <!-- Hızlı Kesinti Butonları -->
       <div class="flex items-center gap-1.5">
         <span class="text-[10px] text-slate-400 font-bold uppercase">Hızlı Kesinti:</span>
-        <button type="button" onclick="setQuickKesinti(0)" class="flex-1 py-1.5 bg-[#17233F] rounded-lg text-xs font-bold text-slate-300 hover:text-white border border-[#223254]">0 ₺</button>
-        <button type="button" onclick="setQuickKesinti(500)" class="flex-1 py-1.5 bg-[#17233F] rounded-lg text-xs font-bold text-rose-300 border border-[#223254]">-500 ₺</button>
-        <button type="button" onclick="setQuickKesinti(600)" class="flex-1 py-1.5 bg-[#17233F] rounded-lg text-xs font-bold text-rose-300 border border-[#223254]">-600 ₺</button>
+        <button type="button" onclick="setQuickKesinti(0)" class="flex-1 py-1.5 bg-[#17233F] rounded-lg text-xs font-bold text-slate-300 hover:text-white border border-[#1E293B]">0 ₺</button>
+        <button type="button" onclick="setQuickKesinti(500)" class="flex-1 py-1.5 bg-[#17233F] rounded-lg text-xs font-bold text-rose-300 border border-[#1E293B]">-500 ₺</button>
+        <button type="button" onclick="setQuickKesinti(600)" class="flex-1 py-1.5 bg-[#17233F] rounded-lg text-xs font-bold text-rose-300 border border-[#1E293B]">-600 ₺</button>
       </div>
 
-      <!-- Canlı Hesap Önizleme -->
-      <div class="bg-[#070C18] p-3 rounded-xl border border-[#223254] flex justify-between items-center">
+      <div class="bg-[#060B17] p-3 rounded-xl border border-[#1E293B] flex justify-between items-center">
         <div>
           <span class="text-[10px] text-slate-400 font-bold uppercase block">Canlı Bozum Tutarı:</span>
           <span id="previewHurdaDetay" class="text-[11px] text-slate-400 font-mono">0 × 0.910 × Has - 0</span>
@@ -247,8 +233,8 @@
     </section>
 
     <!-- PANEL 3: ZİYNET & SERBEST FİYAT PANELİ -->
-    <section id="tabZiynet" class="tab-panel hidden bg-[#0E172C] border border-[#223254] rounded-2xl p-4 flex flex-col gap-3 shadow-xl">
-      <div class="flex items-center justify-between border-b border-[#223254] pb-2">
+    <section id="tabZiynet" class="tab-panel hidden bg-[#0A1124] border border-[#1E293B] rounded-2xl p-4 flex flex-col gap-3 shadow-xl">
+      <div class="flex items-center justify-between border-b border-[#1E293B] pb-2">
         <div class="flex items-center gap-1.5">
           <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
           <span class="text-xs font-black text-white uppercase tracking-wider">Ziynet & Serbest Kalem</span>
@@ -261,23 +247,29 @@
       <!-- Hızlı Çipler -->
       <div>
         <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1.5">Hızlı Ürün Çipleri:</label>
-        <div class="grid grid-cols-3 gap-1.5">
-          <button type="button" onclick="setQuickZiynet('Çeyrek Altın', 10800)" class="py-2 px-1 rounded-lg bg-[#17233F] border border-[#223254] text-xs font-extrabold text-amber-300 active:scale-95">
+        <div class="grid grid-cols-4 gap-1.5">
+          <button type="button" onclick="setQuickZiynet('24 Ayar', 'has24')" class="py-2 px-1 rounded-lg bg-[#17233F] border border-amber-500/40 text-[11px] font-extrabold text-amber-300 active:scale-95">
+            24 Ayar
+          </button>
+          <button type="button" onclick="setQuickZiynet('22 Ayar', 'has22')" class="py-2 px-1 rounded-lg bg-[#17233F] border border-amber-500/40 text-[11px] font-extrabold text-amber-300 active:scale-95">
+            22 Ayar
+          </button>
+          <button type="button" onclick="setQuickZiynet('Çeyrek Altın', 10800)" class="py-2 px-1 rounded-lg bg-[#17233F] border border-[#1E293B] text-[11px] font-extrabold text-amber-300 active:scale-95">
             Çeyrek
           </button>
-          <button type="button" onclick="setQuickZiynet('Yarım Altın', 21600)" class="py-2 px-1 rounded-lg bg-[#17233F] border border-[#223254] text-xs font-extrabold text-amber-300 active:scale-95">
+          <button type="button" onclick="setQuickZiynet('Yarım Altın', 21600)" class="py-2 px-1 rounded-lg bg-[#17233F] border border-[#1E293B] text-[11px] font-extrabold text-amber-300 active:scale-95">
             Yarım
           </button>
-          <button type="button" onclick="setQuickZiynet('Tam Altın', 43200)" class="py-2 px-1 rounded-lg bg-[#17233F] border border-[#223254] text-xs font-extrabold text-amber-300 active:scale-95">
+          <button type="button" onclick="setQuickZiynet('Tam Altın', 43200)" class="py-2 px-1 rounded-lg bg-[#17233F] border border-[#1E293B] text-[11px] font-extrabold text-amber-300 active:scale-95">
             Tam Altın
           </button>
-          <button type="button" onclick="setQuickZiynet('Ata Lira (Cumhuriyet)', 44500)" class="py-2 px-1 rounded-lg bg-[#17233F] border border-[#223254] text-xs font-extrabold text-amber-300 active:scale-95">
+          <button type="button" onclick="setQuickZiynet('Ata Lira (Cumhuriyet)', 44500)" class="py-2 px-1 rounded-lg bg-[#17233F] border border-[#1E293B] text-[11px] font-extrabold text-amber-300 active:scale-95">
             Ata Lira
           </button>
-          <button type="button" onclick="setQuickZiynet('Gremse (10x)', 108000)" class="py-2 px-1 rounded-lg bg-[#17233F] border border-[#223254] text-xs font-extrabold text-amber-300 active:scale-95">
+          <button type="button" onclick="setQuickZiynet('Gremse (10x)', 108000)" class="py-2 px-1 rounded-lg bg-[#17233F] border border-[#1E293B] text-[11px] font-extrabold text-amber-300 active:scale-95">
             Gremse
           </button>
-          <button type="button" onclick="setQuickZiynet('İp / Kutu / Özel Kalem', '')" class="py-2 px-1 rounded-lg bg-[#17233F] border border-dashed border-slate-500 text-xs font-extrabold text-slate-200 active:scale-95">
+          <button type="button" onclick="setQuickZiynet('İp / Kutu / Özel Kalem', '')" class="py-2 px-1 rounded-lg bg-[#17233F] border border-dashed border-slate-500 text-[11px] font-extrabold text-slate-200 active:scale-95">
             Özel / İp
           </button>
         </div>
@@ -287,27 +279,26 @@
       <div class="flex flex-col gap-2">
         <div>
           <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Açıklama / Kalem İsmi</label>
-          <input type="text" id="ziynetAd" value="Tam Altın" placeholder="Örn: Tam Altın, Kutu, İp parası..." class="h-12 w-full bg-[#070C18] border border-[#223254] rounded-xl px-3 text-sm text-white font-bold focus:border-amber-400 focus:outline-none">
+          <input type="text" id="ziynetAd" value="Tam Altın" placeholder="Örn: Tam Altın, Kutu, İp parası..." class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 text-sm text-white font-bold focus:border-amber-400 focus:outline-none">
         </div>
 
         <div class="grid grid-cols-2 gap-2">
           <div>
             <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Birim Fiyat (₺)</label>
-            <input type="number" id="ziynetBirimFiyat" value="43200" placeholder="0" inputmode="numeric" oninput="calcZiynetPreview()" class="h-12 w-full bg-[#070C18] border border-[#223254] rounded-xl px-3 font-mono font-black text-amber-400 focus:border-amber-400 focus:outline-none">
+            <input type="number" id="ziynetBirimFiyat" value="43200" placeholder="0" inputmode="numeric" oninput="calcZiynetPreview()" class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 font-mono font-black text-amber-400 focus:border-amber-400 focus:outline-none">
           </div>
           <div>
             <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Adet</label>
             <div class="flex items-center gap-1">
-              <button type="button" onclick="adjustZiynetAdet(-1)" class="w-12 h-12 rounded-xl bg-[#17233F] border border-[#223254] text-lg font-black text-white active:scale-90">-</button>
-              <input type="number" id="ziynetAdet" value="1" min="1" inputmode="numeric" oninput="calcZiynetPreview()" class="h-12 flex-1 bg-[#070C18] border border-[#223254] rounded-xl text-center font-mono font-black text-white focus:border-amber-400 focus:outline-none">
-              <button type="button" onclick="adjustZiynetAdet(1)" class="w-12 h-12 rounded-xl bg-[#17233F] border border-[#223254] text-lg font-black text-white active:scale-90">+</button>
+              <button type="button" onclick="adjustZiynetAdet(-1)" class="w-12 h-12 rounded-xl bg-[#17233F] border border-[#1E293B] text-lg font-black text-white active:scale-90">-</button>
+              <input type="number" id="ziynetAdet" value="1" min="1" inputmode="numeric" oninput="calcZiynetPreview()" class="h-12 flex-1 bg-[#060B17] border border-[#1E293B] rounded-xl text-center font-mono font-black text-white focus:border-amber-400 focus:outline-none">
+              <button type="button" onclick="adjustZiynetAdet(1)" class="w-12 h-12 rounded-xl bg-[#17233F] border border-[#1E293B] text-lg font-black text-white active:scale-90">+</button>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Canlı Önizleme -->
-      <div class="bg-[#070C18] p-3 rounded-xl border border-[#223254] flex justify-between items-center">
+      <div class="bg-[#060B17] p-3 rounded-xl border border-[#1E293B] flex justify-between items-center">
         <div>
           <span class="text-[10px] text-slate-400 font-bold uppercase block">Kalem Toplamı:</span>
           <span id="previewZiynetFormula" class="text-[11px] text-slate-400 font-mono">1 × 43.200 ₺</span>
@@ -315,7 +306,6 @@
         <div id="previewZiynetGrand" class="text-lg font-mono font-black text-amber-400">43.200 ₺</div>
       </div>
 
-      <!-- İşlem Butonları -->
       <div class="grid grid-cols-2 gap-2">
         <button type="button" onclick="addZiynetCustom('satis')" class="h-12 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 active:scale-95 text-slate-950 font-black text-sm flex items-center justify-center gap-1 shadow-lg shadow-emerald-500/20">
           <span>+ Satışa Ekle</span>
@@ -327,14 +317,14 @@
     </section>
 
     <!-- PANEL 4: DÖVİZ (USD / EUR / GBP ALIŞ & SATIŞ) -->
-    <section id="tabDoviz" class="tab-panel hidden bg-[#0E172C] border border-[#223254] rounded-2xl p-4 flex flex-col gap-3 shadow-xl">
-      <div class="flex items-center justify-between border-b border-[#223254] pb-2">
+    <section id="tabDoviz" class="tab-panel hidden bg-[#0A1124] border border-[#1E293B] rounded-2xl p-4 flex flex-col gap-3 shadow-xl">
+      <div class="flex items-center justify-between border-b border-[#1E293B] pb-2">
         <div class="flex items-center gap-1.5">
           <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
           <span class="text-xs font-black text-white uppercase tracking-wider">Döviz İşlemi (Nakit)</span>
         </div>
         <span id="badgeDovizYonu" class="text-[10px] text-emerald-300 font-bold bg-emerald-950/70 border border-emerald-800/40 px-2 py-0.5 rounded-full">
-          Satış Modu
+          Müşteriye Satış
         </span>
       </div>
 
@@ -343,7 +333,7 @@
         <button type="button" id="btnDovizSatisMode" onclick="setDovizDirection('satis')" class="h-11 rounded-xl font-black text-xs uppercase bg-emerald-500 text-slate-950 shadow">
           Müşteriye Satış (+)
         </button>
-        <button type="button" id="btnDovizAlisMode" onclick="setDovizDirection('alis')" class="h-11 rounded-xl font-black text-xs uppercase bg-[#17233F] text-slate-300 border border-[#223254]">
+        <button type="button" id="btnDovizAlisMode" onclick="setDovizDirection('alis')" class="h-11 rounded-xl font-black text-xs uppercase bg-[#17233F] text-slate-300 border border-[#1E293B]">
           Müşteriden Alış (-)
         </button>
       </div>
@@ -352,34 +342,34 @@
       <div class="grid grid-cols-2 gap-2">
         <div>
           <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Para Birimi</label>
-          <select id="dovizBirimSelect" onchange="syncDovizInputs()" class="h-12 w-full bg-[#070C18] border border-[#223254] rounded-xl px-3 text-sm text-white font-bold focus:border-emerald-400 focus:outline-none">
+          <select id="dovizBirimSelect" onchange="syncDovizInputs()" class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 text-sm text-white font-bold focus:border-emerald-400 focus:outline-none">
             <option value="USD">Amerikan Doları ($)</option>
             <option value="EUR">Euro (€)</option>
             <option value="GBP">İngiliz Sterlini (£)</option>
           </select>
         </div>
         <div>
-          <label id="lblDovizKur" class="block text-[11px] font-bold text-slate-400 uppercase mb-1">İşlem Kuru (₺)</label>
-          <input type="number" step="0.05" id="dovizKurInput" value="38.70" inputmode="decimal" oninput="calcDovizPreview()" class="h-12 w-full bg-[#070C18] border border-[#223254] rounded-xl px-3 font-mono font-black text-emerald-400 focus:border-emerald-400 focus:outline-none">
+          <label id="lblDovizKur" class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Satış Kuru (₺)</label>
+          <input type="number" step="0.05" id="dovizKurInput" value="38.70" inputmode="decimal" oninput="calcDovizPreview()" class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 font-mono font-black text-emerald-400 focus:border-emerald-400 focus:outline-none">
         </div>
       </div>
 
       <!-- Miktar Girişi -->
       <div>
         <label class="block text-[11px] font-bold text-slate-400 uppercase mb-1">Banknot Miktarı</label>
-        <input type="number" id="dovizMiktarInput" placeholder="Örn: 50, 100, 500" inputmode="numeric" oninput="calcDovizPreview()" class="h-12 w-full bg-[#070C18] border border-[#223254] rounded-xl px-3 font-mono font-black text-white focus:border-emerald-400 focus:outline-none">
+        <input type="number" id="dovizMiktarInput" placeholder="Örn: 50, 100, 500" inputmode="numeric" oninput="calcDovizPreview()" class="h-12 w-full bg-[#060B17] border border-[#1E293B] rounded-xl px-3 font-mono font-black text-white focus:border-emerald-400 focus:outline-none">
       </div>
 
       <!-- Hızlı Miktar Düğmeleri -->
       <div class="grid grid-cols-4 gap-1.5">
-        <button type="button" onclick="quickAddDovizMiktar(50)" class="py-2 rounded-lg bg-[#17233F] text-xs font-mono font-bold text-slate-300 hover:text-white border border-[#223254]">+50</button>
-        <button type="button" onclick="quickAddDovizMiktar(100)" class="py-2 rounded-lg bg-[#17233F] text-xs font-mono font-bold text-slate-300 hover:text-white border border-[#223254]">+100</button>
-        <button type="button" onclick="quickAddDovizMiktar(200)" class="py-2 rounded-lg bg-[#17233F] text-xs font-mono font-bold text-slate-300 hover:text-white border border-[#223254]">+200</button>
-        <button type="button" onclick="quickAddDovizMiktar(500)" class="py-2 rounded-lg bg-[#17233F] text-xs font-mono font-bold text-slate-300 hover:text-white border border-[#223254]">+500</button>
+        <button type="button" onclick="quickAddDovizMiktar(50)" class="py-2.5 rounded-lg bg-[#17233F] text-xs font-mono font-bold text-slate-300 hover:text-white border border-[#1E293B] active:scale-95">+50</button>
+        <button type="button" onclick="quickAddDovizMiktar(100)" class="py-2.5 rounded-lg bg-[#17233F] text-xs font-mono font-bold text-slate-300 hover:text-white border border-[#1E293B] active:scale-95">+100</button>
+        <button type="button" onclick="quickAddDovizMiktar(200)" class="py-2.5 rounded-lg bg-[#17233F] text-xs font-mono font-bold text-slate-300 hover:text-white border border-[#1E293B] active:scale-95">+200</button>
+        <button type="button" onclick="quickAddDovizMiktar(500)" class="py-2.5 rounded-lg bg-[#17233F] text-xs font-mono font-bold text-slate-300 hover:text-white border border-[#1E293B] active:scale-95">+500</button>
       </div>
 
       <!-- Canlı TL Karşılığı -->
-      <div class="bg-[#070C18] p-3 rounded-xl border border-[#223254] flex justify-between items-center">
+      <div class="bg-[#060B17] p-3 rounded-xl border border-[#1E293B] flex justify-between items-center">
         <div>
           <span class="text-[10px] text-slate-400 font-bold uppercase block">TL Karşılığı:</span>
           <span id="previewDovizFormula" class="text-[11px] text-slate-400 font-mono">0 × 38.70 ₺</span>
@@ -387,6 +377,7 @@
         <div id="previewDovizTutar" class="text-lg font-mono font-black text-emerald-400">0 ₺</div>
       </div>
 
+      <!-- Ekleme Butonu (Kesinlikle Sepete Ekler) -->
       <button type="button" id="btnDovizSubmit" onclick="addDovizToCart()" class="h-12 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 active:scale-95 text-slate-950 font-black text-sm flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/20">
         <span>+ Dövizi Fişe Ekle</span>
       </button>
@@ -394,14 +385,14 @@
   </main>
 
   <!-- 3. ALT SABİT NET TAHSİLAT BARI -->
-  <footer class="fixed bottom-0 left-0 right-0 z-40 bg-[#070C18]/95 backdrop-blur-lg border-t border-[#223254] px-4 py-2 safe-bottom shadow-[0_-8px_25px_rgba(0,0,0,0.7)]">
+  <footer class="fixed bottom-0 left-0 right-0 z-40 bg-[#060B17]/95 backdrop-blur-lg border-t border-[#1E293B] px-4 py-2 safe-bottom shadow-[0_-8px_25px_rgba(0,0,0,0.8)]">
     <div class="max-w-md mx-auto flex items-center justify-between gap-3">
       <div class="flex-1 cursor-pointer" onclick="toggleCartDrawer(true)">
-        <div class="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider" id="footerStatusLabel">
-          <span class="text-slate-400">NET TAHSİLAT</span>
+        <div class="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider">
+          <span id="footerStatusText" class="text-slate-400">NET TAHSİLAT</span>
           <span id="footerBadgeCount" class="w-4 h-4 rounded-full bg-amber-500 text-slate-950 font-black text-[9px] flex items-center justify-center">0</span>
         </div>
-        <div id="footerGrandTotal" class="text-2xl font-mono font-black text-amber-400 leading-tight">
+        <div id="footerGrandTotal" class="text-2xl font-mono font-black text-slate-300 leading-tight">
           0 ₺
         </div>
       </div>
@@ -413,70 +404,80 @@
     </div>
   </footer>
 
-  <!-- 4. AÇILIR FİŞ / ADİSYON MODAL (BOTTOM-SHEET) -->
+  <!-- 4. AÇILIR FİŞ / HESAP PUSULASI (SADELEŞTİRİLMİŞ & OKUNAKLI DÜZEN) -->
   <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex flex-col justify-end" onclick="if(event.target === this) toggleCartDrawer(false)">
-    <div class="bg-[#0E172C] border-t-2 border-amber-500 rounded-t-3xl max-h-[85vh] flex flex-col w-full max-w-md mx-auto overflow-hidden shadow-2xl animate-in slide-in-from-bottom duration-200">
+    <div class="bg-[#0B132B] border-t border-slate-700 rounded-t-2xl max-h-[85vh] flex flex-col w-full max-w-md mx-auto overflow-hidden shadow-2xl">
       
       <!-- Fiş Başlığı -->
-      <div class="p-3.5 border-b border-[#223254] flex items-center justify-between">
-        <div>
-          <h3 class="text-sm font-black text-white flex items-center gap-1.5">
-            <span>🧾 Müşteri Hesabı</span>
-            <span id="modalItemCount" class="text-xs font-bold text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded-full border border-amber-800/40">0 Kalem</span>
-          </h3>
-          <p class="text-[10px] text-slate-400">Satışlar ve bozumlar netleştirilir</p>
+      <div class="px-4 py-3.5 border-b border-slate-800 flex items-center justify-between bg-[#080D1E]">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🧾</span>
+          <div>
+            <h3 class="text-sm font-extrabold text-white">Hesap Pusulası</h3>
+            <span id="modalItemCount" class="text-xs text-slate-400 font-semibold">0 Kalem</span>
+          </div>
         </div>
         <div class="flex items-center gap-2">
-          <button onclick="clearCart()" type="button" class="text-xs text-rose-400 font-bold px-2 py-1 rounded-lg bg-rose-950/40 border border-rose-900/60 active:scale-95">
-            Sıfırla
+          <button onclick="copyReceiptText()" type="button" class="text-xs font-bold text-slate-200 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 active:scale-95 transition flex items-center gap-1">
+            📋 Kopyala
           </button>
-          <button onclick="toggleCartDrawer(false)" type="button" class="w-8 h-8 rounded-full bg-[#17233F] text-slate-300 font-bold flex items-center justify-center active:scale-90">
+          <button onclick="toggleCartDrawer(false)" type="button" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white font-bold flex items-center justify-center active:scale-90">
             ✕
           </button>
         </div>
       </div>
 
       <!-- Fiş Kalemleri Listesi -->
-      <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-3 space-y-2 custom-scroll max-h-[46vh]">
+      <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-4 space-y-4 custom-scroll max-h-[46vh]">
         <!-- Dinamik JS dolumu -->
       </div>
 
-      <!-- Fiş Özeti & Kapat -->
-      <div class="p-3.5 bg-[#070C18] border-t border-[#223254] space-y-2 safe-bottom">
-        <div class="flex justify-between text-xs text-slate-300">
-          <span>Toplam Satış (Alınacak):</span>
-          <span id="modalTotalSatis" class="font-mono font-bold text-amber-400">0 ₺</span>
-        </div>
-        <div class="flex justify-between text-xs text-slate-300">
-          <span>Toplam Bozum (Ödenecek):</span>
-          <span id="modalTotalAlis" class="font-mono font-bold text-sky-400">0 ₺</span>
-        </div>
-        
-        <div class="pt-2 border-t border-[#223254] flex items-baseline justify-between">
-          <div>
-            <span class="text-[10px] font-black uppercase text-slate-400 block" id="modalNetLabel">NET TAHSİLAT</span>
-            <span id="modalNetSubnote" class="text-[10px] text-amber-300 font-semibold">Dükkana ödenecek tutar</span>
+      <!-- Fiş Alt Özeti & Büyük Net Tutar -->
+      <div class="p-4 bg-[#080D1E] border-t border-slate-800 space-y-3 safe-bottom">
+        <!-- Satış ve Bozum Ara Toplamları -->
+        <div class="space-y-1.5 text-xs text-slate-300">
+          <div class="flex justify-between items-center pb-1">
+            <span class="text-slate-400 font-semibold">Satışlar (Verilen):</span>
+            <span id="modalTotalSatis" class="font-mono font-bold text-white text-sm">0 ₺</span>
           </div>
-          <div id="modalNetGrandTotal" class="text-2xl font-mono font-black text-amber-400">
+          <div class="flex justify-between items-center pb-1">
+            <span class="text-slate-400 font-semibold">Bozumlar (Alınan):</span>
+            <span id="modalTotalAlis" class="font-mono font-bold text-sky-400 text-sm">0 ₺</span>
+          </div>
+        </div>
+
+        <!-- Net Tahsilat Vurgusu -->
+        <div id="modalNetCard" class="p-3.5 rounded-xl border flex items-center justify-between bg-slate-800/80 border-slate-700">
+          <div>
+            <span class="text-[11px] font-extrabold uppercase tracking-wide block text-slate-400" id="modalNetLabel">NET TAHSİLAT</span>
+            <span id="modalNetSubnote" class="text-xs font-medium text-slate-400">Hesap denk</span>
+          </div>
+          <div id="modalNetGrandTotal" class="text-2xl font-mono font-black text-white">
             0 ₺
           </div>
         </div>
 
-        <button onclick="toggleCartDrawer(false)" type="button" class="h-11 w-full rounded-xl bg-[#17233F] border border-[#223254] text-white font-bold text-xs uppercase tracking-wider active:scale-95">
-          Hesaba Devam Et
-        </button>
+        <!-- Alt Aksiyonlar -->
+        <div class="grid grid-cols-2 gap-2 pt-1">
+          <button onclick="clearCart()" type="button" class="h-11 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 font-bold text-xs active:scale-95">
+            Fişi Temizle
+          </button>
+          <button onclick="toggleCartDrawer(false)" type="button" class="h-11 rounded-xl bg-slate-800 border border-slate-700 text-white font-bold text-xs active:scale-95">
+            Tezgâha Dön
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    // Fiş Durumu
+    // Fiş ve Yön Durumu
     let cart = [];
     let dovizDirection = 'satis'; // 'satis' veya 'alis'
 
-    // Para Formatlayıcı
+    // Güvenli Sayı Formatlayıcı
     function fmtMoney(num) {
-      if (isNaN(num)) num = 0;
+      if (isNaN(num) || num === null || num === undefined) num = 0;
       return Math.round(num).toLocaleString('tr-TR') + ' ₺';
     }
 
@@ -498,7 +499,7 @@
     }
 
     /* ----------------------------------------------------
-       1. TAKI SATIŞ HESAPLAMA MOTORU
+       1. TAKI SATIŞ MOTORU
        Formül: (Gram × Milyem + İşçilik) × Has Satış
        ---------------------------------------------------- */
     function autoFillTakiDefaults() {
@@ -526,28 +527,35 @@
 
     function addTakiToCart() {
       const calc = calcTakiPreview();
+      const hasSatis = parseFloat(document.getElementById('rateHasSatis').value) || 0;
       if (!calc.gram || calc.gram <= 0) {
         showToast('Lütfen gramaj giriniz!');
         document.getElementById('takiGram').focus();
         return;
       }
 
+      const totalHas = ((calc.gram * calc.milyem) + calc.iscilik).toFixed(2);
+      const unitGramPrice = calc.gram > 0 ? (calc.totalTutar / calc.gram) : 0;
+
       cart.push({
         id: Date.now() + Math.random(),
         type: 'satis',
-        title: `${calc.gram} gr ${calc.urunAd}`,
-        detail: `(${calc.gram} × ${calc.milyem} + ${calc.iscilik} has) × Has Satış`,
-        amount: calc.totalTutar
+        category: 'Takı Satışı',
+        qty: `${calc.gram} gr`,
+        name: calc.urunAd,
+        unitPrice: fmtMoney(unitGramPrice),
+        amount: calc.totalTutar,
+        title: `${calc.gram} gr ${calc.urunAd}`
       });
 
       document.getElementById('takiGram').value = '';
       calcTakiPreview();
       renderCart();
-      toggleCartDrawer(true);
+      showToast('✓ Takı fişe eklendi', true);
     }
 
     /* ----------------------------------------------------
-       2. HURDA BOZUM HESAPLAMA MOTORU
+       2. HURDA BOZUM MOTORU
        Formül: (Gram × Milyem × Has Alış) - Kesinti
        ---------------------------------------------------- */
     function setQuickKesinti(val) {
@@ -556,48 +564,75 @@
     }
 
     function calcHurdaPreview() {
-      const gram = parseFloat(document.getElementById('hurdaGram').value) || 0;
-      const kesinti = parseFloat(document.getElementById('hurdaKesinti').value) || 0;
+      const gramEl = document.getElementById('hurdaGram');
+      const kesintiEl = document.getElementById('hurdaKesinti');
       const sel = document.getElementById('hurdaAyarSelect');
-      const milyem = parseFloat(sel.value) || 0;
-      const hasAlis = parseFloat(document.getElementById('rateHasAlis').value) || 0;
+      const hasAlisEl = document.getElementById('rateHasAlis');
+
+      const gram = gramEl ? (parseFloat(gramEl.value) || 0) : 0;
+      const kesinti = kesintiEl ? (parseFloat(kesintiEl.value) || 0) : 0;
+      const milyem = sel ? (parseFloat(sel.value) || 0) : 0;
+      const hasAlis = hasAlisEl ? (parseFloat(hasAlisEl.value) || 0) : 0;
 
       const totalTutar = gram > 0 ? Math.max(0, (gram * milyem * hasAlis) - kesinti) : 0;
 
-      document.getElementById('previewHurdaDetay').innerText = `${gram.toFixed(2)} × ${milyem} × ${fmtMoney(hasAlis)} ${kesinti > 0 ? '(-' + kesinti + '₺)' : ''}`;
-      document.getElementById('previewHurdaTutar').innerText = fmtMoney(totalTutar);
+      const previewDetay = document.getElementById('previewHurdaDetay');
+      const previewTutar = document.getElementById('previewHurdaTutar');
 
-      return { gram, milyem, kesinti, totalTutar, urunAd: sel.options[sel.selectedIndex].getAttribute('data-name') };
+      if (previewDetay) {
+        previewDetay.innerText = `${gram.toFixed(2)} × ${milyem} × ${fmtMoney(hasAlis)} ${kesinti > 0 ? '(-' + kesinti + '₺)' : ''}`;
+      }
+      if (previewTutar) {
+        previewTutar.innerText = fmtMoney(totalTutar);
+      }
+
+      const urunAd = (sel && sel.selectedIndex >= 0 && sel.options[sel.selectedIndex])
+        ? sel.options[sel.selectedIndex].getAttribute('data-name')
+        : 'Hurda Altın';
+
+      return { gram, milyem, kesinti, totalTutar, urunAd };
     }
 
     function addHurdaToCart() {
       const calc = calcHurdaPreview();
+      const hasAlis = parseFloat(document.getElementById('rateHasAlis').value) || 0;
       if (!calc.gram || calc.gram <= 0) {
         showToast('Lütfen gramaj giriniz!');
         document.getElementById('hurdaGram').focus();
         return;
       }
 
+      const unitGramPrice = calc.gram > 0 ? (calc.totalTutar / calc.gram) : 0;
+
       cart.push({
         id: Date.now() + Math.random(),
         type: 'alis',
-        title: `[BOZUM] ${calc.gram} gr ${calc.urunAd}`,
-        detail: `${calc.gram} × ${calc.milyem} × Has Alış ${calc.kesinti > 0 ? '| Kesinti: -' + calc.kesinti + ' ₺' : ''}`,
-        amount: calc.totalTutar
+        category: 'Hurda Bozum',
+        qty: `${calc.gram} gr`,
+        name: calc.urunAd,
+        unitPrice: fmtMoney(unitGramPrice),
+        amount: calc.totalTutar,
+        title: `${calc.gram} gr ${calc.urunAd}`
       });
 
       document.getElementById('hurdaGram').value = '';
       calcHurdaPreview();
       renderCart();
-      toggleCartDrawer(true);
+      showToast('✓ Bozum fişe eklendi', true);
     }
 
     /* ----------------------------------------------------
-       3. ZİYNET VE SERBEST HESAPLAMA MOTORU
+       3. ZİYNET VE SERBEST FİYAT MOTORU
        ---------------------------------------------------- */
     function setQuickZiynet(name, price) {
       document.getElementById('ziynetAd').value = name;
-      if (price !== '') {
+      const hasSatis = parseFloat(document.getElementById('rateHasSatis').value) || 6600;
+
+      if (price === 'has24') {
+        document.getElementById('ziynetBirimFiyat').value = Math.round(hasSatis);
+      } else if (price === 'has22') {
+        document.getElementById('ziynetBirimFiyat').value = Math.round(hasSatis * 0.916);
+      } else if (price !== '') {
         document.getElementById('ziynetBirimFiyat').value = price;
       } else {
         document.getElementById('ziynetBirimFiyat').value = '';
@@ -639,17 +674,20 @@
       cart.push({
         id: Date.now() + Math.random(),
         type: direction,
-        title: `${calc.adet} Adet ${ad}`,
-        detail: `Birim: ${fmtMoney(calc.birim)} (${isSatis ? 'Satış' : 'Bozum Alış'})`,
-        amount: calc.total
+        category: isSatis ? 'Ziynet Satışı' : 'Ziynet Bozumu',
+        qty: `${calc.adet} Ad`,
+        name: ad,
+        unitPrice: fmtMoney(calc.birim),
+        amount: calc.total,
+        title: `${calc.adet} Adet ${ad}`
       });
 
       renderCart();
-      toggleCartDrawer(true);
+      showToast(`✓ ${ad} fişe eklendi`, true);
     }
 
     /* ----------------------------------------------------
-       4. DÖVİZ HESAPLAMA MOTORU (USD / EUR / GBP)
+       4. DÖVİZ MOTORU (USD / EUR / GBP ALIŞ & SATIŞ)
        ---------------------------------------------------- */
     function setDovizDirection(dir) {
       dovizDirection = dir;
@@ -661,19 +699,19 @@
 
       if (dir === 'satis') {
         btnS.className = 'h-11 rounded-xl font-black text-xs uppercase bg-emerald-500 text-slate-950 shadow';
-        btnA.className = 'h-11 rounded-xl font-black text-xs uppercase bg-[#17233F] text-slate-300 border border-[#223254]';
-        badge.innerText = 'Satış Modu';
+        btnA.className = 'h-11 rounded-xl font-black text-xs uppercase bg-[#17233F] text-slate-300 border border-[#1E293B]';
+        badge.innerText = 'Müşteriye Satış';
         badge.className = 'text-[10px] text-emerald-300 font-bold bg-emerald-950/70 border border-emerald-800/40 px-2 py-0.5 rounded-full';
         btnSubmit.className = 'h-12 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 active:scale-95 text-slate-950 font-black text-sm flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/20';
-        btnSubmit.innerText = '+ Döviz Satışını Fişe Ekle';
+        btnSubmit.innerHTML = '<span>+ Dövizi Fişe Ekle (Satış)</span>';
         lblKur.innerText = 'Satış Kuru (₺)';
       } else {
         btnA.className = 'h-11 rounded-xl font-black text-xs uppercase bg-sky-500 text-slate-950 shadow';
-        btnS.className = 'h-11 rounded-xl font-black text-xs uppercase bg-[#17233F] text-slate-300 border border-[#223254]';
-        badge.innerText = 'Bozum Alış Modu';
+        btnS.className = 'h-11 rounded-xl font-black text-xs uppercase bg-[#17233F] text-slate-300 border border-[#1E293B]';
+        badge.innerText = 'Müşteriden Alış';
         badge.className = 'text-[10px] text-sky-300 font-bold bg-sky-950/70 border border-sky-800/40 px-2 py-0.5 rounded-full';
         btnSubmit.className = 'h-12 rounded-xl bg-gradient-to-r from-sky-500 to-cyan-500 active:scale-95 text-slate-950 font-black text-sm flex items-center justify-center gap-1.5 shadow-lg shadow-sky-500/20';
-        btnSubmit.innerText = '+ Döviz Alışını (Bozum) Fişe Ekle';
+        btnSubmit.innerHTML = '<span>+ Dövizi Fişe Ekle (Bozum Alış)</span>';
         lblKur.innerText = 'Alış Kuru (₺)';
       }
       syncDovizInputs();
@@ -697,7 +735,8 @@
 
     function quickAddDovizMiktar(val) {
       const el = document.getElementById('dovizMiktarInput');
-      el.value = (parseFloat(el.value) || 0) + val;
+      const cur = parseFloat(el.value) || 0;
+      el.value = cur + val;
       calcDovizPreview();
     }
 
@@ -714,30 +753,50 @@
     }
 
     function addDovizToCart() {
-      const calc = calcDovizPreview();
-      if (!calc.miktar || calc.miktar <= 0) {
-        showToast('Lütfen döviz miktarı giriniz!');
-        document.getElementById('dovizMiktarInput').focus();
+      const miktarInput = document.getElementById('dovizMiktarInput');
+      const kurInput = document.getElementById('dovizKurInput');
+      const birimSelect = document.getElementById('dovizBirimSelect');
+
+      const miktar = parseFloat(miktarInput.value);
+      const kur = parseFloat(kurInput.value);
+      const birim = birimSelect.value || 'USD';
+
+      if (!miktar || isNaN(miktar) || miktar <= 0) {
+        showToast('Lütfen geçerli bir döviz miktarı girin!');
+        miktarInput.focus();
         return;
       }
 
-      const isSatis = dovizDirection === 'satis';
+      if (!kur || isNaN(kur) || kur <= 0) {
+        showToast('Lütfen geçerli bir döviz kuru girin!');
+        kurInput.focus();
+        return;
+      }
+
+      const total = miktar * kur;
+      const isSatis = (dovizDirection === 'satis');
+      const dovizIsim = birim === 'USD' ? 'Amerikan Doları' : (birim === 'EUR' ? 'Euro' : 'Sterlin');
+
       cart.push({
         id: Date.now() + Math.random(),
         type: isSatis ? 'satis' : 'alis',
-        title: `${calc.miktar} ${calc.birim} (${isSatis ? 'Döviz Satışı' : 'Döviz Bozum Alışı'})`,
-        detail: `Kur: ${calc.kur.toFixed(2)} ₺`,
-        amount: calc.total
+        category: isSatis ? 'Döviz Satışı' : 'Döviz Bozum',
+        qty: `${miktar} ${birim}`,
+        name: dovizIsim,
+        unitPrice: kur.toFixed(2) + ' ₺',
+        amount: total,
+        title: `${miktar} ${birim}`
       });
 
-      document.getElementById('dovizMiktarInput').value = '';
+      // Formu sıfırla ve yeniden hesapla
+      miktarInput.value = '';
       calcDovizPreview();
       renderCart();
-      toggleCartDrawer(true);
+      showToast(`✓ ${miktar} ${birim} fişe eklendi`, true);
     }
 
     /* ----------------------------------------------------
-       5. SEPET / ADİSYON / FİŞ VE NETLEŞTİRME
+       5. ADİSYON / FİŞ VE NETLEŞTİRME
        ---------------------------------------------------- */
     function removeCartItem(id) {
       cart = cart.filter(item => item.id !== id);
@@ -749,6 +808,7 @@
       cart = [];
       renderCart();
       toggleCartDrawer(false);
+      showToast('Fiş temizlendi');
     }
 
     function toggleCartDrawer(open) {
@@ -766,130 +826,300 @@
       syncDovizInputs();
     }
 
-    function renderCart() {
-      const count = cart.length;
-      document.getElementById('footerBadgeCount').innerText = count;
-      document.getElementById('modalItemCount').innerText = `${count} Kalem`;
-
-      const container = document.getElementById('cartItemsContainer');
-
-      if (count === 0) {
-        container.innerHTML = `
-          <div class="py-10 text-center text-slate-500">
-            <div class="text-3xl mb-1">🧾</div>
-            <p class="text-sm font-bold text-slate-400">Fişte henüz kayıt yok.</p>
-            <p class="text-xs text-slate-600 mt-0.5">Yukarıdaki sekmelerden ürün veya döviz ekleyebilirsiniz.</p>
-          </div>
-        `;
-        document.getElementById('footerGrandTotal').innerText = '0 ₺';
-        document.getElementById('footerStatusLabel').innerHTML = `<span class="text-slate-400">NET TAHSİLAT</span><span class="w-4 h-4 rounded-full bg-amber-500 text-slate-950 font-black text-[9px] flex items-center justify-center">0</span>`;
-        document.getElementById('footerGrandTotal').className = 'text-2xl font-mono font-black text-slate-300 leading-tight';
-        
-        document.getElementById('modalTotalSatis').innerText = '0 ₺';
-        document.getElementById('modalTotalAlis').innerText = '0 ₺';
-        document.getElementById('modalNetGrandTotal').innerText = '0 ₺';
-        document.getElementById('modalNetLabel').innerText = 'NET TAHSİLAT';
-        document.getElementById('modalNetSubnote').innerText = 'Bakiye: 0 ₺';
+    // Fişi WhatsApp veya Metin Olarak Kopyalama
+    function copyReceiptText() {
+      if (cart.length === 0) {
+        showToast('Kopyalanacak kalem yok!');
         return;
       }
 
-      let totalSatis = 0;
-      let totalAlis = 0;
+      let satislar = cart.filter(i => i.type === 'satis');
+      let bozumlar = cart.filter(i => i.type === 'alis');
+
+      let totalSatis = satislar.reduce((s, i) => s + i.amount, 0);
+      let totalAlis = bozumlar.reduce((s, i) => s + i.amount, 0);
+      let net = totalSatis - totalAlis;
+
+      let text = "🧾 HESAP PUSULASI\n";
+      text += "--------------------------------\n";
+
+      if (satislar.length > 0) {
+        text += "SATIŞLAR (VERİLEN):\n";
+        satislar.forEach((item) => {
+          text += `• ${item.qty} | ${item.name} | Birim: ${item.unitPrice} | Toplam: ${fmtMoney(item.amount)}\n`;
+        });
+        text += `Toplam: ${fmtMoney(totalSatis)}\n--------------------------------\n`;
+      }
+
+      if (bozumlar.length > 0) {
+        text += "BOZUMLAR (ALINAN):\n";
+        bozumlar.forEach((item) => {
+          text += `• ${item.qty} | ${item.name} | Birim: ${item.unitPrice} | Toplam: -${fmtMoney(item.amount)}\n`;
+        });
+        text += `Toplam: -${fmtMoney(totalAlis)}\n--------------------------------\n`;
+      }
+
+      if (net > 0) {
+        text += `👉 NET ALINACAK: ${fmtMoney(net)}\n`;
+      } else if (net < 0) {
+        text += `👉 NET ÖDENECEK: ${fmtMoney(Math.abs(net))}\n`;
+      } else {
+        text += `👉 HESAP BAŞA BAŞ (0 ₺)\n`;
+      }
+
+      const dummy = document.createElement("textarea");
+      document.body.appendChild(dummy);
+      dummy.value = text;
+      dummy.select();
+      document.execCommand("copy");
+      document.body.removeChild(dummy);
+
+      showToast("✓ Fiş kopyalandı!", true);
+    }
+
+    function renderCart() {
+      const count = cart.length;
+      const footerBadge = document.getElementById('footerBadgeCount');
+      if (footerBadge) footerBadge.innerText = count;
+
+      const modalBadge = document.getElementById('modalItemCount');
+      if (modalBadge) modalBadge.innerText = `${count} Kalem`;
+
+      const container = document.getElementById('cartItemsContainer');
+      const footerTotal = document.getElementById('footerGrandTotal');
+      const footerStatusText = document.getElementById('footerStatusText');
+      const modalSatis = document.getElementById('modalTotalSatis');
+      const modalAlis = document.getElementById('modalTotalAlis');
+      const modalNet = document.getElementById('modalNetGrandTotal');
+      const modalNetLabel = document.getElementById('modalNetLabel');
+      const modalNetSubnote = document.getElementById('modalNetSubnote');
+      const modalNetCard = document.getElementById('modalNetCard');
+
+      if (count === 0) {
+        if (container) {
+          container.innerHTML = `
+            <div class="py-10 text-center text-slate-500">
+              <div class="text-3xl mb-1.5 opacity-60">🧾</div>
+              <p class="text-xs font-semibold text-slate-400">Fişte henüz kayıt yok.</p>
+            </div>
+          `;
+        }
+        if (footerStatusText) {
+          footerStatusText.innerText = 'NET TAHSİLAT';
+          footerStatusText.className = 'text-slate-400';
+        }
+        if (footerBadge) {
+          footerBadge.className = 'w-4 h-4 rounded-full bg-slate-600 text-white font-black text-[9px] flex items-center justify-center';
+        }
+        if (footerTotal) {
+          footerTotal.innerText = '0 ₺';
+          footerTotal.className = 'text-2xl font-mono font-black text-slate-300 leading-tight';
+        }
+        if (modalSatis) modalSatis.innerText = '0 ₺';
+        if (modalAlis) modalAlis.innerText = '0 ₺';
+        if (modalNet) {
+          modalNet.innerText = '0 ₺';
+          modalNet.className = 'text-2xl font-mono font-black text-white';
+        }
+        if (modalNetLabel) {
+          modalNetLabel.innerText = 'NET TAHSİLAT';
+          modalNetLabel.className = 'text-[11px] font-extrabold uppercase text-slate-400 block tracking-wide';
+        }
+        if (modalNetSubnote) {
+          modalNetSubnote.innerText = 'Hesap denk (0 ₺)';
+          modalNetSubnote.className = 'text-xs font-medium text-slate-400';
+        }
+        if (modalNetCard) {
+          modalNetCard.className = 'p-3.5 rounded-xl border flex items-center justify-between bg-slate-800/80 border-slate-700';
+        }
+        return;
+      }
+
+      const satislar = cart.filter(i => i.type === 'satis');
+      const bozumlar = cart.filter(i => i.type === 'alis');
+
+      let totalSatis = satislar.reduce((sum, i) => sum + i.amount, 0);
+      let totalAlis = bozumlar.reduce((sum, i) => sum + i.amount, 0);
+
       let html = '';
 
-      cart.forEach(item => {
-        const isSatis = item.type === 'satis';
-        if (isSatis) totalSatis += item.amount;
-        else totalAlis += item.amount;
+      // TABLO OLUŞTURUCU YARDIMCI FONKSİYONU
+      const createTable = (title, items, total, isSatis) => {
+        const themeColor = isSatis ? 'text-amber-400' : 'text-sky-400';
+        const priceColor = isSatis ? 'text-amber-300' : 'text-sky-400';
+        const sign = isSatis ? '+' : '-';
 
-        const badgeClass = isSatis ? 'bg-amber-400/10 text-amber-400 border-amber-400/30' : 'bg-sky-400/10 text-sky-400 border-sky-400/30';
-        const badgeLabel = isSatis ? 'SATIŞ' : 'BOZUM';
-        const priceColor = isSatis ? 'text-amber-400' : 'text-sky-400';
+        let rows = '';
+        items.forEach(item => {
+          rows += `
+            <tr class="border-b border-slate-800/60 hover:bg-slate-800/30 transition">
+              <td class="py-2.5 px-2 text-center font-mono font-bold text-white text-[11px] whitespace-nowrap bg-slate-900/30">
+                ${item.qty || '1 Ad'}
+              </td>
+              <td class="py-2.5 px-2.5 font-bold text-white text-xs">
+                ${item.name || item.title}
+              </td>
+              <td class="py-2.5 px-2 text-right font-mono text-[11px] text-slate-400 whitespace-nowrap">
+                ${item.unitPrice || '-'}
+              </td>
+              <td class="py-2.5 px-2 text-right font-mono font-black ${priceColor} text-xs whitespace-nowrap">
+                ${sign}${fmtMoney(item.amount)}
+              </td>
+              <td class="py-2.5 px-1.5 text-center">
+                <button onclick="removeCartItem(${item.id})" type="button" class="w-6 h-6 rounded-md bg-slate-800 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 font-bold text-xs inline-flex items-center justify-center transition">✕</button>
+              </td>
+            </tr>
+          `;
+        });
 
-        html += `
-          <div class="bg-[#070C18] border border-[#223254] rounded-xl p-3 flex items-center justify-between gap-2 shadow-sm">
-            <div class="flex-1 min-w-0">
-              <div class="flex items-center gap-1.5 mb-0.5">
-                <span class="text-[9px] font-black uppercase px-1.5 py-0.5 rounded border ${badgeClass}">${badgeLabel}</span>
-                <span class="text-xs font-bold text-white truncate">${item.title}</span>
-              </div>
-              <div class="text-[10px] font-mono text-slate-400 truncate">${item.detail}</div>
+        return `
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between px-1">
+              <span class="text-xs font-black ${themeColor} tracking-wide uppercase">${title}</span>
+              <span class="text-xs font-mono font-bold text-slate-300">${sign}${fmtMoney(total)}</span>
             </div>
-            <div class="text-right flex items-center gap-2">
-              <div class="font-mono font-black text-sm ${priceColor}">
-                ${isSatis ? '+' : '-'}${fmtMoney(item.amount)}
-              </div>
-              <button onclick="removeCartItem(${item.id})" type="button" class="w-7 h-7 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center font-bold text-xs active:scale-90">
-                ✕
-              </button>
+            <div class="overflow-x-auto rounded-xl border border-slate-800 bg-[#0E172E] shadow-inner">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-800 text-[10px] uppercase font-bold text-slate-400 bg-slate-900/80">
+                    <th class="py-2 px-2 text-center w-14">Adet</th>
+                    <th class="py-2 px-2.5">Ürün</th>
+                    <th class="py-2 px-2 text-right">Birim Fyt</th>
+                    <th class="py-2 px-2 text-right">Toplam</th>
+                    <th class="py-2 px-1.5 text-center w-7"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${rows}
+                </tbody>
+              </table>
             </div>
           </div>
         `;
-      });
+      };
 
-      container.innerHTML = html;
+      // 1. SATIŞLAR TABLOSU
+      if (satislar.length > 0) {
+        html += createTable('SATIŞLAR (MÜŞTERİYE VERİLEN)', satislar, totalSatis, true);
+      }
 
-      // Netleştirme Hesabı
+      // 2. BOZUMLAR TABLOSU
+      if (bozumlar.length > 0) {
+        if (satislar.length > 0) html += `<div class="h-2"></div>`;
+        html += createTable('BOZUMLAR (MÜŞTERİDEN ALINAN)', bozumlar, totalAlis, false);
+      }
+
+      if (container) container.innerHTML = html;
+
+      // Net Tutar ve Durum
       const netTotal = totalSatis - totalAlis;
-      document.getElementById('modalTotalSatis').innerText = fmtMoney(totalSatis);
-      document.getElementById('modalTotalAlis').innerText = fmtMoney(totalAlis);
+      if (modalSatis) modalSatis.innerText = fmtMoney(totalSatis);
+      if (modalAlis) modalAlis.innerText = fmtMoney(totalAlis);
 
       const netFormatted = fmtMoney(Math.abs(netTotal));
-      const footerTotal = document.getElementById('footerGrandTotal');
-      const modalNet = document.getElementById('modalNetGrandTotal');
-      const footerLabel = document.getElementById('footerStatusLabel');
-      const modalNetLabel = document.getElementById('modalNetLabel');
-      const modalNetSubnote = document.getElementById('modalNetSubnote');
 
       if (netTotal > 0) {
-        footerLabel.innerHTML = `<span class="text-emerald-400">MÜŞTERİDEN ALINACAK</span><span class="w-4 h-4 rounded-full bg-emerald-500 text-slate-950 font-black text-[9px] flex items-center justify-center">${count}</span>`;
-        footerTotal.className = 'text-2xl font-mono font-black text-emerald-400 leading-tight';
-        footerTotal.innerText = netFormatted;
-
-        modalNetLabel.innerText = 'NET ALINACAK TUTAR';
-        modalNetLabel.className = 'text-[10px] font-black uppercase text-emerald-400 block';
-        modalNetSubnote.innerText = 'Müşteri dükkana ödeme yapacak (+)';
-        modalNetSubnote.className = 'text-[10px] text-emerald-400 font-semibold';
-        modalNet.className = 'text-2xl font-mono font-black text-emerald-400';
-        modalNet.innerText = netFormatted;
+        if (footerStatusText) {
+          footerStatusText.innerText = 'ALINACAK';
+          footerStatusText.className = 'text-emerald-400';
+        }
+        if (footerBadge) {
+          footerBadge.className = 'w-4 h-4 rounded-full bg-emerald-500 text-slate-950 font-black text-[9px] flex items-center justify-center';
+        }
+        if (footerTotal) {
+          footerTotal.className = 'text-2xl font-mono font-black text-emerald-400 leading-tight';
+          footerTotal.innerText = netFormatted;
+        }
+        if (modalNetLabel) {
+          modalNetLabel.innerText = 'MÜŞTERİDEN ALINACAK';
+          modalNetLabel.className = 'text-[11px] font-extrabold uppercase text-emerald-400 block tracking-wide';
+        }
+        if (modalNetSubnote) {
+          modalNetSubnote.innerText = 'Müşteri ödeme yapacak (+)';
+          modalNetSubnote.className = 'text-xs font-medium text-emerald-300';
+        }
+        if (modalNet) {
+          modalNet.className = 'text-2xl font-mono font-black text-emerald-400';
+          modalNet.innerText = netFormatted;
+        }
+        if (modalNetCard) {
+          modalNetCard.className = 'p-3.5 rounded-xl border flex items-center justify-between bg-emerald-950/30 border-emerald-500/40';
+        }
       } else if (netTotal < 0) {
-        footerLabel.innerHTML = `<span class="text-sky-400">MÜŞTERİYE ÖDENECEK</span><span class="w-4 h-4 rounded-full bg-sky-500 text-slate-950 font-black text-[9px] flex items-center justify-center">${count}</span>`;
-        footerTotal.className = 'text-2xl font-mono font-black text-sky-400 leading-tight';
-        footerTotal.innerText = netFormatted;
-
-        modalNetLabel.innerText = 'MÜŞTERİYE ÖDENECEK TUTAR';
-        modalNetLabel.className = 'text-[10px] font-black uppercase text-sky-400 block';
-        modalNetSubnote.innerText = 'Dükkan müşteriye ödeme yapacak (-)';
-        modalNetSubnote.className = 'text-[10px] text-sky-400 font-semibold';
-        modalNet.className = 'text-2xl font-mono font-black text-sky-400';
-        modalNet.innerText = netFormatted;
+        if (footerStatusText) {
+          footerStatusText.innerText = 'ÖDENECEK';
+          footerStatusText.className = 'text-sky-400';
+        }
+        if (footerBadge) {
+          footerBadge.className = 'w-4 h-4 rounded-full bg-sky-500 text-slate-950 font-black text-[9px] flex items-center justify-center';
+        }
+        if (footerTotal) {
+          footerTotal.className = 'text-2xl font-mono font-black text-sky-400 leading-tight';
+          footerTotal.innerText = netFormatted;
+        }
+        if (modalNetLabel) {
+          modalNetLabel.innerText = 'MÜŞTERİYE ÖDENECEK';
+          modalNetLabel.className = 'text-[11px] font-extrabold uppercase text-sky-400 block tracking-wide';
+        }
+        if (modalNetSubnote) {
+          modalNetSubnote.innerText = 'Dükkan ödeme yapacak (-)';
+          modalNetSubnote.className = 'text-xs font-medium text-sky-300';
+        }
+        if (modalNet) {
+          modalNet.className = 'text-2xl font-mono font-black text-sky-400';
+          modalNet.innerText = netFormatted;
+        }
+        if (modalNetCard) {
+          modalNetCard.className = 'p-3.5 rounded-xl border flex items-center justify-between bg-sky-950/30 border-sky-500/40';
+        }
       } else {
-        footerLabel.innerHTML = `<span class="text-slate-400">NET BAKİYE</span><span class="w-4 h-4 rounded-full bg-slate-500 text-slate-950 font-black text-[9px] flex items-center justify-center">${count}</span>`;
-        footerTotal.className = 'text-2xl font-mono font-black text-slate-300 leading-tight';
-        footerTotal.innerText = '0 ₺';
-
-        modalNetLabel.innerText = 'HESAP DENK (0 ₺)';
-        modalNetLabel.className = 'text-[10px] font-black uppercase text-slate-400 block';
-        modalNetSubnote.innerText = 'Alış ve satış tutarları birbirini sıfırladı';
-        modalNetSubnote.className = 'text-[10px] text-slate-400 font-semibold';
-        modalNet.className = 'text-2xl font-mono font-black text-slate-200';
-        modalNet.innerText = '0 ₺';
+        if (footerStatusText) {
+          footerStatusText.innerText = 'HESAP DENK';
+          footerStatusText.className = 'text-slate-400';
+        }
+        if (footerBadge) {
+          footerBadge.className = 'w-4 h-4 rounded-full bg-slate-600 text-white font-black text-[9px] flex items-center justify-center';
+        }
+        if (footerTotal) {
+          footerTotal.className = 'text-2xl font-mono font-black text-slate-300 leading-tight';
+          footerTotal.innerText = '0 ₺';
+        }
+        if (modalNetLabel) {
+          modalNetLabel.innerText = 'HESAP DENK (0 ₺)';
+          modalNetLabel.className = 'text-[11px] font-extrabold uppercase text-slate-400 block tracking-wide';
+        }
+        if (modalNetSubnote) {
+          modalNetSubnote.innerText = 'Alış ve satış tutarları eşit';
+          modalNetSubnote.className = 'text-xs font-medium text-slate-400';
+        }
+        if (modalNet) {
+          modalNet.className = 'text-2xl font-mono font-black text-slate-200';
+          modalNet.innerText = '0 ₺';
+        }
+        if (modalNetCard) {
+          modalNetCard.className = 'p-3.5 rounded-xl border flex items-center justify-between bg-slate-800/80 border-slate-700';
+        }
       }
     }
 
-    // Mobil Toast Mesajı (alert yerine)
-    function showToast(msg) {
+    // Mobil Toast Bildirimi
+    function showToast(msg, isSuccess = false) {
+      const existing = document.getElementById('mobileToast');
+      if (existing) existing.remove();
+
       const div = document.createElement('div');
-      div.className = 'fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-rose-600 text-white font-bold text-xs px-4 py-2 rounded-xl shadow-2xl transition-all duration-200 opacity-90';
+      div.id = 'mobileToast';
+      const bgClass = isSuccess ? 'bg-emerald-600 text-white' : 'bg-rose-600 text-white';
+      div.className = `fixed top-16 left-1/2 -translate-x-1/2 z-50 ${bgClass} font-bold text-xs px-4 py-2.5 rounded-xl shadow-2xl transition-all duration-200 opacity-95`;
       div.innerText = msg;
       document.body.appendChild(div);
       setTimeout(() => {
         div.style.opacity = '0';
-        setTimeout(() => div.remove(), 200);
-      }, 2000);
+        setTimeout(() => div.remove(), 250);
+      }, 1500);
     }
 
-    // Sayfa Yüklenişi
+    // İlk Yükleme
     window.onload = function() {
       autoFillTakiDefaults();
       calcHurdaPreview();
